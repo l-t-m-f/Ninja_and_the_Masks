@@ -1,0 +1,123 @@
+{
+	"name": "NPC",
+	"plugin-id": "TiledBg",
+	"sid": 303028181506390,
+	"isGlobal": true,
+	"instanceVariables": [
+		{
+			"name": "Bubble_X",
+			"type": "number",
+			"desc": "An integer for the X-value to spawn the dialog speech bubble at.",
+			"sid": 435350141472456
+		},
+		{
+			"name": "Bubble_Y",
+			"type": "number",
+			"desc": "An integer for the Y-value to spawn the dialog speech bubble at.",
+			"sid": 418795889297877
+		},
+		{
+			"name": "Bubble_Graphic_Variant",
+			"type": "string",
+			"desc": "A string which indicates which dialog speech bubble to use for the graphics.",
+			"sid": 945763128916529
+		},
+		{
+			"name": "Story_X",
+			"type": "number",
+			"desc": "An integer for the X-value to be used in loading the next dialog (in the Dialogs JSON).",
+			"sid": 519936684157471
+		},
+		{
+			"name": "Story_Y",
+			"type": "number",
+			"desc": "An integer for the Y-value to be used in loading the next dialog (in the Dialogs JSON).",
+			"sid": 907745739819883
+		},
+		{
+			"name": "Story_Z",
+			"type": "number",
+			"desc": "A \"sort of\" unique integer ID. Also the integer for the Y-value to be used in loading the next dialog (in the Dialogs JSON).",
+			"sid": 239595697185140
+		},
+		{
+			"name": "Story_Next_X",
+			"type": "number",
+			"desc": "An integer for the next value to load as the Story_X variable.",
+			"sid": 795670892274932
+		},
+		{
+			"name": "Story_Next_Y",
+			"type": "number",
+			"desc": "An integer for the next value to load as the Story_Y variable.",
+			"sid": 514059222242138
+		},
+		{
+			"name": "Name",
+			"type": "string",
+			"desc": "A string for the name of NPC.",
+			"sid": 667181841630242
+		},
+		{
+			"name": "NPC_Current_Status",
+			"type": "string",
+			"desc": "A string which indicates the status of a NPC (i.e. \"Dead\").",
+			"sid": 371365016706027
+		},
+		{
+			"name": "Active_on_Layer",
+			"type": "string",
+			"desc": "A string which indicates which Layout this NPC should be active on.",
+			"sid": 720105862554257
+		},
+		{
+			"name": "Active",
+			"type": "boolean",
+			"desc": "A boolean indicating if the NPC should be ignored or not.",
+			"sid": 841806382033868
+		},
+		{
+			"name": "Next_Action",
+			"type": "string",
+			"desc": "This is a string indicating which keyword to execute in the next DialogsExecuteLogic function.",
+			"sid": 461912968176022
+		},
+		{
+			"name": "Choice",
+			"type": "boolean",
+			"desc": "A boolean indicating if the next dialog to be shown contains a choice.",
+			"sid": 917219446151804
+		},
+		{
+			"name": "Cancel",
+			"type": "boolean",
+			"desc": "A boolean indicating if the dialog should be interrupted on the next step.",
+			"sid": 325609248691802
+		},
+		{
+			"name": "Immovable",
+			"type": "boolean",
+			"desc": "A boolean indicating if a NPC can or cannot be moved. (Used to move NPCs.)",
+			"sid": 285155804007819
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Pin",
+			"name": "Pin",
+			"sid": 416184545457335
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 16,
+		"height": 16,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 312,
+		"useCollisionPoly": true
+	}
+}

@@ -1,0 +1,33 @@
+{
+	"name": "TilesRiver",
+	"plugin-id": "Tilemap",
+	"sid": 535442766463045,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 96,
+		"height": 48,
+		"originX": 0.5104166666666666,
+		"originY": 0.5208333333333334,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 59,
+		"collisionPoly": {
+			"points": [
+				0.010416666666666666,
+				0,
+				1,
+				0,
+				1,
+				1,
+				0.010416666666666666,
+				1
+			]
+		},
+		"useCollisionPoly": true
+	},
+	"tile-collision-polys": {}
+}

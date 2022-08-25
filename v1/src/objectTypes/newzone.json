@@ -1,0 +1,74 @@
+{
+	"name": "NewZone",
+	"plugin-id": "Sprite",
+	"sid": 497473627974527,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Active",
+			"type": "boolean",
+			"desc": "",
+			"sid": 332093471000400
+		},
+		{
+			"name": "Text",
+			"type": "string",
+			"desc": "",
+			"sid": 340281550539703
+		},
+		{
+			"name": "R",
+			"type": "number",
+			"desc": "",
+			"sid": 445504453275082
+		},
+		{
+			"name": "G",
+			"type": "number",
+			"desc": "",
+			"sid": 700180319801246
+		},
+		{
+			"name": "B",
+			"type": "number",
+			"desc": "",
+			"sid": 570299018417029
+		},
+		{
+			"name": "Music",
+			"type": "string",
+			"desc": "",
+			"sid": 945885768643585
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 528,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 928634507946652,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

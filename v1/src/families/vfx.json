@@ -1,0 +1,24 @@
+{
+	"name": "VFX",
+	"plugin-id": "Sprite",
+	"sid": 139668541696171,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"VFX_Bat",
+		"VFX_Blood",
+		"VFX_Fire",
+		"VFX_Hayball",
+		"VFX_Butterfly",
+		"VFX_Leaf",
+		"VFX_MusicNote",
+		"VFX_WaterSplash1",
+		"VFX_PlantSmoke",
+		"VFX_Windgust",
+		"VFX_Leaf2",
+		"VFX_LeafShadow",
+		"VFX_WaterWaves",
+		"VFX_Bee"
+	]
+}

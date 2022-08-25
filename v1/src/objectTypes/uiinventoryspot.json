@@ -1,0 +1,97 @@
+{
+	"name": "UIInventorySpot",
+	"plugin-id": "Sprite",
+	"sid": 474136031325445,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "ID",
+			"type": "number",
+			"desc": "",
+			"sid": 982363437159317
+		},
+		{
+			"name": "Row",
+			"type": "number",
+			"desc": "",
+			"sid": 902268766218601
+		},
+		{
+			"name": "ItemName",
+			"type": "string",
+			"desc": "",
+			"sid": 699030033064384
+		},
+		{
+			"name": "Equipped",
+			"type": "boolean",
+			"desc": "",
+			"sid": 428163811462169
+		},
+		{
+			"name": "EquipGroup",
+			"type": "number",
+			"desc": "",
+			"sid": 362415692297754
+		},
+		{
+			"name": "Possessed",
+			"type": "boolean",
+			"desc": "",
+			"sid": 180821637969063
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 621,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 101892601922356,
+				"name": "Unselected",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 731,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 131655259650861,
+				"name": "Selected",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

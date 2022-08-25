@@ -1,0 +1,48 @@
+{
+	"name": "SpriteFontChoice",
+	"plugin-id": "Spritefont2",
+	"sid": 420762249661360,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "ID",
+			"type": "number",
+			"desc": "",
+			"sid": 122801044586569
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 962039379606391
+		},
+		{
+			"behaviorId": "Fade",
+			"name": "Fade",
+			"sid": 402526312716964
+		},
+		{
+			"behaviorId": "Pin",
+			"name": "Pin",
+			"sid": 360438103019132
+		},
+		{
+			"behaviorId": "Persist",
+			"name": "Persist",
+			"sid": 672071571954913
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 128,
+		"height": 192,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 80,
+		"useCollisionPoly": true
+	}
+}

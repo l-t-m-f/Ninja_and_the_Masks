@@ -1,0 +1,2103 @@
+{
+	"name": "Enemies",
+	"events": [
+		{
+			"eventType": "comment",
+			"text": "The Enemies Event Sheet contains the code for the MonsterSpawner object, the AI for the various masks as well as the code managing passive creatures like insects, animals and cars. The NPC which can be challenged and who rely on special AI are also detailed in the following Event Sheet.",
+			"background-color": [
+				0.5098039215686274,
+				1,
+				0.0196078431372549,
+				1
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "This boolean can be turned On by the EnemyTurn Function. It will inhibit player actions until it is disabled (at the end of the enemies' turns)."
+		},
+		{
+			"eventType": "variable",
+			"name": "EnemyTurn",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 645067119791728
+		},
+		{
+			"eventType": "comment",
+			"text": "This core function is outside the Functions Event Sheet as it is central to the whole deployment of the AI code, which in itself, due to its scope, had to be placed on an independent Event Sheet."
+		},
+		{
+			"functionName": "EnemyTurn",
+			"functionDescription": "This Function triggers a new turn for the enemies AIs.",
+			"functionCategory": "Enemy",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"callFunction": "MonsterSpawnerUpdate",
+					"sid": 271149752489642
+				}
+			],
+			"sid": 306350110865409,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-on-screen",
+							"objectClass": "Enemy",
+							"sid": 825333840085462
+						}
+					],
+					"actions": [],
+					"sid": 306314033596804,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-los-to-object",
+									"objectClass": "Enemy",
+									"sid": 816621640614245,
+									"behaviorType": "LineOfSight",
+									"parameters": {
+										"object": "PlayerLanding",
+										"image-point": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 259385119925674,
+									"parameters": {
+										"seconds": "0.25"
+									}
+								}
+							],
+							"sid": 256475580876600
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 557011286725802,
+									"parameters": {
+										"object": "Enemy"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "EnemyVerifyAdjacency",
+									"sid": 740904690392493,
+									"parameters": [
+										"Enemy.UID"
+									]
+								}
+							],
+							"sid": 230976513467957,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "AIType 0. Random Single Movement."
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Enemy",
+											"sid": 276058872443761,
+											"parameters": {
+												"instance-variable": "AIType",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 909505281324710,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "The enemy will attack the player otherwise."
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Enemy",
+													"sid": 451226009484392,
+													"parameters": {
+														"instance-variable": "Adjacency_Up",
+														"comparison": 0,
+														"value": "\"Player\""
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Enemy",
+													"sid": 950158965449923,
+													"parameters": {
+														"instance-variable": "Adjacency_Left",
+														"comparison": 0,
+														"value": "\"Player\""
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Enemy",
+													"sid": 390749477637662,
+													"parameters": {
+														"instance-variable": "Adjacency_Down",
+														"comparison": 0,
+														"value": "\"Player\""
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Enemy",
+													"sid": 485856026672320,
+													"parameters": {
+														"instance-variable": "Adjacency_Right",
+														"comparison": 0,
+														"value": "\"Player\""
+													}
+												}
+											],
+											"actions": [],
+											"sid": 394158271963124,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Enemy",
+															"sid": 119948203693472,
+															"parameters": {
+																"instance-variable": "Adjacency_Up",
+																"comparison": 0,
+																"value": "\"Player\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "EnemyAttack",
+															"sid": 852199980491130,
+															"parameters": [
+																"Enemy.UID"
+															]
+														}
+													],
+													"sid": 338147205092578,
+													"isOrBlock": true
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Enemy",
+															"sid": 687391907496941,
+															"parameters": {
+																"instance-variable": "Adjacency_Left",
+																"comparison": 0,
+																"value": "\"Player\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "EnemyAttack",
+															"sid": 903805740428963,
+															"parameters": [
+																"Enemy.UID"
+															]
+														}
+													],
+													"sid": 581190615058776,
+													"isOrBlock": true
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Enemy",
+															"sid": 932336305079058,
+															"parameters": {
+																"instance-variable": "Adjacency_Down",
+																"comparison": 0,
+																"value": "\"Player\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "EnemyAttack",
+															"sid": 531588954192001,
+															"parameters": [
+																"Enemy.UID"
+															]
+														}
+													],
+													"sid": 780518907745445,
+													"isOrBlock": true
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Enemy",
+															"sid": 793714169717108,
+															"parameters": {
+																"instance-variable": "Adjacency_Right",
+																"comparison": 0,
+																"value": "\"Player\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "EnemyAttack",
+															"sid": 715623386366418,
+															"parameters": [
+																"Enemy.UID"
+															]
+														}
+													],
+													"sid": 632008596972512,
+													"isOrBlock": true
+												}
+											],
+											"isOrBlock": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Enemy",
+													"sid": 430317103878753,
+													"parameters": {
+														"instance-variable": "Adjacency_Up",
+														"comparison": 1,
+														"value": "\"Player\""
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Enemy",
+													"sid": 934417806864648,
+													"parameters": {
+														"instance-variable": "Adjacency_Left",
+														"comparison": 1,
+														"value": "\"Player\""
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Enemy",
+													"sid": 133588237833130,
+													"parameters": {
+														"instance-variable": "Adjacency_Down",
+														"comparison": 1,
+														"value": "\"Player\""
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Enemy",
+													"sid": 234698937735557,
+													"parameters": {
+														"instance-variable": "Adjacency_Right",
+														"comparison": 1,
+														"value": "\"Player\""
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Enemy",
+													"sid": 635859905383294,
+													"parameters": {
+														"instance-variable": "Adjacency_Up",
+														"comparison": 1,
+														"value": "\"Enemy\""
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Enemy",
+													"sid": 212875709600494,
+													"parameters": {
+														"instance-variable": "Adjacency_Left",
+														"comparison": 1,
+														"value": "\"Enemy\""
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Enemy",
+													"sid": 161587733302291,
+													"parameters": {
+														"instance-variable": "Adjacency_Down",
+														"comparison": 1,
+														"value": "\"Enemy\""
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Enemy",
+													"sid": 308921189581823,
+													"parameters": {
+														"instance-variable": "Adjacency_Right",
+														"comparison": 1,
+														"value": "\"Enemy\""
+													}
+												}
+											],
+											"actions": [],
+											"sid": 551733631179095,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Enemy",
+															"sid": 366919367406770,
+															"parameters": {
+																"instance-variable": "Adjacency_Up",
+																"comparison": 0,
+																"value": "\"\""
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Enemy",
+															"sid": 885659980283876,
+															"parameters": {
+																"instance-variable": "Adjacency_Left",
+																"comparison": 0,
+																"value": "\"\""
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Enemy",
+															"sid": 486174802959266,
+															"parameters": {
+																"instance-variable": "Adjacency_Down",
+																"comparison": 0,
+																"value": "\"\""
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Enemy",
+															"sid": 702361315699359,
+															"parameters": {
+																"instance-variable": "Adjacency_Right",
+																"comparison": 0,
+																"value": "\"\""
+															}
+														}
+													],
+													"actions": [],
+													"sid": 376397930272362,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "has-los-to-object",
+																	"objectClass": "Enemy",
+																	"sid": 801314412823689,
+																	"behaviorType": "LineOfSight",
+																	"parameters": {
+																		"object": "Player",
+																		"image-point": "0"
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"callFunction": "EnemyVerifyMovePossibility",
+																	"sid": 182079371641822,
+																	"parameters": [
+																		"Enemy.UID",
+																		"\"\""
+																	]
+																}
+															],
+															"sid": 839073963293573
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "has-los-to-object",
+																	"objectClass": "Enemy",
+																	"sid": 733107228778941,
+																	"behaviorType": "LineOfSight",
+																	"parameters": {
+																		"object": "Player",
+																		"image-point": "0"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"callFunction": "EnemyOrientsTowardsPlayer",
+																	"sid": 216564446661185,
+																	"parameters": [
+																		"Enemy.UID",
+																		true
+																	]
+																}
+															],
+															"sid": 917095290842554
+														}
+													],
+													"isOrBlock": true
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Enemy",
+													"sid": 650733230193338,
+													"parameters": {
+														"instance-variable": "Adjacency_Up",
+														"comparison": 0,
+														"value": "\"Enemy\""
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Enemy",
+													"sid": 114925199017087,
+													"parameters": {
+														"instance-variable": "Adjacency_Left",
+														"comparison": 0,
+														"value": "\"Enemy\""
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Enemy",
+													"sid": 268317719972896,
+													"parameters": {
+														"instance-variable": "Adjacency_Down",
+														"comparison": 0,
+														"value": "\"Enemy\""
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Enemy",
+													"sid": 680189029124179,
+													"parameters": {
+														"instance-variable": "Adjacency_Right",
+														"comparison": 0,
+														"value": "\"Enemy\""
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Enemy",
+													"sid": 605542629523523,
+													"parameters": {
+														"instance-variable": "Adjacency_Up",
+														"comparison": 0,
+														"value": "\"Solid\""
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Enemy",
+													"sid": 938878688705033,
+													"parameters": {
+														"instance-variable": "Adjacency_Left",
+														"comparison": 0,
+														"value": "\"Solid\""
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Enemy",
+													"sid": 227371079280425,
+													"parameters": {
+														"instance-variable": "Adjacency_Down",
+														"comparison": 0,
+														"value": "\"Solid\""
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Enemy",
+													"sid": 807644983243614,
+													"parameters": {
+														"instance-variable": "Adjacency_Right",
+														"comparison": 0,
+														"value": "\"Solid\""
+													}
+												}
+											],
+											"actions": [],
+											"sid": 697165744346425,
+											"isOrBlock": true
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Masks AI",
+			"description": "All the codes for the AI masks. Each AI is characterized by an integer and can be associated on any mask using an instance variable, which is a convenient way to try out new mechanisms.",
+			"isActiveOnStart": true,
+			"children": [],
+			"sid": 473025954067786,
+			"text-color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"background-color": [
+				1,
+				0.047058823529411764,
+				0,
+				1
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Cars",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 278563398114304,
+							"parameters": {
+								"interval-seconds": "random(1, 5)"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 338320332816587,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "Random_Int",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 978535723969371
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 336169911737577,
+									"parameters": {
+										"first-value": "LayoutName",
+										"comparison": 0,
+										"second-value": "\"MainWorld\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 288658820327930,
+									"parameters": {
+										"object-to-create": "ObjectCar",
+										"layer": "\"Cars\"",
+										"x": "696",
+										"y": "704",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "ObjectCar",
+									"sid": 908811589037231,
+									"parameters": {
+										"object": "Damager",
+										"layer": "\"_Invisible\"",
+										"image-point": "\"PlayerDamageHitbox\"",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Damager",
+									"sid": 538266729371864,
+									"parameters": {
+										"animation": "\"Type2\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "pin-to-object",
+									"objectClass": "Damager",
+									"sid": 436593631201954,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "ObjectCar",
+										"mode": "position-angle"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "ObjectCar",
+									"sid": 357522795490388,
+									"parameters": {
+										"instance-variable": "Direction",
+										"value": "\"Up\""
+									}
+								}
+							],
+							"sid": 369118865498698,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 879318065117545,
+											"parameters": {
+												"variable": "Random_Int",
+												"value": "round(random(0, 4))"
+											}
+										}
+									],
+									"sid": 582243566618640,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 488208765180221,
+													"parameters": {
+														"first-value": "Random_Int",
+														"comparison": 0,
+														"second-value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "ObjectCar",
+													"sid": 498660040862629,
+													"parameters": {
+														"animation": "\"Yellow\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 130433986486431
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 967397014804556,
+													"parameters": {
+														"first-value": "Random_Int",
+														"comparison": 0,
+														"second-value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "ObjectCar",
+													"sid": 163036133627724,
+													"parameters": {
+														"animation": "\"Blue\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 518057374593411
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 505232562752349,
+													"parameters": {
+														"first-value": "Random_Int",
+														"comparison": 0,
+														"second-value": "2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "ObjectCar",
+													"sid": 920676205241871,
+													"parameters": {
+														"animation": "\"Green\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 431706396583028
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 303718659437038,
+													"parameters": {
+														"first-value": "Random_Int",
+														"comparison": 0,
+														"second-value": "3"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "ObjectCar",
+													"sid": 539329227508008,
+													"parameters": {
+														"animation": "\"Gray\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 385461789840458
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 675030213853030,
+													"parameters": {
+														"first-value": "Random_Int",
+														"comparison": 0,
+														"second-value": "4"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "ObjectCar",
+													"sid": 554531597795500,
+													"parameters": {
+														"animation": "\"Red\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 687064985892319
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 893348066239663,
+									"parameters": {
+										"first-value": "LayoutName",
+										"comparison": 0,
+										"second-value": "\"Underground\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 694172609248836,
+									"parameters": {
+										"object-to-create": "ObjectCar",
+										"layer": "\"Cars\"",
+										"x": "120",
+										"y": "520",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "ObjectCar",
+									"sid": 464504254644068,
+									"parameters": {
+										"object": "Damager",
+										"layer": "\"_Invisible\"",
+										"image-point": "\"PlayerDamageHitbox\"",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Damager",
+									"sid": 612437315827791,
+									"parameters": {
+										"animation": "\"Type2\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "pin-to-object",
+									"objectClass": "Damager",
+									"sid": 570184889330581,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "ObjectCar",
+										"mode": "position-angle"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "ObjectCar",
+									"sid": 441740736251373,
+									"parameters": {
+										"instance-variable": "Direction",
+										"value": "\"Up\""
+									}
+								}
+							],
+							"sid": 504913748631188,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 151081752672205,
+											"parameters": {
+												"variable": "Random_Int",
+												"value": "round(random(0, 4))"
+											}
+										}
+									],
+									"sid": 626454313687931,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 966931530641708,
+													"parameters": {
+														"first-value": "Random_Int",
+														"comparison": 0,
+														"second-value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "ObjectCar",
+													"sid": 902878188159417,
+													"parameters": {
+														"animation": "\"Yellow\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 839513338039545
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 376403620898115,
+													"parameters": {
+														"first-value": "Random_Int",
+														"comparison": 0,
+														"second-value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "ObjectCar",
+													"sid": 707123483094185,
+													"parameters": {
+														"animation": "\"Blue\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 440853139831369
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 382850230916674,
+													"parameters": {
+														"first-value": "Random_Int",
+														"comparison": 0,
+														"second-value": "2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "ObjectCar",
+													"sid": 238068061607300,
+													"parameters": {
+														"animation": "\"Green\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 864651260640965
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 524379483484124,
+													"parameters": {
+														"first-value": "Random_Int",
+														"comparison": 0,
+														"second-value": "3"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "ObjectCar",
+													"sid": 217948384346362,
+													"parameters": {
+														"animation": "\"Gray\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 892767444507880
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 268114068044735,
+													"parameters": {
+														"first-value": "Random_Int",
+														"comparison": 0,
+														"second-value": "4"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "ObjectCar",
+													"sid": 492172651711831,
+													"parameters": {
+														"animation": "\"Red\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 285952553079265
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 283483641657972
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 454154045157361,
+							"parameters": {
+								"object": "ObjectCar"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 707175800362636,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 888015738935093,
+									"parameters": {
+										"first-value": "ObjectCar.Direction",
+										"comparison": 0,
+										"second-value": "\"Left\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "ObjectCar",
+									"sid": 134024582484502,
+									"parameters": {
+										"frame-number": "1"
+									}
+								},
+								{
+									"id": "set-mirrored",
+									"objectClass": "ObjectCar",
+									"sid": 507910887602279,
+									"parameters": {
+										"state": "mirrored"
+									}
+								},
+								{
+									"id": "set-angle-of-motion",
+									"objectClass": "ObjectCar",
+									"sid": 141490546118334,
+									"behaviorType": "Move",
+									"parameters": {
+										"angle": "180"
+									}
+								}
+							],
+							"sid": 827294698631972
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 339008862591140,
+									"parameters": {
+										"first-value": "ObjectCar.Direction",
+										"comparison": 0,
+										"second-value": "\"Right\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "ObjectCar",
+									"sid": 717616127815861,
+									"parameters": {
+										"frame-number": "1"
+									}
+								},
+								{
+									"id": "set-mirrored",
+									"objectClass": "ObjectCar",
+									"sid": 991478135021435,
+									"parameters": {
+										"state": "not-mirrored"
+									}
+								},
+								{
+									"id": "set-angle-of-motion",
+									"objectClass": "ObjectCar",
+									"sid": 492035943299433,
+									"behaviorType": "Move",
+									"parameters": {
+										"angle": "0"
+									}
+								}
+							],
+							"sid": 391674625147083
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 491003311938858,
+									"parameters": {
+										"first-value": "ObjectCar.Direction",
+										"comparison": 0,
+										"second-value": "\"Up\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "ObjectCar",
+									"sid": 449315728665701,
+									"parameters": {
+										"frame-number": "2"
+									}
+								},
+								{
+									"id": "set-angle-of-motion",
+									"objectClass": "ObjectCar",
+									"sid": 630174684327934,
+									"behaviorType": "Move",
+									"parameters": {
+										"angle": "270"
+									}
+								}
+							],
+							"sid": 996998297380781
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 392467018696544,
+									"parameters": {
+										"first-value": "ObjectCar.Direction",
+										"comparison": 0,
+										"second-value": "\"Down\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "ObjectCar",
+									"sid": 263921640683956,
+									"parameters": {
+										"frame-number": "0"
+									}
+								},
+								{
+									"id": "set-angle-of-motion",
+									"objectClass": "ObjectCar",
+									"sid": 260574869408536,
+									"behaviorType": "Move",
+									"parameters": {
+										"angle": "90"
+									}
+								}
+							],
+							"sid": 243376827513671
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "ObjectCar",
+							"sid": 738390073270460,
+							"parameters": {
+								"object": "CarBounce"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 102560115870712,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "CarBounce",
+									"sid": 173996065907980,
+									"parameters": {
+										"instance-variable": "ExclusiveTo",
+										"comparison": 0,
+										"value": "\"\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 879526931419031,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "Random_Int",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 543212738743466
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 101901781082288,
+											"parameters": {
+												"variable": "Random_Int",
+												"value": "round(random(0,1))"
+											}
+										}
+									],
+									"sid": 543486916479561,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 207762780454435,
+													"parameters": {
+														"first-value": "Random_Int",
+														"comparison": 0,
+														"second-value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "ObjectCar",
+													"sid": 180697530901579,
+													"parameters": {
+														"instance-variable": "Direction",
+														"value": "CarBounce.Direction1"
+													}
+												}
+											],
+											"sid": 570202500542164
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 720068429294267,
+													"parameters": {
+														"first-value": "Random_Int",
+														"comparison": 0,
+														"second-value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "ObjectCar",
+													"sid": 586732201028692,
+													"parameters": {
+														"instance-variable": "Direction",
+														"value": "CarBounce.Direction2"
+													}
+												}
+											],
+											"sid": 773467494877294
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "CarBounce",
+									"sid": 795202566960763,
+									"parameters": {
+										"animation": "\"Exchanger\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "CarBounce",
+									"sid": 621633613805595,
+									"parameters": {
+										"instance-variable": "ExclusiveTo",
+										"comparison": 0,
+										"value": "ObjectCar.Direction"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 466610705089184,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "Random_Int",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 486120799144371
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 883046390122702,
+											"parameters": {
+												"variable": "Random_Int",
+												"value": "round(random(0,1))"
+											}
+										}
+									],
+									"sid": 950476518389583,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 591557072816832,
+													"parameters": {
+														"first-value": "Random_Int",
+														"comparison": 0,
+														"second-value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "ObjectCar",
+													"sid": 246636504325980,
+													"parameters": {
+														"instance-variable": "Direction",
+														"value": "CarBounce.Direction1"
+													}
+												}
+											],
+											"sid": 833462877790836
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 326724970172141,
+													"parameters": {
+														"first-value": "Random_Int",
+														"comparison": 0,
+														"second-value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "ObjectCar",
+													"sid": 267550343286186,
+													"parameters": {
+														"instance-variable": "Direction",
+														"value": "CarBounce.Direction2"
+													}
+												}
+											],
+											"sid": 674970330375252
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "CarBounce",
+									"sid": 209469254383337,
+									"parameters": {
+										"animation": "\"Destroyer\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "ObjectCar",
+									"sid": 593017345577392
+								}
+							],
+							"sid": 850852969376357
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "CarBounce",
+									"sid": 281013957119504,
+									"parameters": {
+										"animation": "\"Fader\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-fade-in-time",
+									"objectClass": "ObjectCar",
+									"sid": 818776067653110,
+									"behaviorType": "Fade",
+									"parameters": {
+										"fade-in-time": "0"
+									}
+								},
+								{
+									"id": "set-fade-out-time",
+									"objectClass": "ObjectCar",
+									"sid": 603656417868539,
+									"behaviorType": "Fade",
+									"parameters": {
+										"fade-out-time": "3"
+									}
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "ObjectCar",
+									"sid": 389311003436132,
+									"behaviorType": "Fade"
+								}
+							],
+							"sid": 274591979734511
+						}
+					]
+				}
+			],
+			"sid": 897512668085544
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-destroyed",
+					"objectClass": "ObjectCar",
+					"sid": 607518576810733
+				}
+			],
+			"actions": [],
+			"sid": 354057778338397,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-nearestfurthest",
+							"objectClass": "Damager",
+							"sid": 487413584360011,
+							"parameters": {
+								"which": "nearest",
+								"x": "ObjectCar.X",
+								"y": "ObjectCar.Y"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Damager",
+							"sid": 916451277886878
+						}
+					],
+					"sid": 590732600142383
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Player",
+					"sid": 965936287751198,
+					"parameters": {
+						"object": "Damager"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 377406723355245,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Damager",
+							"sid": 848263631740721,
+							"parameters": {
+								"animation": "\"Type1\""
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Player",
+							"sid": 271196749590845,
+							"parameters": {
+								"instance-variable": "Jumping"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 140550730806530,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Damager",
+									"sid": 524328957588755,
+									"parameters": {
+										"instance-variable": "Sub",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 114996297923518,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-nearestfurthest",
+											"objectClass": "ObjectSpikes",
+											"sid": 315385996666564,
+											"parameters": {
+												"which": "nearest",
+												"x": "Damager.X",
+												"y": "Damager.Y"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "PlayerTakeDamage",
+											"sid": 249746423484636,
+											"parameters": [
+												true,
+												"1",
+												"ObjectSpikes.UID",
+												"\"Spikes\""
+											]
+										}
+									],
+									"sid": 536486339576465
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Damager",
+									"sid": 825446986657537,
+									"parameters": {
+										"instance-variable": "Sub",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 106912588777555,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-nearestfurthest",
+											"objectClass": "VFX_Fire",
+											"sid": 649129310026477,
+											"parameters": {
+												"which": "nearest",
+												"x": "Damager.X",
+												"y": "Damager.Y"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "PlayerTakeDamage",
+											"sid": 360210988513075,
+											"parameters": [
+												true,
+												"1",
+												"VFX_Fire.UID",
+												"\"Fire\""
+											]
+										}
+									],
+									"sid": 897056909741655
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Damager",
+							"sid": 984741992424706,
+							"parameters": {
+								"animation": "\"Type2\""
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Player",
+							"sid": 779790034782507,
+							"parameters": {
+								"instance-variable": "Jumping"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "pick-nearestfurthest",
+							"objectClass": "ObjectCar",
+							"sid": 826965470222194,
+							"parameters": {
+								"which": "nearest",
+								"x": "Damager.X",
+								"y": "Damager.Y"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "PlayerTakeDamage",
+							"sid": 776558979567574,
+							"parameters": [
+								true,
+								"1",
+								"ObjectCar.UID",
+								"\"Car\""
+							]
+						}
+					],
+					"sid": 750154019630103
+				}
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Fishes",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 480296639553098,
+							"parameters": {
+								"interval-seconds": "2"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 177558716719370,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-mirrored",
+									"objectClass": "ObjectFish",
+									"sid": 345714017997965
+								}
+							],
+							"actions": [
+								{
+									"id": "set-mirrored",
+									"objectClass": "ObjectFish",
+									"sid": 694691903411766,
+									"parameters": {
+										"state": "not-mirrored"
+									}
+								}
+							],
+							"sid": 919171616779552
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-mirrored",
+									"objectClass": "ObjectFish",
+									"sid": 266745466118386,
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-mirrored",
+									"objectClass": "ObjectFish",
+									"sid": 615554546082058,
+									"parameters": {
+										"state": "mirrored"
+									}
+								}
+							],
+							"sid": 319643185811980
+						}
+					]
+				}
+			],
+			"sid": 267377480057631
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Bats",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 510258659635754,
+							"parameters": {
+								"interval-seconds": "1"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 101731067079804,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 227779254776973,
+									"parameters": {
+										"object": "VFX_Bat"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 799702969508083,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "has-los-to-object",
+											"objectClass": "VFX_Bat",
+											"sid": 747394376941672,
+											"behaviorType": "LineOfSight",
+											"parameters": {
+												"object": "Player",
+												"image-point": "0"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 342165348301793,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "VFX_Bat",
+													"sid": 256326547934005,
+													"parameters": {
+														"instance-variable": "Resting"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "VFX_Bat",
+													"sid": 260728309915825,
+													"parameters": {
+														"instance-variable": "Resting",
+														"value": "false"
+													}
+												}
+											],
+											"sid": 285025360433732
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "has-los-to-object",
+											"objectClass": "VFX_Bat",
+											"sid": 439803670467639,
+											"behaviorType": "LineOfSight",
+											"parameters": {
+												"object": "Player",
+												"image-point": "0"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [],
+									"sid": 810867831072214,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "VFX_Bat",
+													"sid": 537682297553927,
+													"parameters": {
+														"instance-variable": "Resting"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "VFX_Bat",
+													"sid": 271172959829642,
+													"parameters": {
+														"instance-variable": "Resting",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 335464436195480
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 777306968819579,
+							"parameters": {
+								"interval-seconds": "2"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 792026055975857,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 232128038271380,
+									"parameters": {
+										"object": "VFX_Bat"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 897341260268541,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "VFX_Bat",
+											"sid": 837044546345022,
+											"parameters": {
+												"instance-variable": "Resting"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "VFX_Bat",
+											"sid": 130877545215962,
+											"parameters": {
+												"animation": "\"Fly\"",
+												"from": "current-frame"
+											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "VFX_Bat",
+											"sid": 638023873378357,
+											"behaviorType": "Bullet",
+											"parameters": {
+												"state": "enabled"
+											}
+										},
+										{
+											"id": "set-angle-of-motion",
+											"objectClass": "VFX_Bat",
+											"sid": 924311734629274,
+											"behaviorType": "Bullet",
+											"parameters": {
+												"angle": "random(0, 360)"
+											}
+										},
+										{
+											"id": "set-range",
+											"objectClass": "VFX_Bat",
+											"sid": 805647712806263,
+											"behaviorType": "LineOfSight",
+											"parameters": {
+												"range": "96*2"
+											}
+										}
+									],
+									"sid": 234515548668406
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 809525235845667
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "VFX_Bat",
+											"sid": 793582986459548,
+											"parameters": {
+												"animation": "\"Rest\"",
+												"from": "current-frame"
+											}
+										},
+										{
+											"id": "set-range",
+											"objectClass": "VFX_Bat",
+											"sid": 558459937450475,
+											"behaviorType": "LineOfSight",
+											"parameters": {
+												"range": "96"
+											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "VFX_Bat",
+											"sid": 289601839507291,
+											"behaviorType": "Bullet",
+											"parameters": {
+												"state": "disabled"
+											}
+										}
+									],
+									"sid": 488771175824438
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 803562957791254
+		}
+	],
+	"sid": 333952632849513
+}

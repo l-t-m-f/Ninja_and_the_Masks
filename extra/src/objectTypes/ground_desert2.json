@@ -1,0 +1,20 @@
+{
+	"name": "Ground_Desert2",
+	"plugin-id": "NinePatch",
+	"sid": 876191600003221,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 48,
+		"height": 48,
+		"originX": 2.125,
+		"originY": 2.1458333333333335,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 55,
+		"useCollisionPoly": true
+	}
+}

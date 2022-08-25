@@ -1,0 +1,275 @@
+{
+	"name": "ButtonStyle",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Style",
+			"description": "All the codes related to the styles of the buttons based on their state.",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 899154473398970
+						}
+					],
+					"actions": [],
+					"sid": 484684976416600,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 740009675429346,
+									"parameters": {
+										"object": "UIMenuButton"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 140440492422196,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Sets deactivated buttons"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "UIMenuButton",
+											"sid": 221108500431032,
+											"parameters": {
+												"instance-variable": "State",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-opacity",
+											"objectClass": "UIMenuButton",
+											"sid": 451605973054961,
+											"parameters": {
+												"opacity": "100"
+											}
+										}
+									],
+									"sid": 159369522639342,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Text",
+													"sid": 336055023512201,
+													"parameters": {
+														"instance-variable": "ID",
+														"comparison": 0,
+														"value": "UIMenuButton.ID"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Text",
+													"sid": 562800949559819,
+													"parameters": {
+														"instance-variable": "Type_of_Text",
+														"comparison": 0,
+														"value": "\"ButtonText\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"type": "comment",
+													"text": "Black text"
+												},
+												{
+													"id": "set-font-color",
+													"objectClass": "Text",
+													"sid": 172366305949317,
+													"parameters": {
+														"color": "rgbEx(5, 3, 95)"
+													}
+												}
+											],
+											"sid": 471435034174367
+										}
+									]
+								},
+								{
+									"eventType": "comment",
+									"text": "Sets hovered buttons"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "UIMenuButton",
+											"sid": 352143915162363,
+											"parameters": {
+												"instance-variable": "State",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-opacity",
+											"objectClass": "UIMenuButton",
+											"sid": 685304588197502,
+											"parameters": {
+												"opacity": "50"
+											}
+										}
+									],
+									"sid": 193881957559632,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Text",
+													"sid": 875791969948013,
+													"parameters": {
+														"instance-variable": "ID",
+														"comparison": 0,
+														"value": "UIMenuButton.ID"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Text",
+													"sid": 292331983325635,
+													"parameters": {
+														"instance-variable": "Type_of_Text",
+														"comparison": 0,
+														"value": "\"ButtonText\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"type": "comment",
+													"text": "White"
+												},
+												{
+													"id": "set-font-color",
+													"objectClass": "Text",
+													"sid": 371902522768265,
+													"parameters": {
+														"color": "rgbEx(255, 255, 255)"
+													}
+												}
+											],
+											"sid": 141731909195631
+										}
+									]
+								},
+								{
+									"eventType": "comment",
+									"text": "Sets triggered buttons"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "UIMenuButton",
+											"sid": 114847890476987,
+											"parameters": {
+												"instance-variable": "State",
+												"comparison": 0,
+												"value": "2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-opacity",
+											"objectClass": "UIMenuButton",
+											"sid": 597982025790920,
+											"parameters": {
+												"opacity": "40"
+											}
+										}
+									],
+									"sid": 332939626027893,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Text",
+													"sid": 945630890893581,
+													"parameters": {
+														"instance-variable": "ID",
+														"comparison": 0,
+														"value": "UIMenuButton.ID"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Text",
+													"sid": 934169792381231,
+													"parameters": {
+														"instance-variable": "Type_of_Text",
+														"comparison": 0,
+														"value": "\"ButtonText\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"type": "comment",
+													"text": "Yellow text"
+												},
+												{
+													"id": "set-font-color",
+													"objectClass": "Text",
+													"sid": 628944349639044,
+													"parameters": {
+														"color": "rgbEx(255, 255, 0)"
+													}
+												}
+											],
+											"sid": 343801909071339
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 185762919735255,
+			"text-color": [
+				0.09411764705882353,
+				0.09411764705882353,
+				0.09411764705882353,
+				1
+			],
+			"background-color": [
+				0.5725490196078431,
+				0.8235294117647058,
+				0.8549019607843137,
+				1
+			]
+		}
+	],
+	"sid": 697971552426863
+}

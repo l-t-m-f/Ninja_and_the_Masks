@@ -1,0 +1,49 @@
+{
+	"name": "TrimmedLogo",
+	"plugin-id": "Sprite",
+	"sid": 616071723936534,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 171,
+						"height": 112,
+						"originX": -0.9064327485380117,
+						"originY": 2.2857142857142856,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 584,
+						"collisionPoly": {
+							"points": [
+								0.49707602339181284,
+								0.8660714285714286,
+								0.935672514619883,
+								0.8125,
+								0.49707602339181284,
+								0.9821428571428571,
+								0.15204678362573099,
+								0.6607142857142857
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 501826771133523,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

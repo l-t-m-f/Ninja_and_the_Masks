@@ -1,0 +1,32 @@
+{
+	"name": "VFX_ParticleWaterfall",
+	"plugin-id": "Particles",
+	"sid": 221347247906702,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 16,
+		"height": 16,
+		"originX": 0.5625,
+		"originY": -0.375,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 144,
+		"collisionPoly": {
+			"points": [
+				0.0625,
+				0,
+				1,
+				0,
+				1,
+				1,
+				0.0625,
+				1
+			]
+		},
+		"useCollisionPoly": true
+	}
+}

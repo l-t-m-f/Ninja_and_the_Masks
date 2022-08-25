@@ -1,0 +1,18 @@
+{
+	"name": "Shadow",
+	"plugin-id": "Sprite",
+	"sid": 211768124555688,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "shadowcaster",
+			"name": "ShadowCaster",
+			"sid": 506368220276919
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"PlayerAnimation",
+		"Building"
+	]
+}

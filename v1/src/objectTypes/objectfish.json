@@ -1,0 +1,106 @@
+{
+	"name": "ObjectFish",
+	"plugin-id": "Sprite",
+	"sid": 731786883174986,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 303522683036396
+		},
+		{
+			"behaviorId": "Sin",
+			"name": "Sine2",
+			"sid": 278070119320194
+		},
+		{
+			"behaviorId": "Sin",
+			"name": "Sine3",
+			"sid": 112222514562200
+		}
+	],
+	"effectTypes": [
+		{
+			"effectId": "water",
+			"name": "Water"
+		}
+	],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 202,
+						"collisionPoly": {
+							"points": [
+								0,
+								0.0625,
+								1,
+								0.0625,
+								1,
+								1,
+								0,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 200,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0,
+								1,
+								0,
+								1,
+								1,
+								0.0625,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 201,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 866256263080750,
+				"name": "Shadow",
+				"isLooping": true,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 8
+			}
+		],
+		"subfolders": []
+	}
+}

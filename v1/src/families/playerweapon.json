@@ -1,0 +1,51 @@
+{
+	"name": "PlayerWeapon",
+	"plugin-id": "Sprite",
+	"sid": 214554701028737,
+	"instanceVariables": [
+		{
+			"name": "StickWithPlayer",
+			"type": "boolean",
+			"desc": "",
+			"sid": 345882741449683
+		},
+		{
+			"name": "Slow",
+			"type": "boolean",
+			"desc": "",
+			"sid": 572486232443727
+		},
+		{
+			"name": "Direction",
+			"type": "string",
+			"desc": "",
+			"sid": 131460038068929
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Rotate",
+			"name": "Rotate",
+			"sid": 174503095315438
+		},
+		{
+			"behaviorId": "LOS",
+			"name": "DistanceToAttach",
+			"sid": 878288347743192
+		},
+		{
+			"behaviorId": "LOS",
+			"name": "Proximity",
+			"sid": 509032557160428
+		},
+		{
+			"behaviorId": "Bullet",
+			"name": "Movement",
+			"sid": 426164661810075
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"PlayerSword"
+	]
+}

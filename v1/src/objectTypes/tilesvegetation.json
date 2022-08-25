@@ -1,0 +1,33 @@
+{
+	"name": "TilesVegetation",
+	"plugin-id": "Tilemap",
+	"sid": 612656938795065,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 96,
+		"height": 112,
+		"originX": 0.5104166666666666,
+		"originY": 0.8660714285714286,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 20,
+		"collisionPoly": {
+			"points": [
+				0.010416666666666666,
+				0.008928571428571428,
+				1,
+				0.008928571428571428,
+				1,
+				1,
+				0.010416666666666666,
+				1
+			]
+		},
+		"useCollisionPoly": true
+	},
+	"tile-collision-polys": {}
+}

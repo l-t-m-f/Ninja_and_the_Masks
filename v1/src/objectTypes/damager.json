@@ -1,0 +1,97 @@
+{
+	"name": "Damager",
+	"plugin-id": "Sprite",
+	"sid": 135694825436679,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Sub",
+			"type": "number",
+			"desc": "",
+			"sid": 180202957508623
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Pin",
+			"name": "Pin",
+			"sid": 696863449080224
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 546,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 394091551574398,
+				"name": "Type1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 545,
+						"collisionPoly": {
+							"points": [
+								0.1875,
+								0.1875,
+								0.8125,
+								0.1875,
+								0.8125,
+								0.8125,
+								0.1875,
+								0.8125
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 158187484374774,
+				"name": "Type2",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

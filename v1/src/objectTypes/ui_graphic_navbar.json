@@ -1,0 +1,21 @@
+{
+	"name": "UI_Graphic_Navbar",
+	"plugin-id": "Tilemap",
+	"sid": 733564981864373,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 16,
+		"height": 16,
+		"originX": 0.5625,
+		"originY": 0.5625,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 398,
+		"useCollisionPoly": true
+	},
+	"tile-collision-polys": {}
+}

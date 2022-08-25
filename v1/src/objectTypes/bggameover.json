@@ -1,0 +1,37 @@
+{
+	"name": "BGGameOver",
+	"plugin-id": "Sprite",
+	"sid": 385315808615646,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 480,
+						"height": 272,
+						"originX": 1.11875,
+						"originY": 0.22794117647058823,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 332,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 590418854538345,
+				"name": "Default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -1,0 +1,1165 @@
+{
+	"name": "Fight",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "PlayerSword Position",
+			"description": "All the codes that controls the PlayerSword object . The object can be one of 5 frames, but its basic functioning remains the same. However, each new sword brings a certain power to the hero.",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "This orients the sword towards the bottom while the Player is jumping."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 967358522092173
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Player",
+							"sid": 331650299800118,
+							"parameters": {
+								"instance-variable": "Jumping"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "PlayerDefineLastDirection",
+							"sid": 205784739724258,
+							"parameters": [
+								"\"Down\""
+							]
+						}
+					],
+					"sid": 935439882928723
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "has-los-to-object",
+							"objectClass": "PlayerWeapon",
+							"sid": 528256150065599,
+							"behaviorType": "DistanceToAttach",
+							"parameters": {
+								"object": "Player",
+								"image-point": "0"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "PlayerWeapon",
+							"sid": 441003254525171,
+							"parameters": {
+								"instance-variable": "Slow"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "PlayerWeaponResume",
+							"sid": 983174713868192
+						}
+					],
+					"sid": 773434494782954
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "has-los-to-object",
+							"objectClass": "PlayerWeapon",
+							"sid": 294027572508516,
+							"behaviorType": "Proximity",
+							"parameters": {
+								"object": "Player",
+								"image-point": "0"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "PlayerWeapon",
+							"sid": 429691955891246,
+							"parameters": {
+								"instance-variable": "Slow"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "PlayerWeapon",
+							"sid": 101633790158056,
+							"parameters": {
+								"instance-variable": "Slow",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 764146348352817
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 175087943693426
+						}
+					],
+					"actions": [],
+					"sid": 790663196812036,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "PlayerWeapon",
+									"sid": 959016582091819,
+									"parameters": {
+										"instance-variable": "StickWithPlayer"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 587181809077200,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "PlayerWeapon",
+											"sid": 317060174121639,
+											"parameters": {
+												"instance-variable": "Slow"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 691183842545033,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Player",
+													"sid": 183406167629268,
+													"parameters": {
+														"instance-variable": "Direction",
+														"comparison": 0,
+														"value": "\"Left\""
+													}
+												}
+											],
+											"actions": [],
+											"sid": 251253040289455,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-mirrored",
+															"objectClass": "Player",
+															"sid": 733256178585373
+														}
+													],
+													"actions": [
+														{
+															"id": "set-position",
+															"objectClass": "PlayerWeapon",
+															"sid": 583584771539759,
+															"parameters": {
+																"x": "lerp(Self.X, Player.X -16, 0.005)",
+																"y": "lerp(Self.Y, Player.Y - 8, 0.005)"
+															}
+														}
+													],
+													"sid": 221572247599969
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-mirrored",
+															"objectClass": "Player",
+															"sid": 909468343669397,
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "set-position",
+															"objectClass": "PlayerWeapon",
+															"sid": 828960022716802,
+															"parameters": {
+																"x": "lerp(Self.X, Player.X +16, 0.005)",
+																"y": "lerp(Self.Y, Player.Y - 8, 0.005)"
+															}
+														}
+													],
+													"sid": 364179220446274
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Player",
+													"sid": 574898170838682,
+													"parameters": {
+														"instance-variable": "Direction",
+														"comparison": 0,
+														"value": "\"Right\""
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Player",
+													"sid": 644487025735060,
+													"parameters": {
+														"instance-variable": "Direction",
+														"comparison": 0,
+														"value": "\"\"\n"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 401594494583041,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-mirrored",
+															"objectClass": "Player",
+															"sid": 230010244091749
+														}
+													],
+													"actions": [
+														{
+															"id": "set-position",
+															"objectClass": "PlayerWeapon",
+															"sid": 952579191647870,
+															"parameters": {
+																"x": "lerp(Self.X, Player.X -16, 0.005)",
+																"y": "lerp(Self.Y, Player.Y - 8, 0.005)"
+															}
+														}
+													],
+													"sid": 642550536661264
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-mirrored",
+															"objectClass": "Player",
+															"sid": 542420993690585,
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "set-position",
+															"objectClass": "PlayerWeapon",
+															"sid": 872291211455112,
+															"parameters": {
+																"x": "lerp(Self.X, Player.X +16, 0.005)",
+																"y": "lerp(Self.Y, Player.Y - 8, 0.005)"
+															}
+														}
+													],
+													"sid": 194743365904235
+												}
+											],
+											"isOrBlock": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Player",
+													"sid": 310067065682215,
+													"parameters": {
+														"instance-variable": "Direction",
+														"comparison": 0,
+														"value": "\"Down\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-position",
+													"objectClass": "PlayerWeapon",
+													"sid": 423970484689078,
+													"parameters": {
+														"x": "lerp(Self.X, Player.X, 0.005)",
+														"y": "lerp(Self.Y, Player.Y + 8, 0.005)"
+													}
+												}
+											],
+											"sid": 851465696825015
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Player",
+													"sid": 130545792406246,
+													"parameters": {
+														"instance-variable": "Direction",
+														"comparison": 0,
+														"value": "\"Up\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-position",
+													"objectClass": "PlayerWeapon",
+													"sid": 311972619532199,
+													"parameters": {
+														"x": "lerp(Self.X, Player.X, 0.005)",
+														"y": "lerp(Self.Y, Player.Y - 14, 0.005)"
+													}
+												}
+											],
+											"sid": 220099477733522
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 652739359292071
+										}
+									],
+									"actions": [],
+									"sid": 984324781851605,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Player",
+													"sid": 988490442738729,
+													"parameters": {
+														"instance-variable": "Direction",
+														"comparison": 0,
+														"value": "\"Left\""
+													}
+												}
+											],
+											"actions": [],
+											"sid": 289867497002915,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-mirrored",
+															"objectClass": "Player",
+															"sid": 116587951902673
+														}
+													],
+													"actions": [
+														{
+															"id": "set-position",
+															"objectClass": "PlayerWeapon",
+															"sid": 542991642471492,
+															"parameters": {
+																"x": "lerp(Self.X, Player.X -16, 0.1)",
+																"y": "lerp(Self.Y, Player.Y - 8, 0.1)"
+															}
+														}
+													],
+													"sid": 147383438210835
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-mirrored",
+															"objectClass": "Player",
+															"sid": 793344704718390,
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "set-position",
+															"objectClass": "PlayerWeapon",
+															"sid": 968737646983714,
+															"parameters": {
+																"x": "lerp(Self.X, Player.X +16, 0.1)",
+																"y": "lerp(Self.Y, Player.Y - 8, 0.1)"
+															}
+														}
+													],
+													"sid": 111160610250493
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Player",
+													"sid": 839029076070423,
+													"parameters": {
+														"instance-variable": "Direction",
+														"comparison": 0,
+														"value": "\"Right\""
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Player",
+													"sid": 715930225008693,
+													"parameters": {
+														"instance-variable": "Direction",
+														"comparison": 0,
+														"value": "\"\"\n"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 318355625957516,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-mirrored",
+															"objectClass": "Player",
+															"sid": 535086013597936
+														}
+													],
+													"actions": [
+														{
+															"id": "set-position",
+															"objectClass": "PlayerWeapon",
+															"sid": 655474989807163,
+															"parameters": {
+																"x": "lerp(Self.X, Player.X -16, 0.1)",
+																"y": "lerp(Self.Y, Player.Y - 8, 0.1)"
+															}
+														}
+													],
+													"sid": 363287965191064
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-mirrored",
+															"objectClass": "Player",
+															"sid": 347386349157195,
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "set-position",
+															"objectClass": "PlayerWeapon",
+															"sid": 496977352690795,
+															"parameters": {
+																"x": "lerp(Self.X, Player.X +16, 0.1)",
+																"y": "lerp(Self.Y, Player.Y - 8, 0.1)"
+															}
+														}
+													],
+													"sid": 682694937512651
+												}
+											],
+											"isOrBlock": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Player",
+													"sid": 237213552709453,
+													"parameters": {
+														"instance-variable": "Direction",
+														"comparison": 0,
+														"value": "\"Down\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-position",
+													"objectClass": "PlayerWeapon",
+													"sid": 408163955926992,
+													"parameters": {
+														"x": "lerp(Self.X, Player.X, 0.1)",
+														"y": "lerp(Self.Y, Player.Y + 8, 0.1)"
+													}
+												}
+											],
+											"sid": 288300949933770
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Player",
+													"sid": 131637877188483,
+													"parameters": {
+														"instance-variable": "Direction",
+														"comparison": 0,
+														"value": "\"Up\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-position",
+													"objectClass": "PlayerWeapon",
+													"sid": 911260514353559,
+													"parameters": {
+														"x": "lerp(Self.X, Player.X, 0.1)",
+														"y": "lerp(Self.Y, Player.Y - 14, 0.1)"
+													}
+												}
+											],
+											"sid": 599471754545849
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "PlayerWeapon",
+							"sid": 761569092788839,
+							"parameters": {
+								"object": "NPC_sprite"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "NPC_sprite",
+							"sid": 164098184592055,
+							"parameters": {
+								"instance-variable": "Immune"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Player",
+							"sid": 257120166366994,
+							"parameters": {
+								"instance-variable": "Attacking"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "VFXCreateNew",
+							"sid": 289941209528776,
+							"parameters": [
+								"\"Sparks\"",
+								"NPC_sprite.UID",
+								false
+							]
+						}
+					],
+					"sid": 524220813840716
+				}
+			],
+			"sid": 537430256159886,
+			"text-color": [
+				0.0392156862745098,
+				0.0392156862745098,
+				0.0392156862745098,
+				1
+			],
+			"background-color": [
+				1,
+				1,
+				1,
+				1
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Player Damage",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Enemy",
+							"sid": 185877453500851,
+							"parameters": {
+								"object": "PlayerWeapon"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Player",
+							"sid": 959005708668631,
+							"parameters": {
+								"instance-variable": "Attacking"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Enemy",
+							"sid": 929318041876821,
+							"parameters": {
+								"instance-variable": "Immune"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "EnemyTakeDamage",
+							"sid": 299023630857746,
+							"parameters": [
+								"Enemy.UID",
+								"1"
+							]
+						}
+					],
+					"sid": 886453674006603
+				}
+			],
+			"sid": 576070279270619
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Enemy Death",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Enemy",
+							"sid": 920833623065569,
+							"parameters": {
+								"instance-variable": "CurHP",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "MoneySpawnCoin",
+							"sid": 104213056210908,
+							"parameters": [
+								"\"Enemy\"",
+								"Enemy.UID"
+							]
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Enemy",
+							"sid": 187231870492263
+						}
+					],
+					"sid": 829932547059236,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-comparison",
+									"objectClass": "System",
+									"sid": 671643798593034,
+									"parameters": {
+										"object": "MonsterSpawner",
+										"expression": "MonsterSpawner.UID",
+										"comparison": 0,
+										"value": "Enemy.MonsterSpawnerUID"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 467321423217047,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "MonsterSpawner",
+											"sid": 509302485964080,
+											"parameters": {
+												"instance-variable": "ToKillRemains",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "MonsterSpawner",
+											"sid": 386066958688442,
+											"parameters": {
+												"instance-variable": "ToKillRemains",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 989337923468610
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 771948480235834
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Neutral Death",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "VFX_Butterfly",
+							"sid": 735278435584083,
+							"parameters": {
+								"object": "PlayerWeapon"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Player",
+							"sid": 233594670651293,
+							"parameters": {
+								"instance-variable": "Attacking"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "VFX_Butterfly",
+							"sid": 790981345875504
+						}
+					],
+					"sid": 714202872091231
+				}
+			],
+			"sid": 507230962943490
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Health Bar visual sync",
+			"description": "All the codes which makes the Health Bar's proportional to their attached NPC or Player's CurrentHealth variable.",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 252149311207262
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 299281785918822,
+							"parameters": {
+								"object": "HealthBar"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 981374525915992,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "HealthBar",
+									"sid": 611494794327164,
+									"parameters": {
+										"instance-variable": "AttachedToUID",
+										"comparison": 0,
+										"value": "Player.UID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "HealthBar",
+									"sid": 867710428697287,
+									"parameters": {
+										"frame-number": "round(20 - (20 * (Player.CurHP/Player.MaxHP)))"
+									}
+								}
+							],
+							"sid": 524167090651363
+						}
+					]
+				}
+			],
+			"sid": 863812945196198
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Health Pots",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Player",
+							"sid": 942920317731743,
+							"parameters": {
+								"object": "ItemHealthPot"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "ItemHealthPot",
+							"sid": 258377649316283,
+							"parameters": {
+								"instance-variable": "Active"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "ItemHealthPot",
+							"sid": 447649754043383,
+							"parameters": {
+								"instance-variable": "Active",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 140691598892059,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-mirrored",
+									"objectClass": "Player",
+									"sid": 890120861951114
+								}
+							],
+							"actions": [
+								{
+									"id": "set-mirrored",
+									"objectClass": "ItemHealthPot",
+									"sid": 925845122827012,
+									"parameters": {
+										"state": "mirrored"
+									}
+								}
+							],
+							"sid": 395188724568164
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-mirrored",
+									"objectClass": "Player",
+									"sid": 325961338056983,
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-x",
+									"objectClass": "ItemHealthPot",
+									"sid": 229330392735897,
+									"parameters": {
+										"x": "Self.X + 8"
+									}
+								}
+							],
+							"sid": 407701827098682
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "pin-to-object",
+									"objectClass": "ItemHealthPot",
+									"sid": 772293549908627,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "Player",
+										"mode": "position-angle"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "ItemHealthPot",
+									"sid": 960954750348054,
+									"parameters": {
+										"animation": "\"Open\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Player",
+									"sid": 214658619170407,
+									"parameters": {
+										"instance-variable": "Active",
+										"value": "false"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 426595507534420,
+									"parameters": {
+										"seconds": "1.75"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Player",
+									"sid": 963244011292638,
+									"parameters": {
+										"instance-variable": "Active",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Player",
+									"sid": 983077365982936,
+									"parameters": {
+										"instance-variable": "CurHP",
+										"value": "Self.MaxHP"
+									}
+								},
+								{
+									"callFunction": "EnemyTurn",
+									"sid": 235483527633010
+								}
+							],
+							"sid": 842587002215403
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "ItemHealthPot",
+							"sid": 845979531674516,
+							"parameters": {
+								"animation": "\"Open\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "ItemHealthPot",
+							"sid": 894421962913204
+						}
+					],
+					"sid": 584438576891160
+				}
+			],
+			"sid": 849909089486214
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Spikes",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 864428268456506
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 507844181083082,
+							"parameters": {
+								"object": "ObjectSpikes"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "ObjectSpikes",
+							"sid": 660125611334701,
+							"parameters": {
+								"object": "Damager",
+								"layer": "\"_Invisible\"",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						}
+					],
+					"sid": 947059094109464
+				}
+			],
+			"sid": 239141246783114
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "NPC Duels",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-on-screen",
+							"objectClass": "NPC_duel",
+							"sid": 778570959538791
+						}
+					],
+					"actions": [],
+					"sid": 249388904681726,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 515555918510305,
+									"parameters": {
+										"first-value": "NPC_duel.AnimationName",
+										"comparison": 0,
+										"second-value": "\"Eyeball\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 705351623075339,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-x-seconds",
+											"objectClass": "System",
+											"sid": 169389104414220,
+											"parameters": {
+												"interval-seconds": "random(3, 6)"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "NPC_duel",
+											"sid": 632520787622929,
+											"parameters": {
+												"object": "EnemyBullet",
+												"layer": "\"Enemies\"",
+												"image-point": "0",
+												"create-hierarchy": false
+											}
+										}
+									],
+									"sid": 948874573680206,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-last-created",
+													"objectClass": "System",
+													"sid": 286688995945907,
+													"parameters": {
+														"object": "EnemyBullet"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-angle-of-motion",
+													"objectClass": "EnemyBullet",
+													"sid": 625557765535209,
+													"behaviorType": "Bullet",
+													"parameters": {
+														"angle": "angle(Self.X, Self.Y, PlayerLanding.X + round(random(-16,16)), PlayerLanding.Y)"
+													}
+												}
+											],
+											"sid": 198302720374458
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 758291601635053
+		}
+	],
+	"sid": 477429382102765
+}

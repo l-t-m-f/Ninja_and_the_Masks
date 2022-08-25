@@ -1,0 +1,21 @@
+{
+	"name": "TilesShop",
+	"plugin-id": "Tilemap",
+	"sid": 387720367625128,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 48,
+		"height": 48,
+		"originX": 0.5208333333333334,
+		"originY": 0.5208333333333334,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 23,
+		"useCollisionPoly": true
+	},
+	"tile-collision-polys": {}
+}

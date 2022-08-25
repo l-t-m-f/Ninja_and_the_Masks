@@ -1,0 +1,106 @@
+{
+	"name": "VFX_MusicNote",
+	"plugin-id": "Sprite",
+	"sid": 396157333257954,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Fade",
+			"name": "Fade",
+			"sid": 752922133825005
+		},
+		{
+			"behaviorId": "Bullet",
+			"name": "Movement",
+			"sid": 132644261402454
+		},
+		{
+			"behaviorId": "Sin",
+			"name": "AngleOscillation",
+			"sid": 974151254980309
+		},
+		{
+			"behaviorId": "Sin",
+			"name": "MovementSine",
+			"sid": 570705820316038
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 317,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								1,
+								0.0625,
+								1,
+								1,
+								0.0625,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 315,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0,
+								1,
+								0,
+								1,
+								1,
+								0.0625,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 517,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 769870017044133,
+				"name": "Variant",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

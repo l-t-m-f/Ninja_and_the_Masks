@@ -1,0 +1,33 @@
+{
+	"name": "TilesGrass",
+	"plugin-id": "Tilemap",
+	"sid": 785697229146649,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 144,
+		"height": 96,
+		"originX": 0.5,
+		"originY": 0.2552083333333333,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 721,
+		"collisionPoly": {
+			"points": [
+				0,
+				0.005208333333333333,
+				1,
+				0.005208333333333333,
+				1,
+				0.4947916666666667,
+				0,
+				0.4947916666666667
+			]
+		},
+		"useCollisionPoly": true
+	},
+	"tile-collision-polys": {}
+}

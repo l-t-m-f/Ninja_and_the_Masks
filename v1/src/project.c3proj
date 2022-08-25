@@ -1,0 +1,1323 @@
+{
+	"projectFormatVersion": 1,
+	"savedWithRelease": 30200,
+	"name": "Ninja and the Masks",
+	"runtime": "c3",
+	"useWorker": "dom",
+	"bundleAddons": true,
+	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "Tilemap",
+			"name": "Tilemap",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Audio",
+			"name": "Audio",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Browser",
+			"name": "Browser",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "gamepad",
+			"name": "Gamepad",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Keyboard",
+			"name": "Keyboard",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Mouse",
+			"name": "Mouse",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "NodeWebkit",
+			"name": "NW.js",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "shadowlight",
+			"name": "Shadow light",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Touch",
+			"name": "Touch",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "PlatformInfo",
+			"name": "Platform info",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "AJAX",
+			"name": "AJAX",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Arr",
+			"name": "Array",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Json",
+			"name": "JSON",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Spritefont2",
+			"name": "Sprite font",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "TiledBg",
+			"name": "Tiled Background",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Particles",
+			"name": "Particles",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Pin",
+			"name": "Pin",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Sin",
+			"name": "Sine",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Fade",
+			"name": "Fade",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Persist",
+			"name": "Persist",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "scrollto",
+			"name": "Scroll To",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "solid",
+			"name": "Solid",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "LOS",
+			"name": "Line of sight",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Bullet",
+			"name": "Bullet",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "shadowcaster",
+			"name": "Shadow caster",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "bound",
+			"name": "Bound to layout",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Platform",
+			"name": "Platform",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Physics",
+			"name": "Physics",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Flash",
+			"name": "Flash",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Rotate",
+			"name": "Rotate",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "inverse",
+			"name": "Inverse",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "water",
+			"name": "Water",
+			"author": "Viktor Korsun",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "warpripple",
+			"name": "Warp ripple",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "polarinvert",
+			"name": "Polar invert",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "replacecolor",
+			"name": "Replace color",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "overlay",
+			"name": "Overlay",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		}
+	],
+	"uniqueId": "339bsts75l2",
+	"objectTypes": {
+		"items": [
+			"icon"
+		],
+		"subfolders": [
+			{
+				"items": [
+					"TilesDesert",
+					"TilesFence",
+					"TilesFence2",
+					"TilesFence3",
+					"TilesFloorings",
+					"TilesFlooringsI",
+					"TilesGrass",
+					"TilesLadder",
+					"TilesLake",
+					"TilesPath",
+					"TilesRiver",
+					"TilesRoad",
+					"TilesTable",
+					"TilesUnderground",
+					"TilesVegetation",
+					"TilesWallStone",
+					"TilesWallStone2",
+					"TilesWallStone3",
+					"TilesWallStone4",
+					"TilesWallStone5",
+					"TilesWallStone6",
+					"TilesWallWood",
+					"TilesWallWood2",
+					"TilesToxicRiver",
+					"TilesTable2",
+					"TileShade_Forest",
+					"TilesShop"
+				],
+				"subfolders": [],
+				"name": "Tiles"
+			},
+			{
+				"items": [
+					"Audio",
+					"Browser",
+					"Gamepad",
+					"Keyboard",
+					"Mouse",
+					"NWjs",
+					"Cursor",
+					"ShadowLight",
+					"Touch",
+					"PlatformInfo",
+					"AJAX",
+					"DialogsData",
+					"JSON",
+					"Storymap",
+					"Storychoices",
+					"DialogsTimings",
+					"MusicList",
+					"SpriteFontChoice",
+					"Text",
+					"Text_Choices"
+				],
+				"subfolders": [],
+				"name": "Unique"
+			},
+			{
+				"items": [
+					"Blocker",
+					"Camera",
+					"CarBounce",
+					"WaterHitbox",
+					"TP",
+					"FallZone",
+					"TouchZone",
+					"NPC",
+					"Damager",
+					"InvisibleLeafStopper",
+					"InvisibleBlocker",
+					"MonsterSpawner",
+					"NewZone",
+					"BlockerSpecial",
+					"DialogChoiceButton",
+					"HitboxBeeFlowerSpot"
+				],
+				"subfolders": [],
+				"name": "Invisible"
+			},
+			{
+				"items": [
+					"ObjectBalloon",
+					"ObjectBridge",
+					"ObjectCandle",
+					"ObjectCar",
+					"ObjectCarpet",
+					"ObjectCarwreck",
+					"ObjectChest",
+					"ObjectCinemaScreen",
+					"ObjectCloud",
+					"ObjectCrate",
+					"ObjectCurtain",
+					"ObjectDinoEgg",
+					"ObjectDoor",
+					"ObjectFireplace",
+					"ObjectFish",
+					"ObjectFlowerpot",
+					"ObjectFountainplace",
+					"ObjectFurniture",
+					"ObjectGateway",
+					"ObjectHill",
+					"ObjectInstrument",
+					"ObjectLever",
+					"ObjectLight",
+					"ObjectLOFTSign",
+					"ObjectMailbox",
+					"ObjectMisc",
+					"ObjectPileOfTyres",
+					"ObjectPowerPlant",
+					"ObjectRedCrystal",
+					"ObjectRoadSignal",
+					"ObjectRock",
+					"ObjectScene",
+					"ObjectSign",
+					"ObjectSoundSource",
+					"ObjectSpikes",
+					"ObjectStaircase",
+					"ObjectStonePortal",
+					"ObjectStreetlamp",
+					"ObjectSwitch",
+					"ObjectTallgrass",
+					"ObjectUFO",
+					"ObjectWaterfall",
+					"ObjectWaterfallBridge",
+					"ObjectWell",
+					"ObjectWindow",
+					"Canary",
+					"ObjectCarStatic",
+					"ObjectPlanes"
+				],
+				"subfolders": [],
+				"name": "Objects"
+			},
+			{
+				"items": [
+					"VFX_Bat",
+					"VFX_Blood",
+					"VFX_Fire",
+					"VFX_Hayball",
+					"VFX_Butterfly",
+					"VFX_Leaf",
+					"Sprayer_Leaves",
+					"VFX_MusicNote",
+					"VFX_UndergroundParticle",
+					"VFX_UndergroundParticle2",
+					"VFX_ParticleWaterfall",
+					"VFX_ParticleWaterfall2",
+					"VFX_PlantSmoke",
+					"VFX_WaterSplash1",
+					"VFX_Windgust",
+					"VFX_Leaf2",
+					"VFX_LeafShadow",
+					"Sprayer_LeafShadows",
+					"VFX_WaterWaves",
+					"VFX_Bee",
+					"VFX_GameOver",
+					"VFX_InventoryEquipSelector",
+					"VFX_ParachutingLeafman",
+					"VFX_Sparks",
+					"VFX_GrassBlades",
+					"VFX_WaterSplash2"
+				],
+				"subfolders": [],
+				"name": "VFX"
+			},
+			{
+				"items": [
+					"Player",
+					"PlayerHolder",
+					"PlayerSword",
+					"SkateBoard",
+					"NightOverlay",
+					"PlayerNightLight",
+					"PlayerLanding",
+					"PlayerSpecialMarker"
+				],
+				"subfolders": [],
+				"name": "Player"
+			},
+			{
+				"items": [
+					"Masks",
+					"XtraNPC",
+					"Extra",
+					"MenuExtra"
+				],
+				"subfolders": [],
+				"name": "SPRITESHEETS"
+			},
+			{
+				"items": [
+					"Coin",
+					"Structure",
+					"Sun",
+					"HealthBar",
+					"EnemyBullet",
+					"Moon"
+				],
+				"subfolders": [
+					{
+						"items": [
+							"EnemyMask",
+							"NPC_duel",
+							"NPC_sprite",
+							"NPCDeadPilot"
+						],
+						"subfolders": [],
+						"name": "NPCs"
+					}
+				],
+				"name": "Essentials"
+			},
+			{
+				"items": [
+					"UITime",
+					"UI_Graphic_Navbar",
+					"UI_AB_Buttons",
+					"UIJoysticks",
+					"TrimmedLogo",
+					"UIQuitButton",
+					"UI_Sprite_DialogPointer",
+					"BGGameOver",
+					"IconInventoryObject",
+					"IconMenuBarObject",
+					"UIMoon",
+					"IconShopObject",
+					"UIInventoryMenuButton",
+					"UIInventorySpot",
+					"UIInventorySpotColorRing",
+					"UIItemSlot",
+					"UIQuestMarker",
+					"UIShopMenuButton",
+					"UIShopSpot",
+					"UI_Tiles_DialogBubble"
+				],
+				"subfolders": [],
+				"name": "UI"
+			},
+			{
+				"items": [
+					"UIMenuButton",
+					"UIMenuTitleLogo",
+					"MainMenuBG",
+					"Tree",
+					"TilesInventory"
+				],
+				"subfolders": [
+					{
+						"items": [
+							"CinematicFrame",
+							"CinematicFrame2"
+						],
+						"subfolders": [],
+						"name": "Cinematics"
+					}
+				],
+				"name": "Menus"
+			},
+			{
+				"items": [
+					"ItemHealthPot"
+				],
+				"subfolders": [],
+				"name": "Items"
+			}
+		]
+	},
+	"autosaveData": null,
+	"containers": [],
+	"families": {
+		"items": [
+			"Enemy",
+			"VFX",
+			"Transportation",
+			"PlayerObstacle",
+			"Insects",
+			"PlayerWeapon"
+		],
+		"subfolders": []
+	},
+	"layouts": {
+		"items": [
+			"Index",
+			"MainWorld",
+			"Underground",
+			"Cinematics"
+		],
+		"subfolders": [
+			{
+				"items": [
+					"Home"
+				],
+				"subfolders": [
+					{
+						"items": [
+							"MrPotatosHouse_1F",
+							"EvilCandysHouse_1F",
+							"TwinsHouse_1F",
+							"TrashHouse_1F",
+							"DomeOfTyres_1F",
+							"DoctorsCabinet_1F",
+							"GeneralStore_1F"
+						],
+						"subfolders": [
+							{
+								"items": [
+									"Theatre_1F",
+									"BackStage"
+								],
+								"subfolders": [],
+								"name": "Theatre"
+							},
+							{
+								"items": [
+									"B&SFairviewLofts_1F",
+									"B&SFairviewLofts_2F",
+									"LoftsRoof"
+								],
+								"subfolders": [],
+								"name": "Lofts"
+							},
+							{
+								"items": [
+									"WizardsTower_1F",
+									"WizardsTower_2F",
+									"WizardsTower_3F",
+									"WizardsTower_4F"
+								],
+								"subfolders": [],
+								"name": "Wizard Tower"
+							},
+							{
+								"items": [
+									"PowerPlant1",
+									"PowerPlant2"
+								],
+								"subfolders": [],
+								"name": "PowerPlant"
+							},
+							{
+								"items": [
+									"ElephantsHouse_1F",
+									"ElephantsHouse_B1"
+								],
+								"subfolders": [],
+								"name": "Elephant's House"
+							}
+						],
+						"name": "Puppet Valley"
+					},
+					{
+						"items": [
+							"EyeballsTent",
+							"Tent2",
+							"NinjaTemple_1F"
+						],
+						"subfolders": [],
+						"name": "Camping"
+					},
+					{
+						"items": [
+							"PyramidEntrance",
+							"Pyramid1",
+							"Pyramid2",
+							"Pyramid3",
+							"PyramidCenter",
+							"QuakerHouse_1F",
+							"Flame-osHouse_1F",
+							"DesertHouse_1F"
+						],
+						"subfolders": [],
+						"name": "Desert"
+					},
+					{
+						"items": [
+							"Ruin",
+							"Manor"
+						],
+						"subfolders": [
+							{
+								"items": [
+									"Farmhold",
+									"Barn"
+								],
+								"subfolders": [],
+								"name": "Farmhold"
+							},
+							{
+								"items": [
+									"GiantTree"
+								],
+								"subfolders": [],
+								"name": "Giant Tree"
+							}
+						],
+						"name": "East Bank"
+					},
+					{
+						"items": [
+							"UndergroundLaboratory_1F",
+							"Hut",
+							"UndergroundShop",
+							"VacantHall_1F",
+							"MovieScreen_1F",
+							"WaterfallCave"
+						],
+						"subfolders": [],
+						"name": "Underground"
+					}
+				],
+				"name": "Houses"
+			},
+			{
+				"items": [
+					"MainMenu",
+					"Help",
+					"Options",
+					"Credits",
+					"GAMEOVER"
+				],
+				"subfolders": [],
+				"name": "Menus"
+			}
+		]
+	},
+	"eventSheets": {
+		"items": [
+			"Main",
+			"Functions",
+			"Animator",
+			"Controls",
+			"Enemies",
+			"Fight",
+			"Menu",
+			"Controls2",
+			"Init",
+			"GlobalChecks",
+			"ButtonStyle"
+		],
+		"subfolders": []
+	},
+	"rootFileFolders": {
+		"script": {
+			"items": [],
+			"subfolders": []
+		},
+		"sound": {
+			"items": [],
+			"subfolders": [
+				{
+					"items": [
+						{
+							"name": "Attack1.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 962524884189943,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Attack2.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 913844107972079,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Attack3.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 806751400420043,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Jump1.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 294162742280039,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Jump2.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 689246168755315,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Hurt1.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 972708961015596,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Hurt2.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 427726149683288,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Hurt3.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 745087674828804,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Hit_Hurt1.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 717712475708064,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Hit_Hurt2.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 980382550998035,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Hit_Hurt3.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 749538762157001,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Land1.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 477055727430018,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Land2.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 638007308498881,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Land3.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 975080774546573,
+							"file-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "Player"
+				},
+				{
+					"items": [
+						{
+							"name": "EHurt1.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 769951763420564,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "EHurt2.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 515739648794913,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "EHurt3.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 882996636854484,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "EAttack1.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 318398408802361,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "EAttack2.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 915141958870365,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "EMove1.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 218274675277497,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "EMove2.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 241167640954908,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "EMove3.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 639030191622861,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "EMove4.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 418797441511780,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "EMove5.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 791442242353376,
+							"file-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "Enemies"
+				},
+				{
+					"items": [
+						{
+							"name": "Blip_Equip1.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 269654211473889,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Blip_Equip2.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 565037100756890,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Blip_Equip3.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 191971204721887,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Blip_Select.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 329888346714611,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Blip_Select2.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 125629943309581,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Blip_Select3.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 449508739119451,
+							"file-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "Menu"
+				},
+				{
+					"items": [
+						{
+							"name": "Reflect6.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 567491195056614,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Reflect5.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 437354430920293,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Reflect4.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 898218705329408,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Reflect3.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 885140323200221,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Reflect2.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 922067762332752,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Reflect1.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 179620881295255,
+							"file-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "NPC"
+				}
+			]
+		},
+		"music": {
+			"items": [
+				{
+					"name": "Overworld.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 737527491415846,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Underground.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 570305462164751,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Wood1.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 122713521967815,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Menu.mp3",
+					"type": "audio/mpeg",
+					"sid": 479597290881169,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Intro.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 976347930109620,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"video": {
+			"items": [],
+			"subfolders": []
+		},
+		"font": {
+			"items": [
+				{
+					"name": "Retron2000.ttf",
+					"type": "application/font-sfnt",
+					"sid": 668363674895713,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Pixellari.ttf",
+					"type": "application/font-sfnt",
+					"sid": 859693428952735,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"icon": {
+			"items": [
+				{
+					"name": "icon-16.png",
+					"type": "image/png",
+					"sid": 124400510512364,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-32.png",
+					"type": "image/png",
+					"sid": 320344901532953,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-64.png",
+					"type": "image/png",
+					"sid": 592938552436329,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-128.png",
+					"type": "image/png",
+					"sid": 368724476086377,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-256.png",
+					"type": "image/png",
+					"sid": 398844848517203,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-512.png",
+					"type": "image/png",
+					"sid": 481527578567141,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "loading-logo.png",
+					"type": "image/png",
+					"sid": 516050098252644,
+					"icon-info": {
+						"purpose": "loading-logo"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"general": {
+			"items": [
+				{
+					"name": "Dialogs.json",
+					"type": "application/json",
+					"sid": 803401438008187,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Storymap.json",
+					"type": "application/json",
+					"sid": 345101121000097,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Storychoices.json",
+					"type": "application/json",
+					"sid": 946521986868112,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "DialogsTimings.json",
+					"type": "application/json",
+					"sid": 929595738623650,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "MusicList.json",
+					"type": "application/json",
+					"sid": 411364833082954,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
+			"subfolders": []
+		}
+	},
+	"timelines": {
+		"items": [],
+		"subfolders": [
+			{
+				"items": [],
+				"subfolders": []
+			}
+		]
+	},
+	"properties": {
+		"description": "My alpha",
+		"version": "p1.1.0.4",
+		"author": "ÉmileFréchette",
+		"authorEmail": "",
+		"authorWebsite": "montanalogue.com",
+		"appId": "",
+		"pixelRounding": true,
+		"zAxisScale": "normalized",
+		"fov": 0.7853981633974483,
+		"useLoaderLayout": true,
+		"fullscreenMode": "letterbox-scale",
+		"fullscreenQuality": "high",
+		"viewportFit": "auto",
+		"backgroundColor": [
+			0,
+			0,
+			0,
+			0
+		],
+		"splashColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useThemeColor": false,
+		"themeColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"orientations": "landscape",
+		"webgpu": "auto",
+		"gpuPreference": "high-performance",
+		"scriptsType": "module",
+		"framerateMode": "vsync",
+		"compositingMode": "standard",
+		"sampling": "nearest",
+		"downscaling": "medium",
+		"renderingMode": "auto",
+		"anisotropicFiltering": "auto",
+		"maxSpriteSheetSize": 2048,
+		"loaderStyle": "percent",
+		"preloadSounds": true,
+		"cordovaiOSScheme": "file",
+		"cordovaAndroidScheme": "file"
+	},
+	"viewportWidth": 480,
+	"viewportHeight": 272,
+	"firstLayout": "MainMenu"
+}

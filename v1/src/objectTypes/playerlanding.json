@@ -1,0 +1,73 @@
+{
+	"name": "PlayerLanding",
+	"plugin-id": "Sprite",
+	"sid": 581669999626792,
+	"isGlobal": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 588,
+						"collisionPoly": {
+							"points": [
+								0.1875,
+								0.1875,
+								0.8125,
+								0.1875,
+								0.8125,
+								0.8125,
+								0.1875,
+								0.8125
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 587,
+						"collisionPoly": {
+							"points": [
+								0.1875,
+								0.1875,
+								0.8125,
+								0.1875,
+								0.8125,
+								0.8125,
+								0.1875,
+								0.8125
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 896914005425792,
+				"name": "Animation 1",
+				"isLooping": true,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 1.75
+			}
+		],
+		"subfolders": []
+	}
+}

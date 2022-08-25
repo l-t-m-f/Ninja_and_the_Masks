@@ -1,0 +1,53 @@
+{
+	"name": "Moon",
+	"plugin-id": "Sprite",
+	"sid": 922828829003248,
+	"isGlobal": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 695229448631658
+		},
+		{
+			"behaviorId": "Sin",
+			"name": "Sine2",
+			"sid": 704870943485188
+		},
+		{
+			"behaviorId": "Fade",
+			"name": "Fade",
+			"sid": 741335418061818
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 48,
+						"height": 48,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 642,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 305466752378231,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

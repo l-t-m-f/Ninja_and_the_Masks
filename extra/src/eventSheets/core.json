@@ -1,0 +1,438 @@
+{
+	"name": "Core",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Player"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "DynamicLight"
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Init",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 623966465670931
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "Ninja"
+						},
+						{
+							"id": "pin-to-object",
+							"objectClass": "PlayerJumpHitbox",
+							"sid": 712274762220344,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "PlayerAnimation",
+								"mode": "position-angle"
+							}
+						},
+						{
+							"id": "set-position-to-another-object",
+							"objectClass": "PlayerAnimation",
+							"sid": 739655828799134,
+							"parameters": {
+								"object": "Player",
+								"image-point-optional": "1"
+							}
+						},
+						{
+							"id": "pin-to-object",
+							"objectClass": "PlayerAnimation",
+							"sid": 929060347914025,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "Player",
+								"mode": "position-angle"
+							}
+						}
+					],
+					"sid": 590577986936476
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 762540645149469
+						}
+					],
+					"actions": [],
+					"sid": 404168940788336,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for",
+									"objectClass": "System",
+									"sid": 671067200829786,
+									"parameters": {
+										"name": "\"i_x\"",
+										"start-index": "1",
+										"end-index": "round(LayoutWidth/16)"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 649794940748407,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for",
+											"objectClass": "System",
+											"sid": 188838597559582,
+											"parameters": {
+												"name": "\"i_y\"",
+												"start-index": "1",
+												"end-index": "round(LayoutHeight/16)"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 141703788833754,
+											"parameters": {
+												"object-to-create": "DarknessTile",
+												"layer": "\"Darkness\"",
+												"x": "(loopindex(\"i_x\")*16)-16",
+												"y": "(loopindex(\"i_y\")*16)-16",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										}
+									],
+									"sid": 598216760900558
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 990338041065064
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Update",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Darkness",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 567503118316751
+								}
+							],
+							"actions": [],
+							"sid": 267871766065653,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "has-los-to-object",
+											"objectClass": "Player",
+											"sid": 563985175962866,
+											"behaviorType": "MaxRange",
+											"parameters": {
+												"object": "DarknessTile",
+												"image-point": "0"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 793153782021221,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-opacity",
+													"objectClass": "DarknessTile",
+													"sid": 567300091354738,
+													"parameters": {
+														"comparison": 1,
+														"opacity": "80"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-opacity",
+													"objectClass": "DarknessTile",
+													"sid": 319781914153885,
+													"parameters": {
+														"opacity": "80"
+													}
+												}
+											],
+											"sid": 696489915030779
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "has-los-to-object",
+											"objectClass": "Player",
+											"sid": 962167345869624,
+											"behaviorType": "MidRange",
+											"parameters": {
+												"object": "DarknessTile",
+												"image-point": "0"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 849270843266430,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-opacity",
+													"objectClass": "DarknessTile",
+													"sid": 328898056695017,
+													"parameters": {
+														"comparison": 1,
+														"opacity": "50"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-opacity",
+													"objectClass": "DarknessTile",
+													"sid": 566493235776781,
+													"parameters": {
+														"opacity": "50"
+													}
+												}
+											],
+											"sid": 245213956684030
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "has-los-to-object",
+											"objectClass": "Player",
+											"sid": 380674322265312,
+											"behaviorType": "CloseRange",
+											"parameters": {
+												"object": "DarknessTile",
+												"image-point": "0"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 358269717997520,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-opacity",
+													"objectClass": "DarknessTile",
+													"sid": 346099377131178,
+													"parameters": {
+														"comparison": 1,
+														"opacity": "25"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-opacity",
+													"objectClass": "DarknessTile",
+													"sid": 871057242526937,
+													"parameters": {
+														"opacity": "25\n"
+													}
+												}
+											],
+											"sid": 783690384220985
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "has-los-to-object",
+											"objectClass": "Player",
+											"sid": 542781761184645,
+											"behaviorType": "MaxRange",
+											"parameters": {
+												"object": "DarknessTile",
+												"image-point": "0"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "has-los-to-object",
+											"objectClass": "Player",
+											"sid": 141633273703265,
+											"behaviorType": "MidRange",
+											"parameters": {
+												"object": "DarknessTile",
+												"image-point": "0"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "has-los-to-object",
+											"objectClass": "Player",
+											"sid": 153858650612358,
+											"behaviorType": "CloseRange",
+											"parameters": {
+												"object": "DarknessTile",
+												"image-point": "0"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [],
+									"sid": 625960474123311,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-opacity",
+													"objectClass": "DarknessTile",
+													"sid": 487015764388538,
+													"parameters": {
+														"comparison": 1,
+														"opacity": "100"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-opacity",
+													"objectClass": "DarknessTile",
+													"sid": 456360313401790,
+													"parameters": {
+														"opacity": "100"
+													}
+												}
+											],
+											"sid": 897954174572931
+										}
+									]
+								}
+							]
+						}
+					],
+					"sid": 452409734342303
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Camera",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 933828257077075
+								}
+							],
+							"actions": [],
+							"sid": 894019715059173,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Player",
+											"sid": 958322694084914,
+											"parameters": {
+												"object": "Ground"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Camera",
+											"sid": 339308757004765,
+											"parameters": {
+												"x": "lerp(Self.X, PlayerAnimation.X, 0.038)",
+												"y": "lerp(Self.Y, PlayerAnimation.Y-100, 0.25)"
+											}
+										}
+									],
+									"sid": 191482876395680
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 977096124447685
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Camera",
+											"sid": 712043940683703,
+											"parameters": {
+												"x": "lerp(Self.X, PlayerAnimation.X, 0.038)",
+												"y": "lerp(Self.Y, PlayerAnimation.Y-70, 0.15)"
+											}
+										}
+									],
+									"sid": 364324210202657
+								}
+							]
+						}
+					],
+					"sid": 254262797306570
+				}
+			],
+			"sid": 662611203431046
+		}
+	],
+	"sid": 935005275748312
+}

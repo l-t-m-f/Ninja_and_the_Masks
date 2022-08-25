@@ -1,0 +1,73 @@
+{
+	"name": "CinematicFrame2",
+	"plugin-id": "Sprite",
+	"sid": 281073981540833,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 560,
+						"height": 330,
+						"originX": 0.07321428571428572,
+						"originY": 0.08787878787878788,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 643,
+						"collisionPoly": {
+							"points": [
+								0.1982142857142857,
+								0.20909090909090908,
+								0.8017857142857143,
+								0.20909090909090908,
+								0.8017857142857143,
+								0.7909090909090909,
+								0.1982142857142857,
+								0.7909090909090909
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 478,
+						"height": 272,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 553,
+						"collisionPoly": {
+							"points": [
+								0.14644351464435146,
+								0.14705882352941177,
+								0.8535564853556485,
+								0.14705882352941177,
+								0.8535564853556485,
+								0.8529411764705882,
+								0.14644351464435146,
+								0.8529411764705882
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 778135395786763,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

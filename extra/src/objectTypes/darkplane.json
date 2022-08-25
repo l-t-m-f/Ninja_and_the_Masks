@@ -1,0 +1,60 @@
+{
+	"name": "DarkPlane",
+	"plugin-id": "Sprite",
+	"sid": 442651029167680,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Bullet",
+			"name": "Bullet",
+			"sid": 853083077560926
+		},
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 598450252663473
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 18,
+						"collisionPoly": {
+							"points": [
+								0.9375,
+								1,
+								0,
+								1,
+								0,
+								0.0625,
+								0.9375,
+								0.0625
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 168165977172159,
+				"name": "Default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

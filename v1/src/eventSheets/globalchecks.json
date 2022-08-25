@@ -1,0 +1,264 @@
+{
+	"name": "GlobalChecks",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "STORY_LeafmanLanded",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 260595056991596
+		},
+		{
+			"eventType": "variable",
+			"name": "STORY_MrPotatoMet",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 376769224767198
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 785271349292426,
+					"parameters": {
+						"variable": "STORY_MrPotatoMet"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 228435904871757
+				}
+			],
+			"actions": [],
+			"sid": 174810010860218,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "NPC",
+							"sid": 728403713755397,
+							"parameters": {
+								"instance-variable": "Story_Z",
+								"comparison": 0,
+								"value": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "NPC",
+							"sid": 749146888308830,
+							"parameters": {
+								"instance-variable": "Story_Y",
+								"value": "4"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "NPC",
+							"sid": 993681629953437,
+							"parameters": {
+								"instance-variable": "Story_Next_Y",
+								"value": "4"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "NPC",
+							"sid": 961299005499395,
+							"parameters": {
+								"instance-variable": "Story_X",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 184149470393007
+				}
+			]
+		},
+		{
+			"eventType": "variable",
+			"name": "STORY_PeaceGirlMet",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 121531790688354
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Items",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "NPC",
+							"sid": 631701818726237,
+							"parameters": {
+								"instance-variable": "Story_Z",
+								"comparison": 0,
+								"value": "9"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "NPC",
+							"sid": 917660376927818,
+							"parameters": {
+								"instance-variable": "Story_Y",
+								"comparison": 0,
+								"value": "4"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 733024414027466,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-comparison",
+									"objectClass": "System",
+									"sid": 748073742053770,
+									"parameters": {
+										"object": "UIInventorySpot",
+										"expression": "UIInventorySpot.ItemName",
+										"comparison": 0,
+										"value": "\"Skateboard\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "UIInventorySpot",
+									"sid": 279270712569933,
+									"parameters": {
+										"instance-variable": "Possessed",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Player",
+									"sid": 887672473436481,
+									"parameters": {
+										"instance-variable": "EquippedTransportation",
+										"value": "\"Skateboard\""
+									}
+								}
+							],
+							"sid": 263166366964021
+						}
+					]
+				}
+			],
+			"sid": 818361719679119
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "NPC",
+					"sid": 292254204919898,
+					"parameters": {
+						"instance-variable": "Story_Z",
+						"comparison": 0,
+						"value": "17"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 715615834548701,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-y",
+							"objectClass": "Player",
+							"sid": 437110004691625,
+							"parameters": {
+								"comparison": 5,
+								"y-co-ordinate": "95"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "NPC",
+							"sid": 707611454404948,
+							"parameters": {
+								"instance-variable": "Story_Y",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "NPC",
+							"sid": 729237569785148,
+							"parameters": {
+								"instance-variable": "Story_Next_Y",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 541920417852929
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 117578593808284
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "NPC",
+							"sid": 248231912851172,
+							"parameters": {
+								"instance-variable": "Story_Y",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "NPC",
+							"sid": 170753433388722,
+							"parameters": {
+								"instance-variable": "Story_Next_Y",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 906767954339263
+				}
+			]
+		}
+	],
+	"sid": 302162118269696
+}

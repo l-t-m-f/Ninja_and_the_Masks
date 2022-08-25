@@ -1,0 +1,33 @@
+{
+	"name": "TilesDesert",
+	"plugin-id": "Tilemap",
+	"sid": 526390621638528,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 96,
+		"height": 64,
+		"originX": 0.5104166666666666,
+		"originY": 0.515625,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 43,
+		"collisionPoly": {
+			"points": [
+				0.010416666666666666,
+				0,
+				1,
+				0,
+				1,
+				1,
+				0.010416666666666666,
+				1
+			]
+		},
+		"useCollisionPoly": true
+	},
+	"tile-collision-polys": {}
+}

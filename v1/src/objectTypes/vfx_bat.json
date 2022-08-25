@@ -1,0 +1,137 @@
+{
+	"name": "VFX_Bat",
+	"plugin-id": "Sprite",
+	"sid": 131181859991759,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Resting",
+			"type": "boolean",
+			"desc": "",
+			"sid": 869499159369004
+		},
+		{
+			"name": "HP",
+			"type": "number",
+			"desc": "",
+			"sid": 979836297353975
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Bullet",
+			"name": "Bullet",
+			"sid": 760667418570553
+		},
+		{
+			"behaviorId": "bound",
+			"name": "BoundToLayout",
+			"sid": 386363474941873
+		},
+		{
+			"behaviorId": "LOS",
+			"name": "LineOfSight",
+			"sid": 884641037490042
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 406,
+						"collisionPoly": {
+							"points": [
+								0.125,
+								0.125,
+								1,
+								0.125,
+								1,
+								1,
+								0.125,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 777760511212864,
+				"name": "Rest",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			},
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 413,
+						"collisionPoly": {
+							"points": [
+								0.125,
+								0,
+								1,
+								0,
+								1,
+								1,
+								0.125,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 414,
+						"collisionPoly": {
+							"points": [
+								0.125,
+								0,
+								1,
+								0,
+								1,
+								1,
+								0.125,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 745622608851456,
+				"name": "Fly",
+				"isLooping": true,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 4
+			}
+		],
+		"subfolders": []
+	}
+}

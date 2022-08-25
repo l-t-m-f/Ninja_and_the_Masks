@@ -1,0 +1,29 @@
+{
+	"name": "VFX_GameOver",
+	"plugin-id": "Particles",
+	"sid": 530775523488605,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "warpripple",
+			"name": "WarpRipple"
+		},
+		{
+			"effectId": "polarinvert",
+			"name": "PolarInvert"
+		}
+	],
+	"image": {
+		"width": 15,
+		"height": 15,
+		"originX": 6.133333333333334,
+		"originY": 6.2,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 581,
+		"useCollisionPoly": true
+	}
+}

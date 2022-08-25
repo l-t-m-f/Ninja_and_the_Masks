@@ -1,0 +1,2965 @@
+{
+	"name": "Animator",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "Cinematic_SpecialShot_Plane",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 121400849798747
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Cinematics Animations",
+			"description": "All the codes pertaining the the cinematics of the game.",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Plane Scene",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 777862436163799,
+									"parameters": {
+										"first-value": "LayoutName",
+										"comparison": 0,
+										"second-value": "\"Cinematics\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 572100881971511,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 769494638333586,
+											"parameters": {
+												"variable": "Cinematic_SpecialShot_Plane"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 564070968676664,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-animation-frame",
+													"objectClass": "ObjectPlanes",
+													"sid": 838605494653331,
+													"parameters": {
+														"comparison": 0,
+														"number": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-angle-of-motion",
+													"objectClass": "ObjectPlanes",
+													"sid": 340409618555003,
+													"behaviorType": "Bullet",
+													"parameters": {
+														"angle": "217"
+													}
+												}
+											],
+											"sid": 395922239928701
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-animation-frame",
+													"objectClass": "ObjectPlanes",
+													"sid": 992048621581969,
+													"parameters": {
+														"comparison": 0,
+														"number": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-angle-of-motion",
+													"objectClass": "ObjectPlanes",
+													"sid": 364073414357894,
+													"behaviorType": "Bullet",
+													"parameters": {
+														"angle": "180"
+													}
+												},
+												{
+													"id": "set-speed",
+													"objectClass": "ObjectPlanes",
+													"sid": 831694552852435,
+													"behaviorType": "Bullet",
+													"parameters": {
+														"speed": "40"
+													}
+												}
+											],
+											"sid": 734174234014092
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-animation-frame",
+													"objectClass": "ObjectPlanes",
+													"sid": 541614981005741,
+													"parameters": {
+														"comparison": 0,
+														"number": "2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-angle-of-motion",
+													"objectClass": "ObjectPlanes",
+													"sid": 474217432315303,
+													"behaviorType": "Bullet",
+													"parameters": {
+														"angle": "135"
+													}
+												},
+												{
+													"id": "set-speed",
+													"objectClass": "ObjectPlanes",
+													"sid": 174999167027811,
+													"behaviorType": "Bullet",
+													"parameters": {
+														"speed": "45"
+													}
+												}
+											],
+											"sid": 995334552533054,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "every-x-seconds",
+															"objectClass": "System",
+															"sid": 536078316038081,
+															"parameters": {
+																"interval-seconds": "random(0.01,0.1)"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "spawn-another-object",
+															"objectClass": "ObjectPlanes",
+															"sid": 928804587788926,
+															"parameters": {
+																"object": "VFX_PlantSmoke",
+																"layer": "\"FG\"",
+																"image-point": "\"Tail\"",
+																"create-hierarchy": false
+															}
+														},
+														{
+															"id": "set-scale",
+															"objectClass": "VFX_PlantSmoke",
+															"sid": 229110979935531,
+															"parameters": {
+																"scale": "random(0.5,1)"
+															}
+														}
+													],
+													"sid": 312973625470135
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 839727299915764,
+									"parameters": {
+										"interval-seconds": "random(1,4)"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 154771192329951,
+									"parameters": {
+										"first-value": "LayoutName",
+										"comparison": 0,
+										"second-value": "\"Cinematics\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 973409184392526,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "repeat",
+											"objectClass": "System",
+											"sid": 334702427602077,
+											"parameters": {
+												"count": "random(1,3)"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 349766461373258,
+											"parameters": {
+												"object-to-create": "ObjectCloud",
+												"layer": "\"FG\"",
+												"x": "0",
+												"y": "round(random(0, 17))*16",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										}
+									],
+									"sid": 698611161053785,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-last-created",
+													"objectClass": "System",
+													"sid": 873345715829547,
+													"parameters": {
+														"object": "ObjectCloud"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation-frame",
+													"objectClass": "ObjectCloud",
+													"sid": 230977340261262,
+													"parameters": {
+														"frame-number": "round(random(0,2))"
+													}
+												},
+												{
+													"id": "set-speed",
+													"objectClass": "ObjectCloud",
+													"sid": 670002019526216,
+													"behaviorType": "Bullet",
+													"parameters": {
+														"speed": "random(8, 16)"
+													}
+												}
+											],
+											"sid": 777790173675964
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-start-of-layout",
+									"objectClass": "System",
+									"sid": 731654991281817
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 285658987569387,
+									"parameters": {
+										"first-value": "LayoutName",
+										"comparison": 0,
+										"second-value": "\"Cinematics\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "pin-to-object",
+									"objectClass": "ShadowLight",
+									"sid": 822305803298629,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "Sun",
+										"mode": "position-angle"
+									}
+								}
+							],
+							"sid": 764363310859754,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "repeat",
+											"objectClass": "System",
+											"sid": 209209132710549,
+											"parameters": {
+												"count": "16"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 924753301589443,
+											"parameters": {
+												"object-to-create": "ObjectCloud",
+												"layer": "\"FG\"",
+												"x": "round(random(30))*16",
+												"y": "round(random(0, 17))*16",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										}
+									],
+									"sid": 315453213159941,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-last-created",
+													"objectClass": "System",
+													"sid": 781349680116146,
+													"parameters": {
+														"object": "ObjectCloud"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation-frame",
+													"objectClass": "ObjectCloud",
+													"sid": 776998088169869,
+													"parameters": {
+														"frame-number": "round(random(0,1))"
+													}
+												},
+												{
+													"id": "set-speed",
+													"objectClass": "ObjectCloud",
+													"sid": 679016681790071,
+													"behaviorType": "Bullet",
+													"parameters": {
+														"speed": "random(8, 16)"
+													}
+												}
+											],
+											"sid": 605265982054614
+										}
+									]
+								}
+							]
+						}
+					],
+					"sid": 387827766079147
+				}
+			],
+			"sid": 601503969531722
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "In-game Animations",
+			"description": "All the codes pertaining the the gameplay of Ninja and the Masks.",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Player Animator",
+					"description": "All the codes handling the animations of the Player.",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Walk cycle."
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-animation-finished",
+									"objectClass": "Player",
+									"sid": 934148596606447,
+									"parameters": {
+										"animation": "\"Walk\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Player",
+									"sid": 763502201128734,
+									"parameters": {
+										"animation": "\"Idle\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 362271985737210
+						},
+						{
+							"eventType": "comment",
+							"text": "Walk cycle taking into account the Tallgrass or water.",
+							"background-color": [
+								0.996078431372549,
+								0.7764705882352941,
+								0.7215686274509804,
+								1
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-animation-finished",
+									"objectClass": "Player",
+									"sid": 361374790030158,
+									"parameters": {
+										"animation": "\"Special_WalkTallgrass\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 939633060619454,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Player",
+											"sid": 541579216811178,
+											"parameters": {
+												"object": "ObjectTallgrass"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Player",
+											"sid": 953822345007846,
+											"parameters": {
+												"object": "WaterHitbox"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Player",
+											"sid": 849431196357971,
+											"parameters": {
+												"animation": "\"Special_IdleTallgrass\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Transportation",
+											"sid": 572786648965690,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 995668778306896,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 859161861654846
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Player",
+											"sid": 956400797942741,
+											"parameters": {
+												"animation": "\"Idle\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 204714124981367,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Transportation",
+													"sid": 893660022372514,
+													"parameters": {
+														"instance-variable": "Active"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-visible",
+													"objectClass": "Transportation",
+													"sid": 895947366978370,
+													"parameters": {
+														"visibility": "visible"
+													}
+												}
+											],
+											"sid": 874585124401112
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Jumping animator"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Player",
+									"sid": 901994541167577,
+									"parameters": {
+										"instance-variable": "Jumping"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 637864084118037,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-landed",
+											"objectClass": "Player",
+											"sid": 528217331551655,
+											"behaviorType": "Platform"
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "AudioPlaySFX",
+											"sid": 630203661885700,
+											"parameters": [
+												"\"Land\"",
+												"1",
+												"3",
+												"15"
+											]
+										}
+									],
+									"sid": 911201632645195,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "If the Player lands on a PlayerObstacle object, triggers a small hop (see function)."
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Player",
+													"sid": 228366183658256,
+													"parameters": {
+														"object": "PlayerObstacle"
+													}
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Player",
+													"sid": 704846043749065,
+													"parameters": {
+														"object": "Enemy"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "PlayerLandOnBlocker",
+													"sid": 995581407133451
+												}
+											],
+											"sid": 976436550911779,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "Player",
+															"sid": 355325633416768,
+															"parameters": {
+																"object": "Enemy"
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "EnemyTakeDamage",
+															"sid": 387081388901894,
+															"parameters": [
+																"Enemy.UID",
+																"0"
+															]
+														}
+													],
+													"sid": 364692494801176,
+													"disabled": true
+												}
+											],
+											"isOrBlock": true
+										},
+										{
+											"eventType": "comment",
+											"text": "Otherwise, disable the Jumping instance boolean and reestablish the PlayerObjects' solidity."
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 489495864952141
+												}
+											],
+											"actions": [],
+											"sid": 702650479860291,
+											"children": [
+												{
+													"eventType": "comment",
+													"text": "This part changes the animation if the Player is in a Tallgrass or water patch.",
+													"background-color": [
+														0.996078431372549,
+														0.7764705882352941,
+														0.7215686274509804,
+														1
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "Player",
+															"sid": 386685232944605,
+															"parameters": {
+																"object": "ObjectTallgrass"
+															}
+														},
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "Player",
+															"sid": 530639065684528,
+															"parameters": {
+																"object": "WaterHitbox"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation",
+															"objectClass": "Player",
+															"sid": 390331975599063,
+															"parameters": {
+																"animation": "\"Special_IdleTallgrass\"",
+																"from": "beginning"
+															}
+														},
+														{
+															"id": "set-visible",
+															"objectClass": "Transportation",
+															"sid": 485395802186342,
+															"parameters": {
+																"visibility": "invisible"
+															}
+														}
+													],
+													"sid": 946896674057007,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "is-overlapping-another-object",
+																	"objectClass": "Player",
+																	"sid": 195655986955196,
+																	"parameters": {
+																		"object": "WaterHitbox"
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 602469550949589,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "is-mirrored",
+																			"objectClass": "Player",
+																			"sid": 964291669105059
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "spawn-another-object",
+																			"objectClass": "Player",
+																			"sid": 789578648208492,
+																			"parameters": {
+																				"object": "VFX_WaterSplash2",
+																				"layer": "\"VFX\"",
+																				"image-point": "\"VFX_Corner_R\"",
+																				"create-hierarchy": false
+																			}
+																		},
+																		{
+																			"id": "set-animation",
+																			"objectClass": "VFX_WaterSplash2",
+																			"sid": 696337993934922,
+																			"parameters": {
+																				"animation": "\"Land\"",
+																				"from": "beginning"
+																			}
+																		}
+																	],
+																	"sid": 683999989548194
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "is-mirrored",
+																			"objectClass": "Player",
+																			"sid": 117499809625930,
+																			"isInverted": true
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "spawn-another-object",
+																			"objectClass": "Player",
+																			"sid": 204062763524580,
+																			"parameters": {
+																				"object": "VFX_WaterSplash2",
+																				"layer": "\"VFX\"",
+																				"image-point": "\"VFX_Corner_L\"",
+																				"create-hierarchy": false
+																			}
+																		},
+																		{
+																			"id": "set-animation",
+																			"objectClass": "VFX_WaterSplash2",
+																			"sid": 640613525639434,
+																			"parameters": {
+																				"animation": "\"Land\"",
+																				"from": "beginning"
+																			}
+																		}
+																	],
+																	"sid": 396664185407110
+																}
+															],
+															"isOrBlock": true
+														}
+													],
+													"isOrBlock": true
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 862771919614865
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation",
+															"objectClass": "Player",
+															"sid": 971622701373968,
+															"parameters": {
+																"animation": "\"Idle\"",
+																"from": "beginning"
+															}
+														}
+													],
+													"sid": 470415409296341,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "is-boolean-instance-variable-set",
+																	"objectClass": "Transportation",
+																	"sid": 556911990843649,
+																	"parameters": {
+																		"instance-variable": "Active"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-visible",
+																	"objectClass": "Transportation",
+																	"sid": 242174384882419,
+																	"parameters": {
+																		"visibility": "visible"
+																	}
+																}
+															],
+															"sid": 681901788505409
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "set-enabled",
+															"objectClass": "PlayerObstacle",
+															"sid": 797847572681775,
+															"behaviorType": "Solid",
+															"parameters": {
+																"state": "enabled"
+															}
+														},
+														{
+															"type": "comment",
+															"text": "Trigger a new EnemyTurn."
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "Player",
+															"sid": 948864861483942,
+															"parameters": {
+																"instance-variable": "Jumping",
+																"value": "false"
+															}
+														},
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 355424203649524,
+															"parameters": {
+																"seconds": "0.2"
+															}
+														},
+														{
+															"callFunction": "EnemyTurn",
+															"sid": 243605138987394
+														}
+													],
+													"sid": 666541937044278
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "comment",
+									"text": "When the Player begins to Fall in his jump (so midway), trigger a new Enemy Turn."
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-fall",
+											"objectClass": "Player",
+											"sid": 268083972872573,
+											"behaviorType": "Platform"
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Player",
+											"sid": 470708350568448,
+											"parameters": {
+												"animation": "\"Jump\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Player",
+											"sid": 438950038126804,
+											"parameters": {
+												"animation": "\"Fall\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 921851552168252
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Tallgrass or water Fix! Ensures that the right animation is playing even in transition from Tallgrass or water or into Tallgrass or water.",
+							"background-color": [
+								0.996078431372549,
+								0.7764705882352941,
+								0.7215686274509804,
+								1
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 392486894658731
+								}
+							],
+							"actions": [],
+							"sid": 594535186750397,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Player",
+											"sid": 330988840090898,
+											"parameters": {
+												"animation": "\"Special_WalkTallgrass\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 673344592070707,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Player",
+													"sid": 686278528825835,
+													"parameters": {
+														"object": "ObjectTallgrass"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Player",
+													"sid": 949207556942877,
+													"parameters": {
+														"object": "WaterHitbox"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "Player",
+													"sid": 286581894917029,
+													"parameters": {
+														"animation": "\"Walk\"",
+														"from": "current-frame"
+													}
+												}
+											],
+											"sid": 653840946606283,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "Transportation",
+															"sid": 879850970707383,
+															"parameters": {
+																"instance-variable": "Active"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-visible",
+															"objectClass": "Transportation",
+															"sid": 645268477799617,
+															"parameters": {
+																"visibility": "visible"
+															}
+														}
+													],
+													"sid": 223295859910701
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 810826150063370
+								}
+							],
+							"actions": [],
+							"sid": 843510162702986,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Player",
+											"sid": 162806060260971,
+											"parameters": {
+												"animation": "\"Walk\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 642962281203966,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Player",
+													"sid": 177806454942045,
+													"parameters": {
+														"object": "ObjectTallgrass"
+													}
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Player",
+													"sid": 776016418109185,
+													"parameters": {
+														"object": "WaterHitbox"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "Player",
+													"sid": 636160421986171,
+													"parameters": {
+														"animation": "\"Special_WalkTallgrass\"",
+														"from": "current-frame"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Transportation",
+													"sid": 670940769993673,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												}
+											],
+											"sid": 471038789164774,
+											"isOrBlock": true
+										}
+									]
+								}
+							]
+						}
+					],
+					"sid": 343727905122382,
+					"text-color": [
+						0.27450980392156865,
+						0.4745098039215686,
+						0.2235294117647059,
+						1
+					],
+					"background-color": [
+						0.8156862745098039,
+						0.9686274509803922,
+						1,
+						1
+					]
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "NPCs Animator",
+					"description": "All the codes handling the animations of the NPCs.",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Leafman",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 945286814707427,
+											"parameters": {
+												"variable": "STORY_LeafmanLanded"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "VFX_ParachutingLeafman",
+											"sid": 434773140699395
+										}
+									],
+									"sid": 235788767605589
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-y",
+											"objectClass": "VFX_ParachutingLeafman",
+											"sid": 728870685258829,
+											"parameters": {
+												"comparison": 5,
+												"y-co-ordinate": "224"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 712904224817318
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "VFX_ParachutingLeafman",
+											"sid": 671108937847194
+										},
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 679902299981090,
+											"parameters": {
+												"object-to-create": "NPC_sprite",
+												"layer": "\"NPC\"",
+												"x": "464",
+												"y": "208",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "NPC_sprite",
+											"sid": 710853236489037,
+											"parameters": {
+												"animation": "\"Leafman\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "NPC_sprite",
+											"sid": 694858852431773,
+											"parameters": {
+												"instance-variable": "ActiveOn",
+												"value": "\"MainWorld\""
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 489259019609132,
+											"parameters": {
+												"variable": "STORY_LeafmanLanded",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 578511777077889
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "has-los-to-object",
+											"objectClass": "VFX_ParachutingLeafman",
+											"sid": 739663582393544,
+											"behaviorType": "LineOfSight",
+											"parameters": {
+												"object": "Player",
+												"image-point": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-speed",
+											"objectClass": "VFX_ParachutingLeafman",
+											"sid": 794665078748266,
+											"behaviorType": "Bullet",
+											"parameters": {
+												"speed": "5"
+											}
+										},
+										{
+											"id": "set-angle-of-motion",
+											"objectClass": "VFX_ParachutingLeafman",
+											"sid": 321546933376509,
+											"behaviorType": "Bullet",
+											"parameters": {
+												"angle": "115"
+											}
+										}
+									],
+									"sid": 641601811823173
+								}
+							],
+							"sid": 298123608732628
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Home - The Kid",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-start-of-layout",
+											"objectClass": "System",
+											"sid": 959133510003729
+										}
+									],
+									"actions": [],
+									"sid": 206280894023532,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "NPC",
+													"sid": 689755945313720,
+													"parameters": {
+														"instance-variable": "Story_Z",
+														"comparison": 0,
+														"value": "3"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 847852329747657,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-animation-playing",
+															"objectClass": "NPC_sprite",
+															"sid": 635395264580029,
+															"parameters": {
+																"animation": "\"TheKid\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "pin-to-object",
+															"objectClass": "NPC",
+															"sid": 559095083310376,
+															"behaviorType": "Pin",
+															"parameters": {
+																"pin-to": "NPC_sprite",
+																"mode": "position-angle"
+															}
+														}
+													],
+													"sid": 216255433131076
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "NPC",
+											"sid": 170772933890057,
+											"parameters": {
+												"instance-variable": "Story_Z",
+												"comparison": 0,
+												"value": "3"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "NPC",
+											"sid": 279009021902780,
+											"parameters": {
+												"instance-variable": "Story_Y",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "NPC",
+											"sid": 355116126335717,
+											"parameters": {
+												"instance-variable": "Story_X",
+												"comparison": 0,
+												"value": "2"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "NPC",
+											"sid": 106960211438901,
+											"parameters": {
+												"instance-variable": "Immovable"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "NPC_sprite",
+											"sid": 787069573476738,
+											"parameters": {
+												"animation": "\"TheKid\""
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 940824794226836
+										}
+									],
+									"actions": [
+										{
+											"id": "set-y",
+											"objectClass": "NPC_sprite",
+											"sid": 827230387958392,
+											"parameters": {
+												"y": "Self.Y + 16"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "NPC",
+											"sid": 686558085252906,
+											"parameters": {
+												"instance-variable": "Bubble_Y",
+												"value": "Self.Bubble_Y + 16"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "NPC",
+											"sid": 267401782396744,
+											"parameters": {
+												"instance-variable": "Immovable",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 255447503253836
+								}
+							],
+							"sid": 697246747270871
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Puppet Valley - Evil Candy",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-x-seconds",
+											"objectClass": "System",
+											"sid": 480561672182331,
+											"parameters": {
+												"interval-seconds": "1.0"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 265585388736467,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "NPC_sprite",
+													"sid": 369469665765358,
+													"parameters": {
+														"animation": "\"EvilCandy\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "simulate-control",
+													"objectClass": "NPC_sprite",
+													"sid": 439697615818451,
+													"behaviorType": "Platform",
+													"parameters": {
+														"control": "jump"
+													}
+												}
+											],
+											"sid": 324929252491280
+										}
+									]
+								}
+							],
+							"sid": 871948802001846
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Waterfall Lake - Whale",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-start-of-layout",
+											"objectClass": "System",
+											"sid": 615889563106819
+										}
+									],
+									"actions": [],
+									"sid": 688444769956716,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 446421545292355,
+													"parameters": {
+														"first-value": "LayoutName",
+														"comparison": 0,
+														"second-value": "\"WaterfallCave\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "pin-to-object",
+													"objectClass": "VFX_WaterSplash1",
+													"sid": 830050352015729,
+													"behaviorType": "Pin",
+													"parameters": {
+														"pin-to": "NPC_sprite",
+														"mode": "position-only"
+													}
+												},
+												{
+													"id": "pin-to-object",
+													"objectClass": "VFX_WaterWaves",
+													"sid": 771758493830194,
+													"behaviorType": "Pin",
+													"parameters": {
+														"pin-to": "NPC_sprite",
+														"mode": "position-only"
+													}
+												}
+											],
+											"sid": 137474576053849
+										}
+									]
+								}
+							],
+							"sid": 381074781444354
+						}
+					],
+					"sid": 221093334675170
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Door Opening Animation",
+					"description": "All the codes for the door animation.",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-los-to-object",
+									"objectClass": "ObjectDoor",
+									"sid": 104036927421431,
+									"behaviorType": "LineOfSight",
+									"parameters": {
+										"object": "Player",
+										"image-point": "0"
+									}
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "ObjectDoor",
+									"sid": 687594149863477,
+									"parameters": {
+										"animation": "\"Closed\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "ObjectDoor",
+									"sid": 710605558126694,
+									"parameters": {
+										"animation": "\"Opening\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 104327626538331
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "ObjectDoor",
+									"sid": 697543868447558,
+									"parameters": {
+										"animation": "\"Opening\""
+									}
+								},
+								{
+									"id": "has-los-to-object",
+									"objectClass": "ObjectDoor",
+									"sid": 343988104703836,
+									"behaviorType": "LineOfSight",
+									"parameters": {
+										"object": "Player",
+										"image-point": "0"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "ObjectDoor",
+									"sid": 265060915479284,
+									"parameters": {
+										"animation": "\"Closed\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 908091143198829
+						}
+					],
+					"sid": 462061141616152,
+					"background-color": [
+						0.7176470588235294,
+						0.4666666666666667,
+						0.19215686274509805,
+						1
+					]
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Music Note VFX System",
+					"description": "All the codes that makes the SoundSource objects spawn music notes.",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "This system uses a random number to choose the note frame. The note itself is a bullet with a sine behaviour."
+						},
+						{
+							"eventType": "variable",
+							"name": "Random_Int",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 140099253723777
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 562303301361995,
+									"parameters": {
+										"interval-seconds": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 404462312105557,
+									"parameters": {
+										"variable": "Random_Int",
+										"value": "round(random(0,2))"
+									}
+								}
+							],
+							"sid": 981687176529866,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 309979250139570,
+											"parameters": {
+												"object": "ObjectSoundSource"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "ObjectSoundSource",
+											"sid": 997494971784760,
+											"parameters": {
+												"object": "VFX_MusicNote",
+												"layer": "\"VFX\"",
+												"image-point": "0",
+												"create-hierarchy": false
+											}
+										}
+									],
+									"sid": 532004266427019,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-last-created",
+													"objectClass": "System",
+													"sid": 411681050218725,
+													"parameters": {
+														"object": "VFX_MusicNote"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation-frame",
+													"objectClass": "VFX_MusicNote",
+													"sid": 686881329148820,
+													"parameters": {
+														"frame-number": "Random_Int"
+													}
+												},
+												{
+													"id": "set-position",
+													"objectClass": "VFX_MusicNote",
+													"sid": 141297179173797,
+													"parameters": {
+														"x": "Self.X + random(-50,50)",
+														"y": "Self.Y + random(-50,50)"
+													}
+												}
+											],
+											"sid": 492038291613480
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "very second, each note is given a new movement angle."
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 550432773741007,
+									"parameters": {
+										"interval-seconds": "1"
+									}
+								},
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 814100158992140,
+									"parameters": {
+										"object": "VFX_MusicNote"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-angle-of-motion",
+									"objectClass": "VFX_MusicNote",
+									"sid": 952871008160100,
+									"behaviorType": "Movement",
+									"parameters": {
+										"angle": "random(0, 360)"
+									}
+								}
+							],
+							"sid": 425004251141241
+						}
+					],
+					"sid": 398024840600711,
+					"text-color": [
+						1,
+						0.5019607843137255,
+						0.7529411764705882,
+						1
+					],
+					"background-color": [
+						0.5019607843137255,
+						0,
+						1,
+						1
+					]
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Insects",
+					"description": "All the codes that regulates the spawn and movement of butterflies and bees.",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Initial Insects. Insects only appear on the MainWorld for now."
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-start-of-layout",
+									"objectClass": "System",
+									"sid": 694793566946341
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 625511618529888,
+									"parameters": {
+										"first-value": "LayoutName",
+										"comparison": 0,
+										"second-value": "\"MainWorld\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 248616845443234,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Spawns butterflies."
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "repeat",
+											"objectClass": "System",
+											"sid": 761403409751369,
+											"parameters": {
+												"count": "20"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 528457823329137,
+											"parameters": {
+												"object-to-create": "VFX_Butterfly",
+												"layer": "\"VFX\"",
+												"x": "round(random(0, 118))*16",
+												"y": "round(random(0, 50))*16",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										}
+									],
+									"sid": 951318991282448,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-last-created",
+													"objectClass": "System",
+													"sid": 370055144618336,
+													"parameters": {
+														"object": "VFX_Butterfly"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "VFX_Butterfly",
+													"sid": 542482162082134,
+													"parameters": {
+														"animation": "\"Butterfly\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-enabled",
+													"objectClass": "VFX_Butterfly",
+													"sid": 921178038817487,
+													"behaviorType": "Movement",
+													"parameters": {
+														"state": "enabled"
+													}
+												}
+											],
+											"sid": 802201741387341
+										}
+									]
+								},
+								{
+									"eventType": "comment",
+									"text": "Spawns bees."
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "repeat",
+											"objectClass": "System",
+											"sid": 556137606342967,
+											"parameters": {
+												"count": "6"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 520853564857244,
+											"parameters": {
+												"object-to-create": "VFX_Bee",
+												"layer": "\"VFX\"",
+												"x": "round(random(0, 118))*16",
+												"y": "round(random(0, 50))*16",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										}
+									],
+									"sid": 842649927098048,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-last-created",
+													"objectClass": "System",
+													"sid": 636943633975854,
+													"parameters": {
+														"object": "VFX_Bee"
+													}
+												},
+												{
+													"id": "pick-random-instance",
+													"objectClass": "System",
+													"sid": 207998225637029,
+													"parameters": {
+														"object": "HitboxBeeFlowerSpot"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "VFX_Bee",
+													"sid": 906892771237351,
+													"parameters": {
+														"animation": "\"Butterfly\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-enabled",
+													"objectClass": "VFX_Bee",
+													"sid": 947413923700645,
+													"behaviorType": "Movement",
+													"parameters": {
+														"state": "enabled"
+													}
+												},
+												{
+													"type": "comment",
+													"text": "Picks a BeeFlowerSpot and moves towards it."
+												},
+												{
+													"id": "set-angle-of-motion",
+													"objectClass": "VFX_Bee",
+													"sid": 453729721842537,
+													"behaviorType": "Movement",
+													"parameters": {
+														"angle": "-angle(Self.X, Self.Y, HitboxBeeFlowerSpot.X, HitboxBeeFlowerSpot.Y)"
+													}
+												}
+											],
+											"sid": 622548251931581
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Bees Movement",
+							"description": "All the codes that makes the bees target the random BeeFlowerSpots.",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Redirects the movement."
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-x-seconds",
+											"objectClass": "System",
+											"sid": 527503828221377,
+											"parameters": {
+												"interval-seconds": "random(3, 10)"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 851365437262521,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-all",
+													"objectClass": "System",
+													"sid": 737890658107345,
+													"parameters": {
+														"object": "HitboxBeeFlowerSpot"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "HitboxBeeFlowerSpot",
+													"sid": 908041634384011,
+													"parameters": {
+														"instance-variable": "Active",
+														"value": "false"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 471191647793015,
+													"parameters": {
+														"seconds": "1"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "HitboxBeeFlowerSpot",
+													"sid": 369434995654070,
+													"parameters": {
+														"instance-variable": "Active",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 736374883901755
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 495208405784360,
+													"parameters": {
+														"object": "VFX_Bee"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 469060042866567,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-random-instance",
+															"objectClass": "System",
+															"sid": 138590220463781,
+															"parameters": {
+																"object": "HitboxBeeFlowerSpot"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-angle-of-motion",
+															"objectClass": "VFX_Bee",
+															"sid": 751094472812603,
+															"behaviorType": "Movement",
+															"parameters": {
+																"angle": "angle(Self.X, Self.Y, HitboxBeeFlowerSpot.X, HitboxBeeFlowerSpot.Y)"
+															}
+														}
+													],
+													"sid": 543879800694805
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "comment",
+									"text": "Stops bees when they hit a BeeFlowerSpot."
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 236544715727310,
+											"parameters": {
+												"object": "VFX_Bee"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 827840314444275,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "VFX_Bee",
+													"sid": 481308194129172,
+													"parameters": {
+														"object": "HitboxBeeFlowerSpot"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 435945086515016,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "HitboxBeeFlowerSpot",
+															"sid": 824618959173745,
+															"parameters": {
+																"instance-variable": "Active"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 890325848118100,
+															"parameters": {
+																"seconds": "0.2"
+															}
+														},
+														{
+															"id": "set-speed",
+															"objectClass": "VFX_Bee",
+															"sid": 218283606170642,
+															"behaviorType": "Movement",
+															"parameters": {
+																"speed": "0"
+															}
+														},
+														{
+															"id": "set-active",
+															"objectClass": "VFX_Bee",
+															"sid": 456853800897317,
+															"behaviorType": "BuzzH",
+															"parameters": {
+																"state": "inactive"
+															}
+														},
+														{
+															"id": "set-active",
+															"objectClass": "VFX_Bee",
+															"sid": 984872645487873,
+															"behaviorType": "BuzzV",
+															"parameters": {
+																"state": "inactive"
+															}
+														}
+													],
+													"sid": 618379328329118
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 355056532004600
+														}
+													],
+													"actions": [
+														{
+															"id": "set-speed",
+															"objectClass": "VFX_Bee",
+															"sid": 361047680844532,
+															"behaviorType": "Movement",
+															"parameters": {
+																"speed": "56"
+															}
+														},
+														{
+															"id": "set-active",
+															"objectClass": "VFX_Bee",
+															"sid": 658043104429387,
+															"behaviorType": "BuzzH",
+															"parameters": {
+																"state": "active"
+															}
+														},
+														{
+															"id": "set-active",
+															"objectClass": "VFX_Bee",
+															"sid": 926268597367533,
+															"behaviorType": "BuzzV",
+															"parameters": {
+																"state": "active"
+															}
+														}
+													],
+													"sid": 285534871000542
+												}
+											]
+										}
+									]
+								}
+							],
+							"sid": 722081227751918,
+							"text-color": [
+								0,
+								0,
+								0,
+								1
+							],
+							"background-color": [
+								1,
+								1,
+								0,
+								1
+							]
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Butterflies Movement",
+							"description": "All the codes that makes the butterflies move.",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Just sets the butterfly to change its angle every second."
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-x-seconds",
+											"objectClass": "System",
+											"sid": 147138084661721,
+											"parameters": {
+												"interval-seconds": "1"
+											}
+										},
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 858547863160673,
+											"parameters": {
+												"object": "VFX_Butterfly"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "VFX_Butterfly",
+											"sid": 165984269951874,
+											"parameters": {
+												"animation": "\"Butterfly\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-angle-of-motion",
+											"objectClass": "VFX_Butterfly",
+											"sid": 518972700515028,
+											"behaviorType": "Movement",
+											"parameters": {
+												"angle": "random(0, 360)"
+											}
+										}
+									],
+									"sid": 776173735401319
+								}
+							],
+							"sid": 332549119376585,
+							"text-color": [
+								0,
+								0,
+								0,
+								1
+							],
+							"background-color": [
+								0,
+								1,
+								1,
+								1
+							]
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Generic Mirror",
+							"description": "All the code that makes the insects mirror based on their angle of motion. (Took me a while to figure these out ._.\")",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 215428611639863,
+											"parameters": {
+												"object": "Insects"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 789963933478159,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 538447870489850,
+													"parameters": {
+														"first-value": "Insects.Movement.AngleOfMotion",
+														"comparison": 4,
+														"second-value": "-90"
+													}
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 141900606536210,
+													"parameters": {
+														"first-value": "Insects.Movement.AngleOfMotion",
+														"comparison": 2,
+														"second-value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-mirrored",
+													"objectClass": "Insects",
+													"sid": 470452720178858,
+													"parameters": {
+														"state": "mirrored"
+													}
+												}
+											],
+											"sid": 570167770505913
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 527677168219919,
+													"parameters": {
+														"first-value": "Insects.Movement.AngleOfMotion",
+														"comparison": 2,
+														"second-value": "90"
+													}
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 482310168938462,
+													"parameters": {
+														"first-value": "Insects.Movement.AngleOfMotion",
+														"comparison": 4,
+														"second-value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-mirrored",
+													"objectClass": "Insects",
+													"sid": 461513116000594,
+													"parameters": {
+														"state": "mirrored"
+													}
+												}
+											],
+											"sid": 685685572822081
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 622541447477279,
+													"parameters": {
+														"first-value": "Insects.Movement.AngleOfMotion",
+														"comparison": 2,
+														"second-value": "180"
+													}
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 805250593089998,
+													"parameters": {
+														"first-value": "Insects.Movement.AngleOfMotion",
+														"comparison": 4,
+														"second-value": "90"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-mirrored",
+													"objectClass": "Insects",
+													"sid": 181816667265671,
+													"parameters": {
+														"state": "not-mirrored"
+													}
+												}
+											],
+											"sid": 610121248548820
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 780805114282733,
+													"parameters": {
+														"first-value": "Insects.Movement.AngleOfMotion",
+														"comparison": 4,
+														"second-value": "-180"
+													}
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 921323770461338,
+													"parameters": {
+														"first-value": "Insects.Movement.AngleOfMotion",
+														"comparison": 2,
+														"second-value": "-90"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-mirrored",
+													"objectClass": "Insects",
+													"sid": 394713904496318,
+													"parameters": {
+														"state": "not-mirrored"
+													}
+												}
+											],
+											"sid": 772948371683552
+										}
+									]
+								}
+							],
+							"sid": 940485555161437,
+							"text-color": [
+								0,
+								0,
+								0,
+								1
+							],
+							"background-color": [
+								0.7529411764705882,
+								0.7529411764705882,
+								0.7529411764705882,
+								1
+							]
+						}
+					],
+					"sid": 170103988208476,
+					"text-color": [
+						1,
+						1,
+						1,
+						1
+					],
+					"background-color": [
+						0.6078431372549019,
+						0.21568627450980393,
+						1,
+						1
+					]
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Gusts",
+					"description": "All the codes that makes the windgusts in the Desert.",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 312630895403576,
+									"parameters": {
+										"interval-seconds": "0.2"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 293932261056064,
+									"parameters": {
+										"first-value": "LayoutName",
+										"comparison": 0,
+										"second-value": "\"MainWorld\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 557159059524843,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "repeat",
+											"objectClass": "System",
+											"sid": 386957877989671,
+											"parameters": {
+												"count": "random(15, 29)"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 349202643948975,
+											"parameters": {
+												"object-to-create": "VFX_Windgust",
+												"layer": "\"FG\"",
+												"x": "random(920, 1600)",
+												"y": "random(150,640)",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 704488577676319,
+											"parameters": {
+												"seconds": "0.025"
+											}
+										}
+									],
+									"sid": 230652089352455
+								}
+							]
+						}
+					],
+					"sid": 777414773743190,
+					"background-color": [
+						0.9607843137254902,
+						0.8823529411764706,
+						0.5725490196078431,
+						1
+					]
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Hayballs",
+					"description": "All the codes that spawns the Hayballs in the Desert Oasis.",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 329895579001313,
+									"parameters": {
+										"interval-seconds": "random(0.6,1.7)"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 464900602356172,
+									"parameters": {
+										"first-value": "LayoutName",
+										"comparison": 0,
+										"second-value": "\"MainWorld\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 716001401651262,
+									"parameters": {
+										"object-to-create": "VFX_Hayball",
+										"layer": "\"FG\"",
+										"x": "random(1100, 1300)",
+										"y": "random(300,450)",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								}
+							],
+							"sid": 145081121457503
+						}
+					],
+					"sid": 625414237274720,
+					"background-color": [
+						0.9725490196078431,
+						0.7568627450980392,
+						0.027450980392156862,
+						1
+					]
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Big Tree Leaves",
+					"description": "All the codes to set the particles spawned by the VFXLeafSpawner to the right frame.",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-created",
+									"objectClass": "VFX_Leaf",
+									"sid": 171209580245334
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "VFX_Leaf",
+									"sid": 939543423840169,
+									"parameters": {
+										"frame-number": "round(random(0,1))"
+									}
+								}
+							],
+							"sid": 379408878026748
+						}
+					],
+					"sid": 795971404395874,
+					"background-color": [
+						0.9803921568627451,
+						0.4627450980392157,
+						0.0784313725490196,
+						1
+					]
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "PowerPlant Smoke",
+					"description": "All the codes for the PowerPlant smoke.",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 999217094575113,
+									"parameters": {
+										"interval-seconds": "0.1"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 614471094660618,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for",
+											"objectClass": "System",
+											"sid": 963244768999805,
+											"parameters": {
+												"name": "\"i\"",
+												"start-index": "1",
+												"end-index": "2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "ObjectPowerPlant",
+											"sid": 427853049103388,
+											"parameters": {
+												"object": "VFX_PlantSmoke",
+												"layer": "\"VFX\"",
+												"image-point": "loopindex(\"i\")",
+												"create-hierarchy": false
+											}
+										}
+									],
+									"sid": 205105494073664,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-last-created",
+													"objectClass": "System",
+													"sid": 714485367341666,
+													"parameters": {
+														"object": "VFX_PlantSmoke"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-angle-of-motion",
+													"objectClass": "VFX_PlantSmoke",
+													"sid": 458241200669533,
+													"behaviorType": "Bullet",
+													"parameters": {
+														"angle": "270"
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "VFX_PlantSmoke",
+													"sid": 984867417472737,
+													"parameters": {
+														"frame-number": "round(random(0,2))"
+													}
+												}
+											],
+											"sid": 991049409540685
+										}
+									]
+								}
+							]
+						}
+					],
+					"sid": 878196672026076,
+					"text-color": [
+						1,
+						1,
+						1,
+						1
+					],
+					"background-color": [
+						0.3215686274509804,
+						0.3215686274509804,
+						0.3215686274509804,
+						1
+					]
+				}
+			],
+			"sid": 843392830020594
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 178897620723127
+				}
+			],
+			"actions": [],
+			"sid": 138742335273245,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 953173592000166,
+							"parameters": {
+								"object": "VFX_InventoryEquipSelector"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 127992506223248,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "VFX_InventoryEquipSelector",
+									"sid": 497706881998666,
+									"parameters": {
+										"instance-variable": "Active"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "VFX_InventoryEquipSelector",
+									"sid": 528390114811283,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 425020500430819
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "VFX_InventoryEquipSelector",
+									"sid": 824875942935571,
+									"parameters": {
+										"instance-variable": "Active"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "VFX_InventoryEquipSelector",
+									"sid": 755256419332674,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 750593363513623
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 381713923771958
+				}
+			],
+			"actions": [],
+			"sid": 243870920791128,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 866119280498853,
+							"parameters": {
+								"object": "IconMenuBarObject"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 776770841221988,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "IconMenuBarObject",
+									"sid": 295123416101426,
+									"parameters": {
+										"instance-variable": "Active"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "IconMenuBarObject",
+									"sid": 174850138496454,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 453064286261609
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "IconMenuBarObject",
+									"sid": 399525703550989,
+									"parameters": {
+										"instance-variable": "Active"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "IconMenuBarObject",
+									"sid": 685896428253914,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 326971164084209
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "IconMenuBarObject",
+									"sid": 703466135468841,
+									"parameters": {
+										"animation": "Self.Item",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 948795246177612
+						}
+					]
+				}
+			]
+		}
+	],
+	"sid": 920319892650933
+}

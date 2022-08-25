@@ -1,0 +1,1457 @@
+{
+	"name": "Player",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Movement",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player",
+							"sid": 517099637714763,
+							"parameters": {
+								"instance-variable": "CommandType",
+								"comparison": 0,
+								"value": "\"Jump\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 637265253648767,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Move update"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 353941604697906,
+									"parameters": {
+										"interval-seconds": "0.2"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 730051652813183,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Player",
+											"sid": 595797987619118,
+											"parameters": {
+												"instance-variable": "HMoveDirection",
+												"comparison": 0,
+												"value": "\"Left\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 801741268841289,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-at-offset",
+													"objectClass": "Player",
+													"sid": 484272129620258,
+													"parameters": {
+														"object": "Solids",
+														"offset-x": "-8",
+														"offset-y": "0"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-x",
+													"objectClass": "Player",
+													"sid": 153709769809807,
+													"parameters": {
+														"x": "Self.X - 16"
+													}
+												}
+											],
+											"sid": 964675977788013
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Player",
+											"sid": 586970898790169,
+											"parameters": {
+												"instance-variable": "HMoveDirection",
+												"comparison": 0,
+												"value": "\"Right\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 684812705336470,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-at-offset",
+													"objectClass": "Player",
+													"sid": 367761353477721,
+													"parameters": {
+														"object": "Solids",
+														"offset-x": "8",
+														"offset-y": "0"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-x",
+													"objectClass": "Player",
+													"sid": 374994781984199,
+													"parameters": {
+														"x": "Self.X + 16"
+													}
+												}
+											],
+											"sid": 163577763771890
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-los-to-position",
+									"objectClass": "Player",
+									"sid": 775257787845305,
+									"behaviorType": "MaxRange",
+									"parameters": {
+										"x": "MoveTarget.X",
+										"y": "MoveTarget.Y"
+									}
+								},
+								{
+									"id": "is-on-screen",
+									"objectClass": "MoveTarget",
+									"sid": 304110361846204
+								}
+							],
+							"actions": [],
+							"sid": 479239741294578,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 701357663935521,
+											"parameters": {
+												"first-value": "round(MoveTarget.X)",
+												"comparison": 2,
+												"second-value": "round(Player.ImagePointX(\"Bot\")-7)"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-mirrored",
+											"objectClass": "PlayerAnimation",
+											"sid": 383895738203940,
+											"parameters": {
+												"state": "mirrored"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Player",
+											"sid": 763041433423582,
+											"parameters": {
+												"instance-variable": "HMoveDirection",
+												"value": "\"Left\""
+											}
+										}
+									],
+									"sid": 300664189811583
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 325503140979948,
+											"parameters": {
+												"first-value": "round(MoveTarget.X)",
+												"comparison": 4,
+												"second-value": "round(Player.ImagePointX(\"Bot\")-7)"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-mirrored",
+											"objectClass": "PlayerAnimation",
+											"sid": 983043154670728,
+											"parameters": {
+												"state": "not-mirrored"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Player",
+											"sid": 343609559852916,
+											"parameters": {
+												"instance-variable": "HMoveDirection",
+												"value": "\"Right\""
+											}
+										}
+									],
+									"sid": 304618034075195
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 559049429224018,
+											"parameters": {
+												"first-value": "round(MoveTarget.X)",
+												"comparison": 3,
+												"second-value": "round(Player.ImagePointX(\"Bot\")+7)"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 211357214667758,
+											"parameters": {
+												"first-value": "round(MoveTarget.X)",
+												"comparison": 5,
+												"second-value": "round(Player.ImagePointX(\"Bot\")-7)"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Player",
+											"sid": 169066074737534,
+											"parameters": {
+												"instance-variable": "HMoveDirection",
+												"value": "\"None\""
+											}
+										}
+									],
+									"sid": 637685438903606
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 543691286237952,
+											"parameters": {
+												"first-value": "round(MoveTarget.Y)",
+												"comparison": 5,
+												"second-value": "round(Player.ImagePointY(\"Bot\")-15)"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 656694109421358,
+											"parameters": {
+												"first-value": "round(MoveTarget.Y)",
+												"comparison": 3,
+												"second-value": "round(Player.ImagePointY(\"Bot\")-1)"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Player",
+											"sid": 919782250811648,
+											"parameters": {
+												"instance-variable": "VMoveDirection",
+												"value": "\"None\""
+											}
+										}
+									],
+									"sid": 113968565478271
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 251123437640925,
+											"parameters": {
+												"first-value": "round(MoveTarget.X)",
+												"comparison": 3,
+												"second-value": "round(Player.ImagePointX(\"Bot\")+7)"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 281824243393593,
+											"parameters": {
+												"first-value": "round(MoveTarget.X)",
+												"comparison": 5,
+												"second-value": "round(Player.ImagePointX(\"Bot\")-7)"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 350279504759436,
+											"parameters": {
+												"first-value": "round(MoveTarget.Y)",
+												"comparison": 5,
+												"second-value": "round(Player.ImagePointY(\"Bot\")-15)"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 822528295583401,
+											"parameters": {
+												"first-value": "round(MoveTarget.Y)",
+												"comparison": 3,
+												"second-value": "round(Player.ImagePointY(\"Bot\")-1)"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "MoveTarget",
+											"sid": 802493952629093
+										}
+									],
+									"sid": 269099821726441
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player",
+							"sid": 875744053365957,
+							"parameters": {
+								"instance-variable": "CommandType",
+								"comparison": 0,
+								"value": "\"8dir\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 942846459961787,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Move update"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 319132799943766,
+									"parameters": {
+										"interval-seconds": "0.2"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 188582151571643,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Player",
+											"sid": 327906993468301,
+											"parameters": {
+												"instance-variable": "HMoveDirection",
+												"comparison": 0,
+												"value": "\"Left\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 967305084550256,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-at-offset",
+													"objectClass": "Player",
+													"sid": 920418945020204,
+													"parameters": {
+														"object": "Ground",
+														"offset-x": "0",
+														"offset-y": "0"
+													}
+												},
+												{
+													"id": "is-overlapping-at-offset",
+													"objectClass": "Player",
+													"sid": 760244439669147,
+													"parameters": {
+														"object": "Solids",
+														"offset-x": "-8",
+														"offset-y": "0"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-x",
+													"objectClass": "Player",
+													"sid": 721626850489412,
+													"parameters": {
+														"x": "Self.X - 16"
+													}
+												}
+											],
+											"sid": 346711778234653
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Player",
+											"sid": 281918943169233,
+											"parameters": {
+												"instance-variable": "HMoveDirection",
+												"comparison": 0,
+												"value": "\"Right\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 393832892857137,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-at-offset",
+													"objectClass": "Player",
+													"sid": 210865037437318,
+													"parameters": {
+														"object": "Ground",
+														"offset-x": "24",
+														"offset-y": "0"
+													}
+												},
+												{
+													"id": "is-overlapping-at-offset",
+													"objectClass": "Player",
+													"sid": 929006186025479,
+													"parameters": {
+														"object": "Solids",
+														"offset-x": "8",
+														"offset-y": "0"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-x",
+													"objectClass": "Player",
+													"sid": 463739785945457,
+													"parameters": {
+														"x": "Self.X + 16"
+													}
+												}
+											],
+											"sid": 778601317099027
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Player",
+											"sid": 549161180002576,
+											"parameters": {
+												"instance-variable": "VMoveDirection",
+												"comparison": 0,
+												"value": "\"Up\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 817866067437608,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-at-offset",
+													"objectClass": "Player",
+													"sid": 701487394777193,
+													"parameters": {
+														"object": "Ground",
+														"offset-x": "0",
+														"offset-y": "-16"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-y",
+													"objectClass": "Player",
+													"sid": 161766218652494,
+													"parameters": {
+														"y": "Self.Y - 16"
+													}
+												}
+											],
+											"sid": 325022501344060
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Player",
+											"sid": 944252904227916,
+											"parameters": {
+												"instance-variable": "VMoveDirection",
+												"comparison": 0,
+												"value": "\"Down\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 528014589268022,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-at-offset",
+													"objectClass": "Player",
+													"sid": 234107144618977,
+													"parameters": {
+														"object": "Ground",
+														"offset-x": "0",
+														"offset-y": "16"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-y",
+													"objectClass": "Player",
+													"sid": 654646661857363,
+													"parameters": {
+														"y": "Self.Y + 16"
+													}
+												}
+											],
+											"sid": 671927505649272
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-los-to-position",
+									"objectClass": "Player",
+									"sid": 368344724357757,
+									"behaviorType": "MaxRange",
+									"parameters": {
+										"x": "MoveTarget.X",
+										"y": "MoveTarget.Y"
+									}
+								},
+								{
+									"id": "is-on-screen",
+									"objectClass": "MoveTarget",
+									"sid": 421464787175442
+								}
+							],
+							"actions": [],
+							"sid": 130127681163195,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 137264690594808,
+											"parameters": {
+												"first-value": "round(MoveTarget.X)",
+												"comparison": 2,
+												"second-value": "round(Player.ImagePointX(\"Bot\")-7)"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-mirrored",
+											"objectClass": "PlayerAnimation",
+											"sid": 850463800553822,
+											"parameters": {
+												"state": "mirrored"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Player",
+											"sid": 427040234839445,
+											"parameters": {
+												"instance-variable": "HMoveDirection",
+												"value": "\"Left\""
+											}
+										}
+									],
+									"sid": 679933387885039
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 572764744167973,
+											"parameters": {
+												"first-value": "round(MoveTarget.X)",
+												"comparison": 4,
+												"second-value": "round(Player.ImagePointX(\"Bot\")-7)"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-mirrored",
+											"objectClass": "PlayerAnimation",
+											"sid": 452709406280861,
+											"parameters": {
+												"state": "not-mirrored"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Player",
+											"sid": 261081825732573,
+											"parameters": {
+												"instance-variable": "HMoveDirection",
+												"value": "\"Right\""
+											}
+										}
+									],
+									"sid": 810119636915282
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 404307987261205,
+											"parameters": {
+												"first-value": "round(MoveTarget.Y)",
+												"comparison": 2,
+												"second-value": "round(Player.ImagePointY(\"Bot\")-15)"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-mirrored",
+											"objectClass": "PlayerAnimation",
+											"sid": 223463523639185,
+											"parameters": {
+												"state": "mirrored"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Player",
+											"sid": 697764244329390,
+											"parameters": {
+												"instance-variable": "VMoveDirection",
+												"value": "\"Up\""
+											}
+										}
+									],
+									"sid": 481850038182827
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 965979279514131,
+											"parameters": {
+												"first-value": "round(MoveTarget.Y)",
+												"comparison": 4,
+												"second-value": "round(Player.ImagePointY(\"Bot\")-1)"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-mirrored",
+											"objectClass": "PlayerAnimation",
+											"sid": 601251215683421,
+											"parameters": {
+												"state": "mirrored"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Player",
+											"sid": 434414127398835,
+											"parameters": {
+												"instance-variable": "VMoveDirection",
+												"value": "\"Down\""
+											}
+										}
+									],
+									"sid": 881339798584411
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 110638132759002,
+											"parameters": {
+												"first-value": "round(MoveTarget.X)",
+												"comparison": 3,
+												"second-value": "round(Player.ImagePointX(\"Bot\")+7)"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 576516170990279,
+											"parameters": {
+												"first-value": "round(MoveTarget.X)",
+												"comparison": 5,
+												"second-value": "round(Player.ImagePointX(\"Bot\")-7)"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Player",
+											"sid": 552284483764735,
+											"parameters": {
+												"instance-variable": "HMoveDirection",
+												"value": "\"None\""
+											}
+										}
+									],
+									"sid": 740368274190392
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 524033380697913,
+											"parameters": {
+												"first-value": "round(MoveTarget.Y)",
+												"comparison": 5,
+												"second-value": "round(Player.ImagePointX(\"Bot\")-15)"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 231511841797144,
+											"parameters": {
+												"first-value": "round(MoveTarget.Y)",
+												"comparison": 3,
+												"second-value": "round(Player.ImagePointX(\"Bot\")-1)"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Player",
+											"sid": 343774021856729,
+											"parameters": {
+												"instance-variable": "VMoveDirection",
+												"value": "\"None\""
+											}
+										}
+									],
+									"sid": 822445401526184
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 389913237928161,
+											"parameters": {
+												"first-value": "round(MoveTarget.Y)",
+												"comparison": 5,
+												"second-value": "round(Player.ImagePointY(\"Bot\")-15)"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 217448212216633,
+											"parameters": {
+												"first-value": "round(MoveTarget.Y)",
+												"comparison": 3,
+												"second-value": "round(Player.ImagePointY(\"Bot\")-1)"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Player",
+											"sid": 639614631366515,
+											"parameters": {
+												"instance-variable": "VMoveDirection",
+												"value": "\"None\""
+											}
+										}
+									],
+									"sid": 817952487088178
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 411396401556496,
+											"parameters": {
+												"first-value": "round(MoveTarget.X)",
+												"comparison": 3,
+												"second-value": "round(Player.ImagePointX(\"Bot\")+8)"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 878043756022179,
+											"parameters": {
+												"first-value": "round(MoveTarget.X)",
+												"comparison": 5,
+												"second-value": "round(Player.ImagePointX(\"Bot\")-8)"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 223937019925430,
+											"parameters": {
+												"first-value": "round(MoveTarget.Y)",
+												"comparison": 5,
+												"second-value": "round(Player.ImagePointY(\"Bot\")-15)"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 229616231531337,
+											"parameters": {
+												"first-value": "round(MoveTarget.Y)",
+												"comparison": 3,
+												"second-value": "round(Player.ImagePointY(\"Bot\")-1)"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "MoveTarget",
+											"sid": 158344259425824
+										}
+									],
+									"sid": 206156468312681
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 392933167908553
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Jump",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap",
+							"objectClass": "Touch",
+							"sid": 601554097865118
+						}
+					],
+					"actions": [],
+					"sid": 288622342882448,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Player",
+									"sid": 616239650803529,
+									"parameters": {
+										"instance-variable": "CommandType",
+										"comparison": 0,
+										"value": "\"Jump\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 161148734311873,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-touching-object",
+											"objectClass": "Touch",
+											"sid": 438976243558066,
+											"parameters": {
+												"object": "PlayerJumpHitbox"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "PlayerDoubleJump",
+											"sid": 451428015105392
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "PlayerAnimation",
+											"sid": 834094412550253,
+											"parameters": {
+												"frame-number": "0"
+											}
+										}
+									],
+									"sid": 909144077248937,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-mirrored",
+													"objectClass": "PlayerAnimation",
+													"sid": 506305022661728
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Player",
+													"sid": 926037996112123,
+													"parameters": {
+														"instance-variable": "HMoveDirection",
+														"value": "\"Left\""
+													}
+												}
+											],
+											"sid": 736465017384369
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 704150322208926
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Player",
+													"sid": 184052295937608,
+													"parameters": {
+														"instance-variable": "HMoveDirection",
+														"value": "\"Right\""
+													}
+												}
+											],
+											"sid": 766162267045943
+										}
+									]
+								}
+							],
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Player",
+									"sid": 999175351163907,
+									"parameters": {
+										"instance-variable": "CommandType",
+										"comparison": 0,
+										"value": "\"8dir\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 756627153861392,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-touching-object",
+											"objectClass": "Touch",
+											"sid": 811145724528559,
+											"parameters": {
+												"object": "PlayerJumpHitbox"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "PlayerJump",
+											"sid": 974336920898333
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "PlayerAnimation",
+											"sid": 300634672363895,
+											"parameters": {
+												"animation": "\"Jump\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 821577511987695,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-mirrored",
+													"objectClass": "PlayerAnimation",
+													"sid": 534505503427297
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Player",
+													"sid": 717448483630060,
+													"parameters": {
+														"instance-variable": "HMoveDirection",
+														"value": "\"Left\""
+													}
+												}
+											],
+											"sid": 639220631258054
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 557266894163261
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Player",
+													"sid": 701887957661381,
+													"parameters": {
+														"instance-variable": "HMoveDirection",
+														"value": "\"Right\""
+													}
+												}
+											],
+											"sid": 571667336572552
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 442693497768819
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "MoveTarget",
+											"sid": 607692390179146
+										},
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 590620441083873,
+											"parameters": {
+												"object-to-create": "MoveTarget",
+												"layer": "\"UI\"",
+												"x": "(round(Touch.X/16)*16)-8",
+												"y": "round(Touch.Y/16)*16",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										}
+									],
+									"sid": 220371630370338
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player",
+							"sid": 152299216539946,
+							"parameters": {
+								"instance-variable": "CommandType",
+								"comparison": 0,
+								"value": "\"Jump\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 101730821537422,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Player",
+									"sid": 617121381667012,
+									"parameters": {
+										"instance-variable": "JumpType",
+										"comparison": 0,
+										"value": "\"Fall\""
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Player",
+									"sid": 536222492802692,
+									"parameters": {
+										"object": "Ground"
+									}
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 479748383771620
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Player",
+									"sid": 180687101944696,
+									"parameters": {
+										"instance-variable": "HMoveDirection",
+										"value": "\"None\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Player",
+									"sid": 384769139895333,
+									"parameters": {
+										"instance-variable": "JumpType",
+										"value": "\"None\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Player",
+									"sid": 167475869857892,
+									"parameters": {
+										"instance-variable": "JumpEnergy",
+										"value": "5"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Player",
+									"sid": 170297355342184,
+									"parameters": {
+										"instance-variable": "CommandType",
+										"value": "\"8dir\""
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "PlayerAnimation",
+									"sid": 657293587056971,
+									"parameters": {
+										"animation": "\"Idle\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 218305616778355
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 444553060310719,
+									"parameters": {
+										"interval-seconds": "0.1"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 258974326375465,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Player",
+											"sid": 117212466326107,
+											"parameters": {
+												"instance-variable": "JumpEnergy",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Player",
+											"sid": 886762207616796,
+											"parameters": {
+												"instance-variable": "JumpEnergy",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-y",
+											"objectClass": "Player",
+											"sid": 430892819198231,
+											"parameters": {
+												"y": "Self.Y - 16"
+											}
+										}
+									],
+									"sid": 135443726791601
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 144520916039304
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Player",
+											"sid": 720746006933614,
+											"parameters": {
+												"instance-variable": "JumpType",
+												"value": "\"Fall\""
+											}
+										}
+									],
+									"sid": 788932119339792
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Player",
+											"sid": 847812757580812,
+											"parameters": {
+												"instance-variable": "JumpType",
+												"comparison": 0,
+												"value": "\"Fall\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-y",
+											"objectClass": "Player",
+											"sid": 975280378191363,
+											"parameters": {
+												"y": "Self.Y + 16"
+											}
+										}
+									],
+									"sid": 434257589120352
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 430217864986203
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Gravity",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [],
+			"sid": 528473285173103
+		},
+		{
+			"functionName": "PlayerJump",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Player",
+					"sid": 728420697246272,
+					"parameters": {
+						"instance-variable": "CommandType",
+						"value": "\"Jump\""
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Player",
+					"sid": 305853971332762,
+					"parameters": {
+						"instance-variable": "JumpType",
+						"value": "\"Jump\""
+					}
+				}
+			],
+			"sid": 972584691131607
+		},
+		{
+			"functionName": "PlayerDoubleJump",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Player",
+					"sid": 618133195440307,
+					"parameters": {
+						"instance-variable": "CommandType",
+						"value": "\"Jump\""
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Player",
+					"sid": 513713384086062,
+					"parameters": {
+						"instance-variable": "JumpType",
+						"value": "\"DoubleJump\""
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Player",
+					"sid": 596883781555985,
+					"parameters": {
+						"instance-variable": "JumpEnergy",
+						"value": "4"
+					}
+				}
+			],
+			"sid": 706317116089582
+		}
+	],
+	"sid": 912821029077213
+}

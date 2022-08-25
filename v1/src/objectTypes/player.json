@@ -1,0 +1,2641 @@
+{
+	"name": "Player",
+	"plugin-id": "Sprite",
+	"sid": 631539077555674,
+	"isGlobal": true,
+	"instanceVariables": [
+		{
+			"name": "Jumping",
+			"type": "boolean",
+			"desc": "",
+			"sid": 415993055888210
+		},
+		{
+			"name": "Attacking",
+			"type": "boolean",
+			"desc": "",
+			"sid": 974373116348616
+		},
+		{
+			"name": "Direction",
+			"type": "string",
+			"desc": "",
+			"sid": 278702361487258
+		},
+		{
+			"name": "CurHP",
+			"type": "number",
+			"desc": "",
+			"sid": 212775445262716
+		},
+		{
+			"name": "MaxHP",
+			"type": "number",
+			"desc": "",
+			"sid": 301453440022712
+		},
+		{
+			"name": "Immune",
+			"type": "boolean",
+			"desc": "",
+			"sid": 751153371005321
+		},
+		{
+			"name": "Spawn_X",
+			"type": "number",
+			"desc": "",
+			"sid": 349735901408546
+		},
+		{
+			"name": "Spawn_Y",
+			"type": "number",
+			"desc": "",
+			"sid": 643321801172001
+		},
+		{
+			"name": "Moving",
+			"type": "boolean",
+			"desc": "",
+			"sid": 711826989316785
+		},
+		{
+			"name": "Active",
+			"type": "boolean",
+			"desc": "",
+			"sid": 866292926815802
+		},
+		{
+			"name": "EquippedTransportation",
+			"type": "string",
+			"desc": "",
+			"sid": 875945658162703
+		},
+		{
+			"name": "Interacting",
+			"type": "boolean",
+			"desc": "",
+			"sid": 166650375887106
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Platform",
+			"name": "Platform",
+			"sid": 677098676370658
+		},
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 631145020055980
+		},
+		{
+			"behaviorId": "Flash",
+			"name": "Flash",
+			"sid": 465917455602263
+		},
+		{
+			"behaviorId": "bound",
+			"name": "BoundToLayout",
+			"sid": 257970349747675
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 16,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "HPBar",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "East",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "West",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "North",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "South",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_L",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_R",
+								"x": 1,
+								"y": 1
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 423500161506830,
+				"name": "Idle",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 748,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "HPBar",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "East",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "West",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "North",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "South",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_L",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_R",
+								"x": 1,
+								"y": 1
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 747,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "HPBar",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "East",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "West",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "North",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "South",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_L",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_R",
+								"x": 1,
+								"y": 1
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 749,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "HPBar",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "East",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "West",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "North",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "South",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_L",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_R",
+								"x": 1,
+								"y": 1
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 844392516374216,
+				"name": "Walk",
+				"isLooping": false,
+				"isPingPong": true,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 6
+			},
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 5,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "HPBar",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "East",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "West",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "North",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "South",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_L",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_R",
+								"x": 1,
+								"y": 1
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "HPBar",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "East",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "West",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "North",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "South",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_L",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_R",
+								"x": 1,
+								"y": 1
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 460626754425409,
+				"name": "PreJump",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 4
+			},
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 35,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "HPBar",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "East",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "West",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "North",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "South",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_L",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_R",
+								"x": 1,
+								"y": 1
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 30,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "HPBar",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "Image Point 2",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "Image Point 3",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "Image Point 4",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "Image Point 5",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "East",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "West",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "North",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "South",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_L",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_R",
+								"x": 1,
+								"y": 1
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 31,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "HPBar",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "Image Point 2",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "Image Point 3",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "Image Point 4",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "Image Point 5",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "East",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "West",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "North",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "South",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_L",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_R",
+								"x": 1,
+								"y": 1
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 32,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "HPBar",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "Image Point 2",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "Image Point 3",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "Image Point 4",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "Image Point 5",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "East",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "West",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "North",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "South",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_L",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_R",
+								"x": 1,
+								"y": 1
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 33,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "HPBar",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "Image Point 2",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "Image Point 3",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "Image Point 4",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "Image Point 5",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "East",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "West",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "North",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "South",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_L",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_R",
+								"x": 1,
+								"y": 1
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 34,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "HPBar",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "Image Point 2",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "Image Point 3",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "Image Point 4",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "Image Point 5",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "East",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "West",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "North",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "South",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_L",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_R",
+								"x": 1,
+								"y": 1
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 37,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "HPBar",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "Image Point 2",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "Image Point 3",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "Image Point 4",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "Image Point 5",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "East",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "West",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "North",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "South",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_L",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_R",
+								"x": 1,
+								"y": 1
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 997905596788648,
+				"name": "Jump",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 7
+			},
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 42,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "HPBar",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "East",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "West",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "North",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "South",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_L",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_R",
+								"x": 1,
+								"y": 1
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 41,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "HPBar",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "East",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "West",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "North",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "South",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_L",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_R",
+								"x": 1,
+								"y": 1
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 39,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "HPBar",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "East",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "West",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "North",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "South",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_L",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_R",
+								"x": 1,
+								"y": 1
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 675504110026532,
+				"name": "Fall",
+				"isLooping": true,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 6
+			},
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 53,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "HPBar",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "East",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "West",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "North",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "South",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_L",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_R",
+								"x": 1,
+								"y": 1
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 49,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "HPBar",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "East",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "West",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "North",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "South",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_L",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_R",
+								"x": 1,
+								"y": 1
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 50,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "HPBar",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "East",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "West",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "North",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "South",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_L",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_R",
+								"x": 1,
+								"y": 1
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 51,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "HPBar",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "East",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "West",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "North",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "South",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_L",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_R",
+								"x": 1,
+								"y": 1
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 52,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "HPBar",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "East",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "West",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "North",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "South",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_L",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_R",
+								"x": 1,
+								"y": 1
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 686497811327995,
+				"name": "Attack",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 76,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "HPBar",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "East",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "West",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "North",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "South",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_L",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_R",
+								"x": 1,
+								"y": 1
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 78,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "HPBar",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "East",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "West",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "North",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "South",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_L",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_R",
+								"x": 1,
+								"y": 1
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 973977727323581,
+				"name": "Hurt",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 3
+			},
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 91,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "HPBar",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "East",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "West",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "North",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "South",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_L",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_R",
+								"x": 1,
+								"y": 1
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 92,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "HPBar",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "East",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "West",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "North",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "South",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_L",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_R",
+								"x": 1,
+								"y": 1
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 93,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "HPBar",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "East",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "West",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "North",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "South",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_L",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_R",
+								"x": 1,
+								"y": 1
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 94,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "HPBar",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "East",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "West",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "North",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "South",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_L",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_R",
+								"x": 1,
+								"y": 1
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 604132253856746,
+				"name": "Special_WalkTallgrass",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 6
+			},
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 100,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "HPBar",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "East",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "West",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "North",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "South",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_L",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_R",
+								"x": 1,
+								"y": 1
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 555546157041266,
+				"name": "Special_IdleTallgrass",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 11,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "HPBar",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "East",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "West",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "North",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "South",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_L",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_R",
+								"x": 1,
+								"y": 1
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 10,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "HPBar",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "East",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "West",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "North",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "South",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_L",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_R",
+								"x": 1,
+								"y": 1
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 922279062211709,
+				"name": "Special_PreJumpTallgrass",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 4
+			},
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 494,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "HPBar",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "East",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "West",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "North",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "South",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_R",
+								"x": 1,
+								"y": 1
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 511,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "HPBar",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "East",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "West",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "North",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "South",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_L",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_R",
+								"x": 1,
+								"y": 1
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 497,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "HPBar",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "East",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "West",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "North",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "South",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_L",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_R",
+								"x": 1,
+								"y": 1
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 498,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "HPBar",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "East",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "West",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "North",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "South",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_L",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_R",
+								"x": 1,
+								"y": 1
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 507,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "HPBar",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "East",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "West",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "North",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "South",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_L",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_R",
+								"x": 1,
+								"y": 1
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 509,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "HPBar",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "East",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "West",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "North",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "South",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_L",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_R",
+								"x": 1,
+								"y": 1
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 492,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "HPBar",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "East",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "West",
+								"x": 0,
+								"y": 0.5
+							},
+							{
+								"name": "North",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "South",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_L",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "VFX_Corner_R",
+								"x": 1,
+								"y": 1
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 640392047854591,
+				"name": "FallDeath",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 7
+			}
+		],
+		"subfolders": []
+	}
+}

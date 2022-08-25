@@ -1,0 +1,10 @@
+{
+	"name": "NWjs",
+	"plugin-id": "NodeWebkit",
+	"sid": 915128532214945,
+	"singleglobal-inst": {
+		"type": "NWjs",
+		"properties": {},
+		"uid": 67
+	}
+}

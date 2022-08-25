@@ -1,0 +1,1878 @@
+{
+	"name": "Main",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Functions"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Controls"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Animator"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Enemies"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Fight"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Init"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "GlobalChecks"
+		},
+		{
+			"eventType": "variable",
+			"name": "DEFAULT_SPAWN_X",
+			"type": "number",
+			"initialValue": "376",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 252912254986643
+		},
+		{
+			"eventType": "variable",
+			"name": "DEFAULT_SPAWN_Y",
+			"type": "number",
+			"initialValue": "95",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 550049219176192
+		},
+		{
+			"eventType": "variable",
+			"name": "COINS",
+			"type": "number",
+			"initialValue": "50",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 295179196816667
+		},
+		{
+			"eventType": "variable",
+			"name": "NEW_GAME",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "The NewGame global is a boolean which becomes False once the GameInit function is completed (in other words, when the main game loop has begun).",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 671569019942076
+		},
+		{
+			"eventType": "variable",
+			"name": "ZONE",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 383376528014568
+		},
+		{
+			"eventType": "variable",
+			"name": "NEXT_MUSIC",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 625781861265392
+		},
+		{
+			"eventType": "variable",
+			"name": "MUSIC",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 581307969961937
+		},
+		{
+			"eventType": "variable",
+			"name": "CLOCK",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 517615698216934
+		},
+		{
+			"eventType": "variable",
+			"name": "NIGHT",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 440171959416456
+		},
+		{
+			"eventType": "variable",
+			"name": "LAST_TP_UID",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 279131687610437
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Camera",
+			"description": "All the codes for the camera (cinematics, default camera, etc.)",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 955664691679689
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "Sets the camera to the player using a linear interpolation from the Camera's position to the Player's position."
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Camera",
+							"sid": 975983406835527,
+							"disabled": true,
+							"parameters": {
+								"x": "lerp(Self.X, Player.X, 0.03)",
+								"y": "lerp(Self.Y, Player.Y, 0.03)"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Camera",
+							"sid": 522986627021536,
+							"parameters": {
+								"x": "Player.X",
+								"y": "Player.Y"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "PlayerNightLight",
+							"sid": 263002339388007,
+							"parameters": {
+								"x": "Player.X",
+								"y": "Player.Y"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "PlayerSpecialMarker",
+							"sid": 589575024154948,
+							"parameters": {
+								"x": "Player.X - 8",
+								"y": "Player.Y + 1"
+							}
+						}
+					],
+					"sid": 904689259791202
+				}
+			],
+			"sid": 498155777276325,
+			"text-color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"background-color": [
+				0,
+				0,
+				0,
+				1
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Transitions",
+			"description": "All the codes for the transitions between various layouts (houses, underground, etc.)",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "PlayerLanding",
+							"sid": 844321046773818,
+							"parameters": {
+								"object": "NewZone"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 753155615278354,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "NewZone",
+									"sid": 435821395255817,
+									"parameters": {
+										"instance-variable": "Active"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "VFXInitZoneTransition",
+									"sid": 746710448736717,
+									"parameters": [
+										"NewZone.UID",
+										false
+									]
+								}
+							],
+							"sid": 736667807245307
+						}
+					],
+					"isOrBlock": true
+				},
+				{
+					"eventType": "comment",
+					"text": "When the Player collides with a TP object (invisible hitbox for doors and other passages), triggers a function that ultimately moves the Player to the new layout and the appropriate position."
+				},
+				{
+					"eventType": "comment",
+					"text": "The Active boolean check prevents many glitches.",
+					"background-color": [
+						1,
+						0.5333333333333333,
+						0.36470588235294116,
+						1
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Player",
+							"sid": 207115982199411,
+							"parameters": {
+								"object": "TP"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Player",
+							"sid": 177983151039024,
+							"parameters": {
+								"instance-variable": "Jumping"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Player",
+							"sid": 763417607768912,
+							"parameters": {
+								"instance-variable": "Active"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Player",
+							"sid": 399891361060874,
+							"parameters": {
+								"instance-variable": "Active",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Player",
+							"sid": 190700234001387,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Player",
+							"sid": 302407796931388,
+							"parameters": {
+								"instance-variable": "Spawn_X",
+								"value": "TP.Dest_X"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Player",
+							"sid": 350937213918463,
+							"parameters": {
+								"instance-variable": "Spawn_Y",
+								"value": "TP.Dest_Y"
+							}
+						},
+						{
+							"type": "comment",
+							"text": "Swap layout."
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 937313805779988,
+							"parameters": {
+								"variable": "ZONE",
+								"value": "TP.Dest_PrintedName"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 815414522335888,
+							"parameters": {
+								"variable": "NEXT_MUSIC",
+								"value": "TP.Music"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 456337973134826,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
+							"id": "go-to-layout-by-name",
+							"objectClass": "System",
+							"sid": 232512643488944,
+							"parameters": {
+								"layout": "TP.Destination"
+							}
+						}
+					],
+					"sid": 986115988813558
+				}
+			],
+			"sid": 202207897283801,
+			"text-color": [
+				0.27058823529411763,
+				0.22745098039215686,
+				0,
+				1
+			],
+			"background-color": [
+				0.807843137254902,
+				0.7019607843137254,
+				0.6235294117647059,
+				1
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Out-of-Bounds",
+			"description": "All the codes related to Player death due to an out-of-bound situation.",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "When the Player lands on (or, if you'd rather, \"collides with\") a FallZone object (designates an out-of-bound situation), triggers a special PlayerDeath function variant."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Player",
+							"sid": 242789986615096,
+							"parameters": {
+								"object": "FallZone"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Player",
+							"sid": 216540433763043,
+							"parameters": {
+								"instance-variable": "Jumping"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "PlayerDeath",
+							"sid": 785874485110027,
+							"parameters": [
+								"\"FreeFall\""
+							]
+						}
+					],
+					"sid": 386236058646922
+				}
+			],
+			"sid": 214120269359417
+		},
+		{
+			"eventType": "comment",
+			"text": "This is a temporary system:",
+			"background-color": [
+				0.9764705882352941,
+				0.5098039215686274,
+				0.4627450980392157,
+				1
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Score System",
+			"description": "All the codes for managing the score. The score is temporarely calculated using the collected coins. However, it will eventually be revised.",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 452373087096478
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 335771814868195,
+							"parameters": {
+								"instance-variable": "Type_of_Text",
+								"comparison": 0,
+								"value": "\"Score\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 556818876724948,
+							"parameters": {
+								"text": "\" Score: \"&Coins"
+							}
+						}
+					],
+					"sid": 903413439019252
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Player",
+							"sid": 565469585120382,
+							"parameters": {
+								"object": "Coin"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Player",
+							"sid": 173373584398682,
+							"parameters": {
+								"object": "Coin"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 856170384234205,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Player",
+									"sid": 748582208460194,
+									"parameters": {
+										"instance-variable": "Jumping"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 795237702001387,
+									"parameters": {
+										"variable": "COINS",
+										"value": "Coin.Value"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Coin",
+									"sid": 949900585506270
+								}
+							],
+							"sid": 209854236770632
+						}
+					],
+					"isOrBlock": true
+				}
+			],
+			"sid": 259171692590544,
+			"background-color": [
+				0.3333333333333333,
+				0.4666666666666667,
+				0.6235294117647059,
+				1
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Choice Dialogs",
+			"description": "All the codes for the choice global variable control and the enabling or disabling of the choice controls. Also contains the cursor position code.",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Cursor position",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 256916926075200,
+									"parameters": {
+										"variable": "ChoiceControls"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "UI_Sprite_DialogPointer",
+									"sid": 829993195494885,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 767535024884406,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Picks the SpriteFontChoice based on the Current_Dialog_Choice and sets the position accordingly."
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-comparison",
+											"objectClass": "System",
+											"sid": 348496800681156,
+											"parameters": {
+												"object": "Text_Choices",
+												"expression": "Text_Choices.Button_ID",
+												"comparison": 0,
+												"value": "Current_Dialog_Choice"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "UI_Sprite_DialogPointer",
+											"sid": 566842148238860,
+											"parameters": {
+												"x": "Text_Choices.X + round((Text_Choices.Width/2))",
+												"y": "Text_Choices.Y + round((Text_Choices.Height/2)) + 4"
+											}
+										}
+									],
+									"sid": 624941132430259
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 255999617741601
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "UI_Sprite_DialogPointer",
+									"sid": 649778816709044,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Text_Choices",
+									"sid": 901727340475779,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "DialogChoiceButton",
+									"sid": 666999330137322,
+									"parameters": {
+										"x": "-200",
+										"y": "-200"
+									}
+								}
+							],
+							"sid": 540822389744289
+						}
+					],
+					"sid": 998632144785304,
+					"background-color": [
+						1,
+						0.8549019607843137,
+						0.03529411764705882,
+						1
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 162802581348694,
+							"parameters": {
+								"variable": "Choice"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 505726956900433,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 313038299550519
+								}
+							],
+							"actions": [],
+							"sid": 166956222561117,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "This loops will set the CHECK boolean to True unless an INTE object has triggered a choice dialog."
+								},
+								{
+									"eventType": "variable",
+									"name": "CHECK",
+									"type": "boolean",
+									"initialValue": "false",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 975103672921320
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 407090938153805,
+											"parameters": {
+												"object": "NPC"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "NPC",
+											"sid": 337711999104899,
+											"parameters": {
+												"instance-variable": "Choice"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 467707400644484,
+											"parameters": {
+												"variable": "CHECK",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 723585875194907
+								},
+								{
+									"eventType": "comment",
+									"text": "IF the CHECK is not triggered, sets the global bool Choice to false and thus the disable the choice controls."
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 407170554193351,
+											"parameters": {
+												"variable": "CHECK"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [],
+									"sid": 151792511753355,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 892710925158730
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 973209256474771,
+													"parameters": {
+														"variable": "Choice",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 100670851484521,
+													"parameters": {
+														"variable": "ChoiceControls",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 522178989238261,
+													"parameters": {
+														"variable": "Current_Dialog_Choice",
+														"value": "-1"
+													}
+												}
+											],
+											"sid": 763324043666315
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Sets the global bool Choice to true and thus enabling the choice controls. Resets the star-cursor's position."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "NPC",
+							"sid": 922566789798867,
+							"parameters": {
+								"instance-variable": "Choice"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 338082454316364,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 226952294543893
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 860249828820400,
+									"parameters": {
+										"variable": "Choice",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 413543110427947,
+									"parameters": {
+										"variable": "Current_Dialog_Choice",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 432768388895048
+						}
+					]
+				}
+			],
+			"sid": 644746926000419,
+			"background-color": [
+				1,
+				0.5019607843137255,
+				0.5019607843137255,
+				1
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "NPC Visibility",
+			"description": "All the codes making the NPC visible or invisible under certain situations. The default case if that NPC are enabled if the value of their ActiveOn variable is the LayoutName.",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Make the NPC invisible only when it is on the right layout."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "NPC_sprite",
+							"sid": 744025089317432,
+							"parameters": {
+								"instance-variable": "ActiveOn",
+								"comparison": 0,
+								"value": "LayoutName"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "NPC_sprite",
+							"sid": 703646105115776,
+							"parameters": {
+								"instance-variable": "MakeInvisible"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "NPC_sprite",
+							"sid": 957025085300125,
+							"parameters": {
+								"instance-variable": "NPCStatus",
+								"comparison": 0,
+								"value": "\"Dead\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "NPC_sprite",
+							"sid": 101989883250594,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 535207211827197
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "NPC_sprite",
+							"sid": 223510263409269,
+							"parameters": {
+								"instance-variable": "ActiveOn",
+								"comparison": 1,
+								"value": "LayoutName"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "NPC_sprite",
+							"sid": 992850348536489,
+							"parameters": {
+								"instance-variable": "MakeInvisible"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "NPC_sprite",
+							"sid": 475052655227912,
+							"parameters": {
+								"instance-variable": "NPCStatus",
+								"comparison": 0,
+								"value": "\"Dead\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "NPC_sprite",
+							"sid": 493904220670291,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 841460369128154,
+					"isOrBlock": true
+				}
+			],
+			"sid": 410767023759217
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Player Landing Indicator Visibility",
+			"description": "All the codes for the visibility of the PlayerLanding object.",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Makes the PlayerLanding object visible only when the player is jumping."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Player",
+							"sid": 218018531473598,
+							"parameters": {
+								"instance-variable": "Jumping"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "PlayerLanding",
+							"sid": 624532374371949,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-z-elevation",
+							"objectClass": "System",
+							"sid": 552310043156083,
+							"parameters": {
+								"layer": "\"Special\"",
+								"z-elevation": "LayerZElevation(\"Player\")+1"
+							}
+						}
+					],
+					"sid": 387577184171005
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 188273955078416
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "PlayerLanding",
+							"sid": 632131065581254,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-z-elevation",
+							"objectClass": "System",
+							"sid": 640268134551476,
+							"parameters": {
+								"layer": "\"Special\"",
+								"z-elevation": "LayerZElevation(\"Player\")-1"
+							}
+						}
+					],
+					"sid": 427758056061578
+				}
+			],
+			"sid": 141943953849275,
+			"text-color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"background-color": [
+				0.00392156862745098,
+				0.09019607843137255,
+				0.8627450980392157,
+				1
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "World Clock",
+			"description": "All the codes for the world clock. The day is of a length of 450 seconds.",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 322905159971448,
+							"parameters": {
+								"interval-seconds": "1"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 446509382243544,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 428327773497296,
+									"parameters": {
+										"variable": "CLOCK",
+										"comparison": 0,
+										"value": "225"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 717497209058230,
+									"parameters": {
+										"variable": "NIGHT",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 846548353670826
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 124212429870834,
+									"parameters": {
+										"variable": "CLOCK",
+										"comparison": 2,
+										"value": "450"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 553573769358174,
+									"parameters": {
+										"variable": "CLOCK",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 255692571459930
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 853102584628760
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 180672190560488,
+									"parameters": {
+										"variable": "CLOCK",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 391326441102436,
+									"parameters": {
+										"variable": "NIGHT",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 255752321168075
+						}
+					]
+				}
+			],
+			"sid": 841135787969229
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Night and Day Cycle",
+			"description": "All the codes which influences the visibility of the celestial bodies (moon, sun, stars, etc.) and also triggers the BG color swap. In this is also found the trigger of the the fullscreen overlay used during nighttime.",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 485498309878741,
+							"parameters": {
+								"variable": "NIGHT"
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "Sets the nighttime overlay to visible."
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "PlayerNightLight",
+							"sid": 524986346444600,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "NightOverlay",
+							"sid": 799727211693593,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 872167109509763,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Sky color for the night."
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 883428611487473,
+									"parameters": {
+										"variable": "CLOCK",
+										"comparison": 2,
+										"value": "350"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-background-color",
+									"objectClass": "System",
+									"sid": 781260921566289,
+									"parameters": {
+										"layer": "0",
+										"color": "rgb(5, 12, 35)"
+									}
+								}
+							],
+							"sid": 151375111518292
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 359725790838127
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-background-color",
+									"objectClass": "System",
+									"sid": 436770085038348,
+									"parameters": {
+										"layer": "0",
+										"color": "rgb(5, 2, 5)"
+									}
+								}
+							],
+							"sid": 984694779525421
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 989489898849670,
+							"parameters": {
+								"variable": "NIGHT"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "Disable the nighttime overlay."
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "PlayerNightLight",
+							"sid": 260997344667919,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "NightOverlay",
+							"sid": 159484998392098,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 994908377041040,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Sky color for the day."
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 160734698898448,
+									"parameters": {
+										"variable": "CLOCK",
+										"comparison": 2,
+										"value": "40"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-background-color",
+									"objectClass": "System",
+									"sid": 883155516171150,
+									"parameters": {
+										"layer": "0",
+										"color": "rgb(255, 128, 128)"
+									}
+								}
+							],
+							"sid": 687338330084704
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 467304345294908,
+									"parameters": {
+										"variable": "CLOCK",
+										"comparison": 5,
+										"value": "40"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 577601045825104,
+									"parameters": {
+										"variable": "CLOCK",
+										"comparison": 3,
+										"value": "185"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-background-color",
+									"objectClass": "System",
+									"sid": 824708656704364,
+									"parameters": {
+										"layer": "0",
+										"color": "rgb(4, 230, 255)"
+									}
+								}
+							],
+							"sid": 829505857277273
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 926921513905046,
+									"parameters": {
+										"variable": "CLOCK",
+										"comparison": 4,
+										"value": "185"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-background-color",
+									"objectClass": "System",
+									"sid": 310009414153231,
+									"parameters": {
+										"layer": "0",
+										"color": "rgb(49, 145, 135)"
+									}
+								}
+							],
+							"sid": 782254543980528
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "This part manages the global visibility of the Sun and Moon objects. It gives the player an illusion that the clock is going-on while he explores buildings."
+				},
+				{
+					"eventType": "comment",
+					"text": "If the Layout isn't the MainWorld, both are invisible."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 654746439870254,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"MainWorld\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Sun",
+							"sid": 326421919687872,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "ShadowLight",
+							"sid": 199968067949709,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Moon",
+							"sid": 147035297355087,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 934635338156530
+				},
+				{
+					"eventType": "comment",
+					"text": "This renders the appropriate celestial body based on the current clock value."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 525718000485962
+						}
+					],
+					"actions": [],
+					"sid": 347163202250954,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 535993370363587,
+									"parameters": {
+										"variable": "CLOCK",
+										"comparison": 2,
+										"value": "225"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Sun",
+									"sid": 447556899785914,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "ShadowLight",
+									"sid": 334708874157131,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 148017600405943
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 471010095153771
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Moon",
+									"sid": 677679255904971,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 306505291026420
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 906129760138507,
+							"parameters": {
+								"variable": "CLOCK",
+								"comparison": 0,
+								"value": "225"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Sun",
+							"sid": 522956065692605,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Moon",
+							"sid": 144781116044849,
+							"parameters": {
+								"x": "1808",
+								"y": "800"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Moon",
+							"sid": 138449247555675,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "restart-fade",
+							"objectClass": "Moon",
+							"sid": 773390178952514,
+							"behaviorType": "Fade"
+						}
+					],
+					"sid": 980154572214437
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 712292634313340,
+							"parameters": {
+								"variable": "CLOCK",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Sun",
+							"sid": 450372350862770,
+							"parameters": {
+								"x": "0",
+								"y": "96"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Sun",
+							"sid": 161745130126356,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Moon",
+							"sid": 896896220401793,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "restart-fade",
+							"objectClass": "Sun",
+							"sid": 128221956013825,
+							"behaviorType": "Fade"
+						}
+					],
+					"sid": 525538529422690
+				}
+			],
+			"sid": 695743145790481,
+			"text-color": [
+				0.7529411764705882,
+				0.7529411764705882,
+				0.7529411764705882,
+				1
+			],
+			"background-color": [
+				0.25098039215686274,
+				0,
+				0.5019607843137255,
+				1
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Sky",
+			"description": "All the codes that controls the sky's objects interaction and updates.",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Spawns the clouds on MainWorld and pins the ShadowLight."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 215069060450665,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"MainWorld\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 392918136815519,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-start-of-layout",
+									"objectClass": "System",
+									"sid": 196320606959156
+								}
+							],
+							"actions": [
+								{
+									"id": "pin-to-object",
+									"objectClass": "ShadowLight",
+									"sid": 977339720721628,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "Sun",
+										"mode": "position-angle"
+									}
+								}
+							],
+							"sid": 100224353953585,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "repeat",
+											"objectClass": "System",
+											"sid": 181612693965956,
+											"parameters": {
+												"count": "64"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 801285996992689,
+											"parameters": {
+												"object-to-create": "ObjectCloud",
+												"layer": "\"FG\"",
+												"x": "round(random(0,118))*16",
+												"y": "round(random(0, 50))*16",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										}
+									],
+									"sid": 479352517265976,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-last-created",
+													"objectClass": "System",
+													"sid": 302262997609299,
+													"parameters": {
+														"object": "ObjectCloud"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation-frame",
+													"objectClass": "ObjectCloud",
+													"sid": 861091155972690,
+													"parameters": {
+														"frame-number": "round(random(0,1))"
+													}
+												},
+												{
+													"id": "set-speed",
+													"objectClass": "ObjectCloud",
+													"sid": 950030025931614,
+													"behaviorType": "Bullet",
+													"parameters": {
+														"speed": "random(8, 16)"
+													}
+												}
+											],
+											"sid": 751091133298838
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Cloud Generation",
+							"description": "All the codes for generating clouds on the MainWorld layout.",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-x-seconds",
+											"objectClass": "System",
+											"sid": 186396039820957,
+											"parameters": {
+												"interval-seconds": "random(1,4)"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 797511581836984,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "repeat",
+													"objectClass": "System",
+													"sid": 813429993967597,
+													"parameters": {
+														"count": "random(1,3)"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 709538297405586,
+													"parameters": {
+														"object-to-create": "ObjectCloud",
+														"layer": "\"FG\"",
+														"x": "0",
+														"y": "round(random(0, 50))*16",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 208179368371719,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-last-created",
+															"objectClass": "System",
+															"sid": 680623464969134,
+															"parameters": {
+																"object": "ObjectCloud"
+															}
+														}
+													],
+													"actions": [
+														{
+															"type": "comment",
+															"text": "Gives each cloud a random frame and speed."
+														},
+														{
+															"id": "set-animation-frame",
+															"objectClass": "ObjectCloud",
+															"sid": 678296194400039,
+															"parameters": {
+																"frame-number": "round(random(0,2))"
+															}
+														},
+														{
+															"id": "set-speed",
+															"objectClass": "ObjectCloud",
+															"sid": 109129416038985,
+															"behaviorType": "Bullet",
+															"parameters": {
+																"speed": "random(8, 16)"
+															}
+														}
+													],
+													"sid": 664993360744794
+												}
+											]
+										}
+									]
+								}
+							],
+							"sid": 259503128288395,
+							"background-color": [
+								0.5019607843137255,
+								1,
+								1,
+								1
+							]
+						}
+					]
+				}
+			],
+			"sid": 535336432502162,
+			"background-color": [
+				1,
+				1,
+				1,
+				1
+			]
+		}
+	],
+	"sid": 755906057407548
+}

@@ -1,0 +1,884 @@
+{
+	"name": "Structure",
+	"plugin-id": "Sprite",
+	"sid": 732719001509594,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "shadowcaster",
+			"name": "ShadowCaster",
+			"sid": 832402687842274
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 32,
+						"height": 32,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 25,
+						"collisionPoly": {
+							"points": [
+								0.5008223684210523,
+								0.8297697368421053,
+								1,
+								1,
+								0.03125,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 915761496830003,
+				"name": "Home",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 32,
+						"height": 48,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 82,
+						"collisionPoly": {
+							"points": [
+								0.5000000000000004,
+								0.6579861111111112,
+								0.9583333333333337,
+								0.8359375000000002,
+								0.9635416666666665,
+								0.9791666666666665,
+								0.041666666666666664,
+								0.9756944444444448,
+								0.05208333333333351,
+								0.8289930555555559
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 32,
+						"height": 48,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 157,
+						"collisionPoly": {
+							"points": [
+								0.5000000000000004,
+								0.6579861111111112,
+								0.9583333333333337,
+								0.8359375000000002,
+								0.9635416666666665,
+								0.9791666666666665,
+								0.041666666666666664,
+								0.9756944444444448,
+								0.05208333333333351,
+								0.8289930555555559
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 32,
+						"height": 48,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 158,
+						"collisionPoly": {
+							"points": [
+								0.5000000000000004,
+								0.6579861111111112,
+								0.9583333333333337,
+								0.8359375000000002,
+								0.9635416666666665,
+								0.9791666666666665,
+								0.041666666666666664,
+								0.9756944444444448,
+								0.05208333333333351,
+								0.8289930555555559
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 32,
+						"height": 32,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 172,
+						"collisionPoly": {
+							"points": [
+								0.03125,
+								0,
+								1,
+								0,
+								1,
+								1,
+								0.03125,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 496765702327353,
+				"name": "VillageHouse1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			},
+			{
+				"frames": [
+					{
+						"width": 32,
+						"height": 32,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 88,
+						"collisionPoly": {
+							"points": [
+								0.03453947368421053,
+								0.7796052631578949,
+								0.49835526315789413,
+								0.6957236842105267,
+								0.960526315789473,
+								0.7722039473684215,
+								0.9654605263157893,
+								0.9917763157894736,
+								0.03125,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 642696120180949,
+				"name": "TrashHouse",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 48,
+						"height": 32,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 86,
+						"collisionPoly": {
+							"points": [
+								0.08771929824561403,
+								0.6891447368421054,
+								0.9166666666666665,
+								0.6891447368421053,
+								0.9133771929824562,
+								0.9671052631578948,
+								0.0855263157894737,
+								0.96875
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 466306252233490,
+				"name": "VillageStore",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 32,
+						"height": 48,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 121,
+						"collisionPoly": {
+							"points": [
+								0.23863636363636356,
+								0.7168560606060607,
+								1,
+								0.8570075757575757,
+								1,
+								0.9744318181818181,
+								0.159090909090909,
+								0.978219696969697
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 785117940457059,
+				"name": "VillageTheater",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 32,
+						"height": 48,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 84,
+						"collisionPoly": {
+							"points": [
+								0.0322779605263158,
+								0.7793311403508771,
+								0.5044202302631579,
+								0.6331551535087723,
+								0.96875,
+								0.7682291666666665,
+								0.9609375,
+								0.9713541666666665,
+								0.03515625,
+								0.9739583333333334
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 258923974995993,
+				"name": "GirlHouse",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 48,
+						"height": 48,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 90,
+						"collisionPoly": {
+							"points": [
+								0.01973684210526316,
+								0.5800438596491226,
+								0.8530701754385968,
+								0.5811403508771928,
+								0.8519736842105265,
+								0.9736842105263158,
+								0.019736842105263157,
+								0.9791666666666669
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 770994824900813,
+				"name": "Lofts",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 64,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 1,
+						"collisionPoly": {
+							"points": [
+								0.07730263157894735,
+								0.5438939144736841,
+								0.5,
+								0.392578125,
+								0.9140625,
+								0.544921875,
+								0.921875,
+								0.943359375,
+								0.72265625,
+								0.9853515625,
+								0.279296875,
+								0.98876953125,
+								0.0859375,
+								0.94921875
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 756819267368803,
+				"name": "MagicianTower",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 32,
+						"height": 48,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3,
+						"collisionPoly": {
+							"points": [
+								0.0703125,
+								0.7239583333333336,
+								0.6640625,
+								0.7239583333333336,
+								0.8046875,
+								0.8776041666666669,
+								0.9296875,
+								0.9583333333333334,
+								0.0625,
+								0.9479166666666667
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 438010103998253,
+				"name": "RuinedHouse",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 32,
+						"height": 32,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 103,
+						"collisionPoly": {
+							"points": [
+								0.1640625,
+								0.6015625,
+								0.9609375,
+								0.6015625,
+								0.9609375,
+								0.9140625,
+								0.1484375,
+								0.921875
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 673283502783738,
+				"name": "DesertBar",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 32,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 106,
+						"collisionPoly": {
+							"points": [
+								0,
+								0.7676809210526319,
+								1,
+								0.75,
+								0.9967105263157895,
+								0.9650493421052632,
+								0,
+								0.9621710526315791
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 32,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 214,
+						"collisionPoly": {
+							"points": [
+								0,
+								0.7878289473684209,
+								1,
+								0.7861842105263155,
+								0.980263157894737,
+								0.9654605263157899,
+								0,
+								0.9671052631578946
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 217,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0,
+								1,
+								0,
+								1,
+								1,
+								0.0625,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 674274554463879,
+				"name": "DesertHouse",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			},
+			{
+				"frames": [
+					{
+						"width": 64,
+						"height": 48,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 19,
+						"collisionPoly": {
+							"points": [
+								0.2109375,
+								0.7083333333333331,
+								0.9375,
+								0.7031249999999999,
+								0.94140625,
+								0.9427083333333331,
+								0.203125,
+								0.9583333333333336
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 259111608387895,
+				"name": "Manor",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 48,
+						"height": 48,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 24,
+						"collisionPoly": {
+							"points": [
+								0.35416666666666685,
+								0.6927083333333336,
+								0.9635416666666665,
+								0.7083333333333333,
+								0.9583333333333334,
+								0.9374999999999999,
+								0.27083333333333326,
+								0.9635416666666669
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 131253549593296,
+				"name": "Ranch",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 32,
+						"height": 48,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 47,
+						"collisionPoly": {
+							"points": [
+								0.1875,
+								0.7395833333333334,
+								0.8828125,
+								0.7291666666666665,
+								0.875,
+								0.9427083333333331,
+								0.1640625,
+								0.9687499999999999
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 664322201724231,
+				"name": "Barn",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 48,
+						"height": 32,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2,
+						"collisionPoly": {
+							"points": [
+								0.47916666666666646,
+								0.53125,
+								0.932291666666667,
+								0.8828125,
+								0.08333333333333331,
+								0.9140625
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 853158600347693,
+				"name": "Pyramid",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 32,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 46,
+						"collisionPoly": {
+							"points": [
+								0,
+								0.75,
+								0.984375,
+								0.7734375,
+								1,
+								1,
+								0.0625,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 416056414285544,
+				"name": "Hut",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 64,
+						"height": 48,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 97,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 931527304014766,
+				"name": "BigTree",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 32,
+						"height": 32,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 151,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 497472529208010,
+				"name": "Temple",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 32,
+						"height": 32,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 155,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 926138847713707,
+				"name": "UndergroundHouse",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 48,
+						"height": 64,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 124,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 411473742085287,
+				"name": "InventorsHouse",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 32,
+						"height": 16,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 181,
+						"collisionPoly": {
+							"points": [
+								0.49687499999999984,
+								0.7406250000000001,
+								0.8031249999999998,
+								0.9328125,
+								0.18984374999999998,
+								0.9343749999999998
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 32,
+						"height": 16,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 185,
+						"collisionPoly": {
+							"points": [
+								0.22343750000000004,
+								0.7421875000000003,
+								0.7765625000000002,
+								0.9156250000000001,
+								0.09296875,
+								0.934375
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 182052676772018,
+				"name": "Tent",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			},
+			{
+				"frames": [
+					{
+						"width": 64,
+						"height": 32,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 273,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 256641112109778,
+				"name": "VacantHall",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

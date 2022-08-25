@@ -1,0 +1,32 @@
+{
+	"name": "Text_Choices",
+	"plugin-id": "Text",
+	"sid": 187295193701749,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Button_ID",
+			"type": "number",
+			"desc": "",
+			"sid": 132104672436454
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Fade",
+			"name": "Fade",
+			"sid": 854121178371966
+		},
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 120686027027635
+		},
+		{
+			"behaviorId": "Pin",
+			"name": "Pin",
+			"sid": 255010820899718
+		}
+	],
+	"effectTypes": []
+}

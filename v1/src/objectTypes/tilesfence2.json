@@ -1,0 +1,21 @@
+{
+	"name": "TilesFence2",
+	"plugin-id": "Tilemap",
+	"sid": 127862371458716,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 48,
+		"height": 16,
+		"originX": 0.5625,
+		"originY": 0.5625,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 470,
+		"useCollisionPoly": true
+	},
+	"tile-collision-polys": {}
+}

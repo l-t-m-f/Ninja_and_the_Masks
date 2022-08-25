@@ -1,0 +1,33 @@
+{
+	"name": "Text",
+	"plugin-id": "Text",
+	"sid": 940577615851932,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Type_of_Text",
+			"type": "string",
+			"desc": "A string variable that indicates the function of this text within the program.",
+			"sid": 105291303994422
+		},
+		{
+			"name": "ID",
+			"type": "number",
+			"desc": "",
+			"sid": 736166874142733
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Fade",
+			"name": "Fade",
+			"sid": 208657766465475
+		},
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 523155780859508
+		}
+	],
+	"effectTypes": []
+}

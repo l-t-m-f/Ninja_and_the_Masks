@@ -1,0 +1,85 @@
+{
+	"name": "UIShopSpot",
+	"plugin-id": "Sprite",
+	"sid": 721283674711853,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "ID",
+			"type": "number",
+			"desc": "",
+			"sid": 268824645024421
+		},
+		{
+			"name": "Row",
+			"type": "number",
+			"desc": "",
+			"sid": 615815680547382
+		},
+		{
+			"name": "ItemName",
+			"type": "string",
+			"desc": "",
+			"sid": 957374038121588
+		},
+		{
+			"name": "Possessed",
+			"type": "boolean",
+			"desc": "",
+			"sid": 981778193069657
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 634,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 450778820754010,
+				"name": "Unselected",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 775,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 196056380561480,
+				"name": "Selected",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

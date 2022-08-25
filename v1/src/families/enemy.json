@@ -1,0 +1,114 @@
+{
+	"name": "Enemy",
+	"plugin-id": "Sprite",
+	"sid": 582734517084430,
+	"instanceVariables": [
+		{
+			"name": "AIType",
+			"type": "number",
+			"desc": "",
+			"sid": 267485280225133
+		},
+		{
+			"name": "NextDirection",
+			"type": "string",
+			"desc": "",
+			"sid": 741072914919234
+		},
+		{
+			"name": "CurDirection",
+			"type": "string",
+			"desc": "",
+			"sid": 633868394140015
+		},
+		{
+			"name": "Immune",
+			"type": "boolean",
+			"desc": "",
+			"sid": 753704480398588
+		},
+		{
+			"name": "MaxHP",
+			"type": "number",
+			"desc": "",
+			"sid": 720137866481561
+		},
+		{
+			"name": "CurHP",
+			"type": "number",
+			"desc": "",
+			"sid": 669318680929394
+		},
+		{
+			"name": "Special",
+			"type": "boolean",
+			"desc": "",
+			"sid": 384992403945748
+		},
+		{
+			"name": "NextMove",
+			"type": "string",
+			"desc": "",
+			"sid": 276173010208554
+		},
+		{
+			"name": "Adjacency_Up",
+			"type": "string",
+			"desc": "",
+			"sid": 578895976353166
+		},
+		{
+			"name": "Adjacency_Left",
+			"type": "string",
+			"desc": "",
+			"sid": 227016873889778
+		},
+		{
+			"name": "Adjacency_Down",
+			"type": "string",
+			"desc": "",
+			"sid": 557270446767850
+		},
+		{
+			"name": "Adjacency_Right",
+			"type": "string",
+			"desc": "",
+			"sid": 777274229244749
+		},
+		{
+			"name": "MonsterSpawnerUID",
+			"type": "number",
+			"desc": "",
+			"sid": 855943031190935
+		},
+		{
+			"name": "ImmuneCooldown",
+			"type": "number",
+			"desc": "",
+			"sid": 497789732452122
+		},
+		{
+			"name": "MoveDone",
+			"type": "boolean",
+			"desc": "",
+			"sid": 980589810985198
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Flash",
+			"name": "Flash",
+			"sid": 661025470709624
+		},
+		{
+			"behaviorId": "LOS",
+			"name": "LineOfSight",
+			"sid": 202921701972710
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"EnemyMask",
+		"NPC_duel"
+	]
+}

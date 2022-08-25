@@ -1,0 +1,55 @@
+{
+	"name": "UIQuestMarker",
+	"plugin-id": "Sprite",
+	"sid": 546865309770994,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "AssociatedWith",
+			"type": "string",
+			"desc": "",
+			"sid": 190666016764172
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Sin",
+			"name": "AngleOscillation",
+			"sid": 182109421386092
+		},
+		{
+			"behaviorId": "Pin",
+			"name": "Pin",
+			"sid": 623709465808747
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 589,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 452844827804521,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

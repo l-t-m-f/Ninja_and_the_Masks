@@ -1,0 +1,94 @@
+{
+	"name": "VFX_LeafShadow",
+	"plugin-id": "Sprite",
+	"sid": 553306074852944,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Fade",
+			"name": "Fade",
+			"sid": 808470146453037
+		},
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 342105657438932
+		},
+		{
+			"behaviorId": "Pin",
+			"name": "Pin",
+			"sid": 313135445248378
+		},
+		{
+			"behaviorId": "Sin",
+			"name": "Sine2",
+			"sid": 694860423154015
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 539,
+						"collisionPoly": {
+							"points": [
+								0.33984375,
+								0.37109375,
+								0.6376953125,
+								0.25,
+								0.7216796875,
+								0.720703125,
+								0.306640625,
+								0.779296875
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 541,
+						"collisionPoly": {
+							"points": [
+								0.33984375,
+								0.37109375,
+								0.6376953125,
+								0.25,
+								0.7216796875,
+								0.720703125,
+								0.306640625,
+								0.779296875
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 746224423510006,
+				"name": "Leaf",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

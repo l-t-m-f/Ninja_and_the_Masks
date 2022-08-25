@@ -1,0 +1,638 @@
+{
+	"name": "Controls2",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Menu control-type swapper",
+			"description": "All the codes for the menu control-type swapper. Based on the similar, more broad, code in the Controls Event Sheet.",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 609840684215328,
+							"parameters": {
+								"first-value": "MenuControls",
+								"comparison": 0,
+								"second-value": "\"Touch\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 663646768029385,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-any-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 370883972823035
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 970152917399958,
+									"parameters": {
+										"variable": "MenuControls",
+										"comparison": 0,
+										"value": "\"Keyboard\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Cursor",
+									"sid": 416772393570237,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 285805134734249,
+									"parameters": {
+										"variable": "MenuControls",
+										"value": "\"Keyboard\""
+									}
+								}
+							],
+							"sid": 210869255530465
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-any-button-pressed",
+									"objectClass": "Gamepad",
+									"sid": 272600674305883,
+									"parameters": {
+										"gamepad": "0"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 260755069150923,
+									"parameters": {
+										"variable": "MenuControls",
+										"comparison": 0,
+										"value": "\"Gamepad\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Cursor",
+									"sid": 879971829122247,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 867214489123244,
+									"parameters": {
+										"variable": "MenuControls",
+										"value": "\"Gamepad\""
+									}
+								}
+							],
+							"sid": 651604888396140
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-click",
+									"objectClass": "Mouse",
+									"sid": 158286833798613,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "double-clicked"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 803827830551726,
+									"parameters": {
+										"variable": "MenuControls",
+										"comparison": 0,
+										"value": "\"Mouse\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Cursor",
+									"sid": 985835915974461,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 363167200958358,
+									"parameters": {
+										"variable": "MenuControls",
+										"value": "\"Mouse\""
+									}
+								}
+							],
+							"sid": 840515388422156
+						}
+					]
+				}
+			],
+			"sid": 158117569497702,
+			"background-color": [
+				0.2549019607843137,
+				0.058823529411764705,
+				0.5019607843137255,
+				1
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Meta controls",
+			"description": "All the codes which is related to aspects of the game which are exterior to the main gameplay, such as making the game fullscreen or muting it.",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "The controls are divided between the three control-types as before. I've commented only the Keyboard section, which all other sections mimic."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 546221142137595,
+							"parameters": {
+								"first-value": "MenuControls",
+								"comparison": 0,
+								"second-value": "\"Keyboard\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 615274025868079,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 249931235707627,
+									"parameters": {
+										"key": 80
+									}
+								}
+							],
+							"actions": [],
+							"sid": 279304122852942,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 692448308024304,
+											"parameters": {
+												"variable": "Pause"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 488119387089298,
+											"parameters": {
+												"variable": "Pause",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 348263512204541,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-layer-visible",
+													"objectClass": "System",
+													"sid": 520082129661723,
+													"parameters": {
+														"layer": "\"UIEscapeMenu\"",
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-time-scale",
+													"objectClass": "System",
+													"sid": 230107095877173,
+													"parameters": {
+														"time-scale": "0"
+													}
+												}
+											],
+											"sid": 562511728983133
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 966984822127555
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 216355708334085,
+											"parameters": {
+												"variable": "Pause",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 106440933379475,
+											"parameters": {
+												"layer": "\"UIEscapeMenu\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-time-scale",
+											"objectClass": "System",
+											"sid": 736119813971958,
+											"parameters": {
+												"time-scale": "1"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "UIMenuButton",
+											"sid": 995852624902560,
+											"parameters": {
+												"instance-variable": "State",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 965198894715563
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Pressing F runs a function which puts the game in fullscreen."
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 704173339976662,
+									"parameters": {
+										"key": 70
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "RequestFullscreen",
+									"sid": 210403801352238
+								}
+							],
+							"sid": 192100727682278
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 301195440504499,
+									"parameters": {
+										"key": 73
+									}
+								}
+							],
+							"actions": [],
+							"sid": 843491354013069,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 735325614658317,
+											"parameters": {
+												"layer": "\"UIInventory\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 612991971733160,
+											"parameters": {
+												"variable": "Inventory",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 239928210226194,
+											"parameters": {
+												"layer": "\"UIInventory\"",
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 603227976827664,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 798078161849125,
+													"parameters": {
+														"object": "UIInventorySpot"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 806537322794330,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "UIInventorySpot",
+															"sid": 948533857474022,
+															"parameters": {
+																"instance-variable": "Possessed"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 928555020250345,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "pick-nearestfurthest",
+																	"objectClass": "IconInventoryObject",
+																	"sid": 811325187310303,
+																	"parameters": {
+																		"which": "nearest",
+																		"x": "UIInventorySpot.X",
+																		"y": "UIInventorySpot.Y"
+																	}
+																},
+																{
+																	"id": "is-animation-playing",
+																	"objectClass": "IconInventoryObject",
+																	"sid": 342538189338891,
+																	"parameters": {
+																		"animation": "UIInventorySpot.ItemName"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-visible",
+																	"objectClass": "IconInventoryObject",
+																	"sid": 452866826823517,
+																	"parameters": {
+																		"visibility": "visible"
+																	}
+																}
+															],
+															"sid": 166821058544023
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "UIInventorySpot",
+															"sid": 196949616662682,
+															"parameters": {
+																"instance-variable": "Possessed"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [],
+													"sid": 315607739910192,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "pick-nearestfurthest",
+																	"objectClass": "IconInventoryObject",
+																	"sid": 669869410952252,
+																	"parameters": {
+																		"which": "nearest",
+																		"x": "UIInventorySpot.X",
+																		"y": "UIInventorySpot.Y"
+																	}
+																},
+																{
+																	"id": "is-animation-playing",
+																	"objectClass": "IconInventoryObject",
+																	"sid": 542092263465200,
+																	"parameters": {
+																		"animation": "UIInventorySpot.ItemName"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-visible",
+																	"objectClass": "IconInventoryObject",
+																	"sid": 456503836829796,
+																	"parameters": {
+																		"visibility": "invisible"
+																	}
+																}
+															],
+															"sid": 411562171684198
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 155343723492481
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "MenuInventoryClose",
+											"sid": 615743046395992
+										}
+									],
+									"sid": 610421586610695
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 194471550933644,
+							"parameters": {
+								"first-value": "MenuControls",
+								"comparison": 0,
+								"second-value": "\"Gamepad\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 180727485675092,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-button-pressed",
+									"objectClass": "Gamepad",
+									"sid": 831317427227281,
+									"parameters": {
+										"gamepad": "0",
+										"button": "back-view"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "RequestFullscreen",
+									"sid": 332252631640407
+								}
+							],
+							"sid": 377553710888747
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 261621872081093,
+							"parameters": {
+								"first-value": "MenuControls",
+								"comparison": 0,
+								"second-value": "\"Touch\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 541376808273056,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-double-tap-object",
+									"objectClass": "Touch",
+									"sid": 835580026660976,
+									"parameters": {
+										"object": "TouchZone"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "TouchZone",
+									"sid": 177420307754240,
+									"parameters": {
+										"instance-variable": "Type",
+										"comparison": 0,
+										"value": "\"FS\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "RequestFullscreen",
+									"sid": 603782340316495
+								}
+							],
+							"sid": 650056647731082
+						}
+					]
+				}
+			],
+			"sid": 121055723304743,
+			"text-color": [
+				0,
+				0,
+				0,
+				1
+			],
+			"background-color": [
+				1,
+				1,
+				1,
+				1
+			]
+		}
+	],
+	"sid": 502664340097045
+}

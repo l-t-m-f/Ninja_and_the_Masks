@@ -1,0 +1,17 @@
+{
+	"name": "PlayerObstacle",
+	"plugin-id": "TiledBg",
+	"sid": 904900755009186,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 813398318651796
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"Blocker"
+	]
+}

@@ -1,0 +1,730 @@
+{
+	"name": "Init",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Init",
+			"description": "All the codes for the initialization of the main game loop. Excludes the init components of menus.",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 430294693586223
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "Sets the Mouse's cursor image."
+						},
+						{
+							"callFunction": "SetMouseCursor",
+							"sid": 660389669431909
+						}
+					],
+					"sid": 705261863328168,
+					"children": [
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Quest Markers Spawning",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 736002495184050,
+											"parameters": {
+												"object": "NPC_sprite"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 745876621162236,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "NPC_sprite",
+													"sid": 892514151221209,
+													"parameters": {
+														"instance-variable": "ActiveOn",
+														"comparison": 0,
+														"value": "LayoutName"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "NPC_sprite",
+													"sid": 806559641122467,
+													"parameters": {
+														"instance-variable": "NPCStatus",
+														"comparison": 1,
+														"value": "\"Dead\""
+													}
+												}
+											],
+											"actions": [],
+											"sid": 511977670245564,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "NPC_sprite",
+															"sid": 515763703299002,
+															"parameters": {
+																"instance-variable": "NewDialogue"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "spawn-another-object",
+															"objectClass": "NPC_sprite",
+															"sid": 199516330712741,
+															"parameters": {
+																"object": "UIQuestMarker",
+																"layer": "\"HealthBars\"",
+																"image-point": "\"Marker\"",
+																"create-hierarchy": false
+															}
+														},
+														{
+															"id": "pin-to-object",
+															"objectClass": "UIQuestMarker",
+															"sid": 579529895283642,
+															"behaviorType": "Pin",
+															"parameters": {
+																"pin-to": "NPC_sprite",
+																"mode": "position-only"
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "NPC_sprite",
+															"sid": 102852565412677,
+															"parameters": {
+																"instance-variable": "Marker",
+																"value": "true"
+															}
+														},
+														{
+															"id": "set-visible",
+															"objectClass": "UIQuestMarker",
+															"sid": 450383079422351,
+															"parameters": {
+																"visibility": "visible"
+															}
+														}
+													],
+													"sid": 260683369842143,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "pick-last-created",
+																	"objectClass": "System",
+																	"sid": 483212839402280,
+																	"parameters": {
+																		"object": "UIQuestMarker"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "UIQuestMarker",
+																	"sid": 960959650211001,
+																	"parameters": {
+																		"instance-variable": "AssociatedWith",
+																		"value": "NPC_sprite.AnimationName"
+																	}
+																}
+															],
+															"sid": 416865906404341
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 270487041077236
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "NPC_sprite",
+															"sid": 889008724652915,
+															"parameters": {
+																"instance-variable": "Marker",
+																"value": "false"
+															}
+														}
+													],
+													"sid": 248344156334675,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "pick-by-comparison",
+																	"objectClass": "System",
+																	"sid": 692957751303851,
+																	"parameters": {
+																		"object": "UIQuestMarker",
+																		"expression": "UIQuestMarker.AssociatedWith",
+																		"comparison": 0,
+																		"value": "NPC_sprite.AnimationName"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-visible",
+																	"objectClass": "UIQuestMarker",
+																	"sid": 284133533025242,
+																	"parameters": {
+																		"visibility": "invisible"
+																	}
+																}
+															],
+															"sid": 969461849196483
+														}
+													]
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "NPC_sprite",
+													"sid": 821582399627580,
+													"parameters": {
+														"instance-variable": "ActiveOn",
+														"comparison": 0,
+														"value": "LayoutName"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "NPC_sprite",
+													"sid": 486060771119971,
+													"parameters": {
+														"instance-variable": "NPCStatus",
+														"comparison": 0,
+														"value": "\"Dead\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "NPC_sprite",
+													"sid": 577221562819531,
+													"parameters": {
+														"instance-variable": "Marker",
+														"value": "false"
+													}
+												}
+											],
+											"sid": 744723262101255,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-by-comparison",
+															"objectClass": "System",
+															"sid": 129590337011992,
+															"parameters": {
+																"object": "UIQuestMarker",
+																"expression": "UIQuestMarker.AssociatedWith",
+																"comparison": 0,
+																"value": "NPC_sprite.AnimationName"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-visible",
+															"objectClass": "UIQuestMarker",
+															"sid": 950025750719403,
+															"parameters": {
+																"visibility": "invisible"
+															}
+														}
+													],
+													"sid": 122154014438926
+												}
+											],
+											"isOrBlock": true
+										}
+									]
+								}
+							],
+							"sid": 433712710219749,
+							"background-color": [
+								1,
+								0.09411764705882353,
+								0,
+								1
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 844664122818893,
+									"parameters": {
+										"first-value": "LayoutName",
+										"comparison": 0,
+										"second-value": "\"MainMenu\""
+									},
+									"isInverted": true
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 467094951426917,
+									"parameters": {
+										"first-value": "LayoutName",
+										"comparison": 0,
+										"second-value": "\"Options\""
+									},
+									"isInverted": true
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 416611243647661,
+									"parameters": {
+										"first-value": "LayoutName",
+										"comparison": 0,
+										"second-value": "\"Credits\""
+									},
+									"isInverted": true
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 484533701092922,
+									"parameters": {
+										"first-value": "LayoutName",
+										"comparison": 0,
+										"second-value": "\"Help\""
+									},
+									"isInverted": true
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 619407164859741,
+									"parameters": {
+										"first-value": "LayoutName",
+										"comparison": 0,
+										"second-value": "\"Cinematics\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "reset-persisted-objects",
+									"objectClass": "System",
+									"sid": 437680008366992
+								},
+								{
+									"id": "set-solid-collision-filter",
+									"objectClass": "PlayerHolder",
+									"sid": 610413603477316,
+									"parameters": {
+										"mode": "exclusive",
+										"tags": "\"Enemy\""
+									}
+								},
+								{
+									"id": "set-solid-collision-filter",
+									"objectClass": "NPC_sprite",
+									"sid": 647255783608340,
+									"parameters": {
+										"mode": "exclusive",
+										"tags": "\"Special\""
+									}
+								},
+								{
+									"type": "comment",
+									"text": "This function initializes the Player's HP bar."
+								},
+								{
+									"callFunction": "HPBarInit",
+									"sid": 428962207086243,
+									"parameters": [
+										true,
+										"0"
+									]
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 682892943160953
+								},
+								{
+									"callFunction": "HPBarHide",
+									"sid": 660478725018401,
+									"parameters": [
+										true,
+										"0"
+									]
+								},
+								{
+									"callFunction": "VFXInitZoneTransition",
+									"sid": 875037521488322,
+									"parameters": [
+										"TP.UID",
+										true
+									]
+								}
+							],
+							"sid": 405387335725734,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 637564267584334,
+											"parameters": {
+												"variable": "NEW_GAME"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "PlayerMoveToLayout",
+											"sid": 609951761768303,
+											"parameters": [
+												"Player.Spawn_X",
+												"Player.Spawn_Y"
+											]
+										}
+									],
+									"sid": 105177448991011,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "Otherwise, this is the start of the main game loop and the GameInit function must run."
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 199842397524103
+										}
+									],
+									"actions": [
+										{
+											"id": "request-project-file",
+											"objectClass": "AJAX",
+											"sid": 929871018833890,
+											"parameters": {
+												"tag": "\"array\"",
+												"file": "MusicList.json"
+											}
+										},
+										{
+											"id": "wait-for-previous-actions",
+											"objectClass": "System",
+											"sid": 830789927540152
+										},
+										{
+											"id": "load",
+											"objectClass": "MusicList",
+											"sid": 577378341094637,
+											"parameters": {
+												"json": "AJAX.LastData"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 512206431455490,
+											"parameters": {
+												"variable": "ZONE",
+												"value": "\"Home\""
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 333460804400634,
+											"parameters": {
+												"variable": "NEXT_MUSIC",
+												"value": "\"Overworld\""
+											}
+										},
+										{
+											"callFunction": "GameInit",
+											"sid": 890539474592660
+										}
+									],
+									"sid": 959182301909624
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 134337525047210,
+									"parameters": {
+										"first-value": "LayoutName",
+										"comparison": 0,
+										"second-value": "\"MainMenu\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "Load the data using AJAX."
+								},
+								{
+									"callFunction": "DialogsLoadData",
+									"sid": 537733009620807
+								},
+								{
+									"callFunction": "AudioPlayMusic",
+									"sid": 710955728961768,
+									"parameters": [
+										"0",
+										"\"Menu\""
+									]
+								},
+								{
+									"callFunction": "MenuInit",
+									"sid": 534255101102560
+								},
+								{
+									"callFunction": "SetMouseCursor",
+									"sid": 344293649186963
+								}
+							],
+							"sid": 890887495227911
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 218579542557116,
+									"parameters": {
+										"first-value": "LayoutName",
+										"comparison": 0,
+										"second-value": "\"Cinematics\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "AudioPlayMusic",
+									"sid": 126759384104757,
+									"parameters": [
+										"0",
+										"\"Intro\""
+									]
+								},
+								{
+									"callFunction": "CinematicPrintText",
+									"sid": 125653498441263,
+									"parameters": [
+										"0",
+										"255",
+										"255",
+										"255"
+									]
+								}
+							],
+							"sid": 895147864394522
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 980443524993562,
+									"parameters": {
+										"object": "Text_Choices"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "unpin",
+									"objectClass": "Text_Choices",
+									"sid": 137700993868095,
+									"behaviorType": "Pin"
+								}
+							],
+							"sid": 785592166776122,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-comparison",
+											"objectClass": "System",
+											"sid": 398834866787608,
+											"parameters": {
+												"object": "DialogChoiceButton",
+												"expression": "DialogChoiceButton.ID",
+												"comparison": 0,
+												"value": "Text_Choices.Button_ID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "pin-to-object",
+											"objectClass": "Text_Choices",
+											"sid": 818075340658978,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "DialogChoiceButton",
+												"mode": "position-angle"
+											}
+										}
+									],
+									"sid": 868088881887601
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 278196357003164,
+									"parameters": {
+										"first-value": "LayoutName",
+										"comparison": 0,
+										"second-value": "\"GAMEOVER\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "PlayerWeapon",
+									"sid": 477372192157292,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "HealthBar",
+									"sid": 571339915326345,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 374928959821385,
+									"parameters": {
+										"seconds": "6.66"
+									}
+								},
+								{
+									"id": "reset-persisted-objects",
+									"objectClass": "System",
+									"sid": 932232047597721
+								},
+								{
+									"id": "reset-global-variables",
+									"objectClass": "System",
+									"sid": 203446577051924
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 279673357537456,
+									"parameters": {
+										"variable": "NEW_GAME",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Player",
+									"sid": 121128933054098,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 672507669809162,
+									"parameters": {
+										"layout": "MainMenu"
+									}
+								}
+							],
+							"sid": 345524758676022
+						}
+					]
+				}
+			],
+			"sid": 467671043839048,
+			"text-color": [
+				0,
+				0,
+				0,
+				1
+			],
+			"background-color": [
+				1,
+				1,
+				1,
+				1
+			]
+		}
+	],
+	"sid": 227533510185650
+}

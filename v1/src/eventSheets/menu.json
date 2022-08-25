@@ -1,0 +1,1886 @@
+{
+	"name": "Menu",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Animator"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Controls2"
+		},
+		{
+			"eventType": "variable",
+			"name": "MenuControls",
+			"type": "string",
+			"initialValue": "Mouse",
+			"comment": "The MenuControls global is a string indicator that defines the control-type used in the menus. By default, a computer will be set on Mouse unless a button is pressed the Keyboard or on a connected gamepad. The Touch controls are the only controls available on a mobile device.",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 259152342518125
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Init"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "ButtonStyle"
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Buttons",
+			"description": "All the codes pertaining to the menu buttons, including the Exit button.",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Button controls",
+					"description": "All the codes for the controls of said buttons and their \"states\" (normal, hover, pushed), including the Exit button. All four control-types for the Menu are included in this group rather than in one of the Controls Event Sheet.",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Mouse button control",
+							"description": "All the codes for the controls of the buttons through the mouse.",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "With Mouse control-type, the button hovered is in state 1 and the button pushed in state 2."
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 102016427809513,
+											"parameters": {
+												"variable": "MenuControls",
+												"comparison": 0,
+												"value": "\"Mouse\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 405562368966939,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "cursor-is-over-object",
+													"objectClass": "Mouse",
+													"sid": 562510820133998,
+													"parameters": {
+														"object": "UIMenuButton"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 331616012456389,
+											"children": [
+												{
+													"eventType": "comment",
+													"text": "Checks if the button mouse is not down, and else, is an efficient way to check multiple button states with a few lines."
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "mouse-button-is-down",
+															"objectClass": "Mouse",
+															"sid": 833923162816827,
+															"parameters": {
+																"mouse-button": "left"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "UIMenuButton",
+															"sid": 240302870987669,
+															"parameters": {
+																"instance-variable": "State",
+																"value": "1"
+															}
+														}
+													],
+													"sid": 932369318252957
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 342574779838734
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "ButtonActivate",
+															"sid": 772715518276555
+														}
+													],
+													"sid": 420493840832563
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 571396661703165
+												}
+											],
+											"actions": [
+												{
+													"type": "comment",
+													"text": "If the mouse is not over the button return it to its state 0."
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "UIMenuButton",
+													"sid": 144364419873486,
+													"parameters": {
+														"instance-variable": "State",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 946828840333183
+										},
+										{
+											"eventType": "comment",
+											"text": "Exit Button",
+											"background-color": [
+												1,
+												0.5450980392156862,
+												0.5450980392156862,
+												1
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "cursor-is-over-object",
+													"objectClass": "Mouse",
+													"sid": 735371797778444,
+													"parameters": {
+														"object": "UIQuitButton"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 168871099019713,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "mouse-button-is-down",
+															"objectClass": "Mouse",
+															"sid": 208735570217357,
+															"parameters": {
+																"mouse-button": "left"
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "MenuQuitToDesktop",
+															"sid": 329935107744603
+														}
+													],
+													"sid": 376499161810330
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 372779902043203
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation-frame",
+													"objectClass": "UIQuitButton",
+													"sid": 948629046623409,
+													"parameters": {
+														"frame-number": "0"
+													}
+												}
+											],
+											"sid": 427962435589987
+										}
+									]
+								}
+							],
+							"sid": 879305988705121
+						},
+						{
+							"eventType": "comment",
+							"text": "The Keyboard and Gamepad controls of the main menu buttons is identical. The hotkey to Exit the game is B with the Gamepad and Escape with the Keyboard."
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Keyboard button control",
+							"description": "All the codes for the controls of the buttons through the keyboard.",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 938119145962117,
+											"parameters": {
+												"variable": "MenuControls",
+												"comparison": 0,
+												"value": "\"Keyboard\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 410291278768909,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-any-key-pressed",
+													"objectClass": "Keyboard",
+													"sid": 695434519497660
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "ButtonInitializeForKeys",
+													"sid": 849885550977506
+												}
+											],
+											"sid": 389564699942384
+										},
+										{
+											"eventType": "group",
+											"disabled": false,
+											"title": "Keyboard cycle system",
+											"description": "All the codes for the cycling between buttons using the up and down keys.",
+											"isActiveOnStart": true,
+											"children": [
+												{
+													"eventType": "comment",
+													"text": "With Keyboard the Up and Down arrows cycle through the buttons."
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "on-key-pressed",
+															"objectClass": "Keyboard",
+															"sid": 333459564282286,
+															"parameters": {
+																"key": 38
+															}
+														}
+													],
+													"actions": [],
+													"sid": 534840193341871,
+													"children": [
+														{
+															"eventType": "comment",
+															"text": "This local string will be used to carry the destination value of the picked button into the function (as the parameter Origin)."
+														},
+														{
+															"eventType": "variable",
+															"name": "Temp_NameHolder",
+															"type": "string",
+															"initialValue": "",
+															"comment": "",
+															"isStatic": false,
+															"isConstant": false,
+															"sid": 433047726169799
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "pick-by-comparison",
+																	"objectClass": "System",
+																	"sid": 992149394413577,
+																	"parameters": {
+																		"object": "UIMenuButton",
+																		"expression": "UIMenuButton.State",
+																		"comparison": 0,
+																		"value": "1"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"type": "comment",
+																	"text": "Resets the hovered button."
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "UIMenuButton",
+																	"sid": 147700119479001,
+																	"parameters": {
+																		"instance-variable": "State",
+																		"value": "0"
+																	}
+																},
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 528501045527243,
+																	"parameters": {
+																		"variable": "Temp_NameHolder",
+																		"value": "UIMenuButton.Destination"
+																	}
+																},
+																{
+																	"callFunction": "ButtonChangeState",
+																	"sid": 732637942068858,
+																	"parameters": [
+																		"Temp_NameHolder",
+																		"0",
+																		"1",
+																		"\"Up\""
+																	]
+																}
+															],
+															"sid": 106706887167269
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "on-key-pressed",
+															"objectClass": "Keyboard",
+															"sid": 377945504851279,
+															"parameters": {
+																"key": 40
+															}
+														}
+													],
+													"actions": [],
+													"sid": 665357790746500,
+													"children": [
+														{
+															"eventType": "variable",
+															"name": "Temp_NameHolder",
+															"type": "string",
+															"initialValue": "",
+															"comment": "",
+															"isStatic": false,
+															"isConstant": false,
+															"sid": 263286777666538
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "pick-by-comparison",
+																	"objectClass": "System",
+																	"sid": 521600077221605,
+																	"parameters": {
+																		"object": "UIMenuButton",
+																		"expression": "UIMenuButton.State",
+																		"comparison": 0,
+																		"value": "1"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"type": "comment",
+																	"text": "Resets the hovered button."
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "UIMenuButton",
+																	"sid": 777571444240682,
+																	"parameters": {
+																		"instance-variable": "State",
+																		"value": "0"
+																	}
+																},
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 315246290480714,
+																	"parameters": {
+																		"variable": "Temp_NameHolder",
+																		"value": "UIMenuButton.Destination"
+																	}
+																},
+																{
+																	"callFunction": "ButtonChangeState",
+																	"sid": 913138712304721,
+																	"parameters": [
+																		"Temp_NameHolder",
+																		"0",
+																		"1",
+																		"\"Down\""
+																	]
+																}
+															],
+															"sid": 154493679756995
+														}
+													]
+												}
+											],
+											"sid": 806177883210875
+										},
+										{
+											"eventType": "comment",
+											"text": "Activating button"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-key-pressed",
+													"objectClass": "Keyboard",
+													"sid": 989442261882610,
+													"parameters": {
+														"key": 32
+													}
+												},
+												{
+													"id": "pick-by-comparison",
+													"objectClass": "System",
+													"sid": 833598712166154,
+													"parameters": {
+														"object": "UIMenuButton",
+														"expression": "UIMenuButton.State",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "ButtonActivate",
+													"sid": 791658333097459
+												}
+											],
+											"sid": 277691101067845
+										},
+										{
+											"eventType": "comment",
+											"text": "The Escape key triggers the Exit function."
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-key-pressed",
+													"objectClass": "Keyboard",
+													"sid": 762571316112667,
+													"parameters": {
+														"key": 27
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "MenuQuitToDesktop",
+													"sid": 871015160493237
+												}
+											],
+											"sid": 470721745245886
+										}
+									]
+								}
+							],
+							"sid": 283642698320636
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Gamepad button control",
+							"description": "All the codes for the controls of the buttons through the keyboard.",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 683917814817394,
+											"parameters": {
+												"variable": "MenuControls",
+												"comparison": 0,
+												"value": "\"Gamepad\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 860426831695081,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-any-button-pressed",
+													"objectClass": "Gamepad",
+													"sid": 369747109761496,
+													"parameters": {
+														"gamepad": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "ButtonInitializeForKeys",
+													"sid": 598187045729806
+												}
+											],
+											"sid": 671316387199273
+										},
+										{
+											"eventType": "group",
+											"disabled": false,
+											"title": "Gamepad cycle system",
+											"description": "All the codes for the cycling between buttons using the D-pad up and down.",
+											"isActiveOnStart": true,
+											"children": [
+												{
+													"eventType": "comment",
+													"text": "State. With Gamepad the D-Pad Up and D-Pad Down cycle through the buttons."
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "on-button-pressed",
+															"objectClass": "Gamepad",
+															"sid": 240787146931773,
+															"parameters": {
+																"gamepad": "0",
+																"button": "d-pad-up"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 949385254962264,
+													"children": [
+														{
+															"eventType": "variable",
+															"name": "Temp_NameHolder",
+															"type": "string",
+															"initialValue": "",
+															"comment": "",
+															"isStatic": false,
+															"isConstant": false,
+															"sid": 122655929825444
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "pick-by-comparison",
+																	"objectClass": "System",
+																	"sid": 874223084683736,
+																	"parameters": {
+																		"object": "UIMenuButton",
+																		"expression": "UIMenuButton.State",
+																		"comparison": 0,
+																		"value": "1"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "UIMenuButton",
+																	"sid": 459117313827663,
+																	"parameters": {
+																		"instance-variable": "State",
+																		"value": "0"
+																	}
+																},
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 525244694123738,
+																	"parameters": {
+																		"variable": "Temp_NameHolder",
+																		"value": "UIMenuButton.Destination"
+																	}
+																},
+																{
+																	"callFunction": "ButtonChangeState",
+																	"sid": 394132332987716,
+																	"parameters": [
+																		"Temp_NameHolder",
+																		"0",
+																		"1",
+																		"\"Up\""
+																	]
+																}
+															],
+															"sid": 953156419499193
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "on-button-pressed",
+															"objectClass": "Gamepad",
+															"sid": 602820227471371,
+															"parameters": {
+																"gamepad": "0",
+																"button": "d-pad-down"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 420974105493553,
+													"children": [
+														{
+															"eventType": "variable",
+															"name": "Temp_NameHolder",
+															"type": "string",
+															"initialValue": "",
+															"comment": "",
+															"isStatic": false,
+															"isConstant": false,
+															"sid": 448909359838977
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "pick-by-comparison",
+																	"objectClass": "System",
+																	"sid": 159372644697635,
+																	"parameters": {
+																		"object": "UIMenuButton",
+																		"expression": "UIMenuButton.State",
+																		"comparison": 0,
+																		"value": "1"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "UIMenuButton",
+																	"sid": 364158667047404,
+																	"parameters": {
+																		"instance-variable": "State",
+																		"value": "0"
+																	}
+																},
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 710891244606212,
+																	"parameters": {
+																		"variable": "Temp_NameHolder",
+																		"value": "UIMenuButton.Destination"
+																	}
+																},
+																{
+																	"callFunction": "ButtonChangeState",
+																	"sid": 873787662171769,
+																	"parameters": [
+																		"Temp_NameHolder",
+																		"0",
+																		"1",
+																		"\"Down\""
+																	]
+																}
+															],
+															"sid": 850255110720553
+														}
+													]
+												}
+											],
+											"sid": 540654874058962
+										},
+										{
+											"eventType": "comment",
+											"text": "Activating button"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-button-pressed",
+													"objectClass": "Gamepad",
+													"sid": 360662293383669,
+													"parameters": {
+														"gamepad": "0",
+														"button": "button-a"
+													}
+												},
+												{
+													"id": "pick-by-comparison",
+													"objectClass": "System",
+													"sid": 258156732034140,
+													"parameters": {
+														"object": "UIMenuButton",
+														"expression": "UIMenuButton.State",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "ButtonActivate",
+													"sid": 919479087042676
+												}
+											],
+											"sid": 995723392422629
+										},
+										{
+											"eventType": "comment",
+											"text": "The B button triggers the Exit function."
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-button-pressed",
+													"objectClass": "Gamepad",
+													"sid": 587429867499310,
+													"parameters": {
+														"gamepad": "0",
+														"button": "button-b"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "MenuQuitToDesktop",
+													"sid": 122910367075914
+												}
+											],
+											"sid": 252262618570466
+										}
+									]
+								}
+							],
+							"sid": 282240719858256
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Touch button control",
+							"description": "All the codes for the controls of the buttons through touch.",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 343857674649370,
+											"parameters": {
+												"variable": "MenuControls",
+												"comparison": 0,
+												"value": "\"Touch\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 248088695518654,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "The Touch control-type functions similarly to the Mouse, but the button pushed is in state 1 and only the release triggers the effect."
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-touching-object",
+													"objectClass": "Touch",
+													"sid": 876383903359841,
+													"parameters": {
+														"object": "UIMenuButton"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "UIMenuButton",
+													"sid": 402833683712987,
+													"parameters": {
+														"instance-variable": "State",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 460988323401715,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "on-nth-touch-end",
+															"objectClass": "Touch",
+															"sid": 883205683388009,
+															"parameters": {
+																"touch-number": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "ButtonActivate",
+															"sid": 423391064537981
+														}
+													],
+													"sid": 764006667852936
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 365374235087989
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "UIMenuButton",
+													"sid": 491382273726725,
+													"parameters": {
+														"instance-variable": "State",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 341710687560369
+										},
+										{
+											"eventType": "comment",
+											"text": "Exit Button"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-touching-object",
+													"objectClass": "Touch",
+													"sid": 438519072380322,
+													"parameters": {
+														"object": "UIQuitButton"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation-frame",
+													"objectClass": "UIQuitButton",
+													"sid": 246971927722483,
+													"parameters": {
+														"frame-number": "1"
+													}
+												}
+											],
+											"sid": 716010213910172,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "on-nth-touch-end",
+															"objectClass": "Touch",
+															"sid": 130789440350025,
+															"parameters": {
+																"touch-number": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "MenuQuitToDesktop",
+															"sid": 958349529345248
+														}
+													],
+													"sid": 683252865451226
+												}
+											]
+										}
+									]
+								}
+							],
+							"sid": 176324653075971
+						}
+					],
+					"sid": 350836779625842,
+					"text-color": [
+						0.09411764705882353,
+						0.09411764705882353,
+						0.09411764705882353,
+						1
+					],
+					"background-color": [
+						0.8196078431372549,
+						0.6862745098039216,
+						0.43137254901960786,
+						1
+					]
+				}
+			],
+			"sid": 274111172019718,
+			"text-color": [
+				0.09411764705882353,
+				0.09411764705882353,
+				0.09411764705882353,
+				1
+			],
+			"background-color": [
+				0.5725490196078431,
+				0.8235294117647058,
+				0.8549019607843137,
+				1
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Menu VFX",
+			"description": "All the codes for VFX in the menus.",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Menu Leaf",
+					"description": "All the codes for the adjustments of leaf objects.",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-created",
+									"objectClass": "VFX_LeafShadow",
+									"sid": 814649228377592
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "Sets the leaf to a random frame and angle"
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "VFX_LeafShadow",
+									"sid": 155841592170790,
+									"parameters": {
+										"frame-number": "round(random(0,1))"
+									}
+								},
+								{
+									"id": "set-angle",
+									"objectClass": "VFX_LeafShadow",
+									"sid": 379729819965442,
+									"parameters": {
+										"angle": "round(random(0,360))"
+									}
+								},
+								{
+									"id": "set-period",
+									"objectClass": "VFX_LeafShadow",
+									"sid": 638967674347540,
+									"behaviorType": "Sine",
+									"parameters": {
+										"period": "4"
+									}
+								}
+							],
+							"sid": 969215331380453
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-created",
+									"objectClass": "VFX_Leaf",
+									"sid": 384034596765327
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "Sets the leaf to a random frame and angle"
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "VFX_Leaf",
+									"sid": 134988830317026,
+									"parameters": {
+										"frame-number": "round(random(0,1))"
+									}
+								},
+								{
+									"id": "set-angle",
+									"objectClass": "VFX_Leaf",
+									"sid": 235668610257259,
+									"parameters": {
+										"angle": "round(random(0,360))"
+									}
+								},
+								{
+									"id": "set-period",
+									"objectClass": "VFX_Leaf",
+									"sid": 508401959266602,
+									"behaviorType": "Sine",
+									"parameters": {
+										"period": "4"
+									}
+								}
+							],
+							"sid": 470660967140969
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "VFX_Leaf",
+									"sid": 574613941030333,
+									"parameters": {
+										"object": "VFX_Leaf"
+									}
+								},
+								{
+									"id": "compare-y",
+									"objectClass": "VFX_Leaf",
+									"sid": 359781978713831,
+									"parameters": {
+										"comparison": 5,
+										"y-co-ordinate": "244"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-active",
+									"objectClass": "VFX_Leaf",
+									"sid": 803237891729338,
+									"behaviorType": "Sine",
+									"parameters": {
+										"state": "inactive"
+									}
+								}
+							],
+							"sid": 844803275535431
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "InvisibleBlocker",
+									"sid": 909002315013827,
+									"parameters": {
+										"object": "InvisibleLeafStopper"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-rate",
+									"objectClass": "Sprayer_Leaves",
+									"sid": 519396408746963,
+									"parameters": {
+										"rate": "0"
+									}
+								}
+							],
+							"sid": 745393217508339
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Leaf stacking",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "InvisibleBlocker",
+											"sid": 125372047818542,
+											"parameters": {
+												"object": "VFX_Leaf"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "InvisibleBlocker",
+											"sid": 949824087571014,
+											"parameters": {
+												"instance-variable": "TriggerCounter",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 817117962304454,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "InvisibleBlocker",
+													"sid": 777226926500329,
+													"parameters": {
+														"instance-variable": "TriggerCounter",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-height",
+													"objectClass": "InvisibleBlocker",
+													"sid": 515998859548078,
+													"parameters": {
+														"height": "Self.Height +2"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "InvisibleBlocker",
+													"sid": 404957351427394,
+													"parameters": {
+														"instance-variable": "TriggerCounter",
+														"value": "75"
+													}
+												}
+											],
+											"sid": 993754083439417
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "VFX_Leaf",
+													"sid": 454703966182884,
+													"parameters": {
+														"object": "VFX_Leaf"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "pin-to-object",
+													"objectClass": "VFX_Leaf",
+													"sid": 488400850847987,
+													"behaviorType": "Pin",
+													"parameters": {
+														"pin-to": "VFX_Leaf",
+														"mode": "rope-style"
+													}
+												}
+											],
+											"sid": 662658425692622
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 741796539176427
+												}
+											],
+											"actions": [
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 564216514153782,
+													"parameters": {
+														"seconds": "0.1"
+													}
+												},
+												{
+													"id": "pin-to-object",
+													"objectClass": "VFX_Leaf",
+													"sid": 875377423109156,
+													"behaviorType": "Pin",
+													"parameters": {
+														"pin-to": "InvisibleBlocker",
+														"mode": "position-angle"
+													}
+												}
+											],
+											"sid": 292520542344284
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "InvisibleBlocker",
+											"sid": 590763154173016,
+											"parameters": {
+												"object": "VFX_Leaf"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "InvisibleBlocker",
+											"sid": 730491419545516,
+											"parameters": {
+												"instance-variable": "TriggerCounter",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 118771027895129,
+									"disabled": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "InvisibleBlocker",
+													"sid": 578586164321480,
+													"parameters": {
+														"instance-variable": "TriggerCounter",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-height",
+													"objectClass": "InvisibleBlocker",
+													"sid": 548020232589636,
+													"parameters": {
+														"height": "Self.Height + 4"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "InvisibleBlocker",
+													"sid": 646100850977379,
+													"parameters": {
+														"instance-variable": "TriggerCounter",
+														"value": "75"
+													}
+												}
+											],
+											"sid": 124502645307939,
+											"disabled": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "VFX_Leaf",
+													"sid": 436390623770353,
+													"parameters": {
+														"object": "VFX_Leaf2",
+														"layer": "\"FG\"",
+														"image-point": "0",
+														"create-hierarchy": false
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "VFX_Leaf2",
+													"sid": 335475705945082,
+													"parameters": {
+														"frame-number": "VFX_Leaf.AnimationFrame"
+													}
+												},
+												{
+													"id": "set-angle",
+													"objectClass": "VFX_Leaf2",
+													"sid": 982699112526928,
+													"parameters": {
+														"angle": "VFX_Leaf.Angle + random(-2,2)"
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "VFX_Leaf",
+													"sid": 432524845301333
+												},
+												{
+													"id": "set-enabled",
+													"objectClass": "VFX_Leaf2",
+													"sid": 293197896514139,
+													"behaviorType": "Platform",
+													"parameters": {
+														"state": "disabled"
+													}
+												},
+												{
+													"id": "set-enabled",
+													"objectClass": "VFX_Leaf2",
+													"sid": 824576871867603,
+													"behaviorType": "Physics",
+													"parameters": {
+														"mode": "enabled"
+													}
+												}
+											],
+											"sid": 740697875244024,
+											"disabled": true
+										}
+									],
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "VFX_Leaf",
+											"sid": 983417436157475,
+											"parameters": {
+												"object": "VFX_Leaf2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "InvisibleBlocker",
+											"sid": 563392246637457,
+											"parameters": {
+												"instance-variable": "TriggerCounter",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 846851609479579,
+									"disabled": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "InvisibleBlocker",
+													"sid": 952664340877724,
+													"parameters": {
+														"instance-variable": "TriggerCounter",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-height",
+													"objectClass": "InvisibleBlocker",
+													"sid": 433516523053605,
+													"parameters": {
+														"height": "Self.Height + 4"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "InvisibleBlocker",
+													"sid": 515592354366519,
+													"parameters": {
+														"instance-variable": "TriggerCounter",
+														"value": "75"
+													}
+												}
+											],
+											"sid": 672867635850923,
+											"disabled": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "VFX_Leaf",
+													"sid": 791293410339202,
+													"parameters": {
+														"object": "VFX_Leaf2",
+														"layer": "\"FG\"",
+														"image-point": "0",
+														"create-hierarchy": false
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "VFX_Leaf2",
+													"sid": 613703364174439,
+													"parameters": {
+														"frame-number": "VFX_Leaf.AnimationFrame"
+													}
+												},
+												{
+													"id": "set-angle",
+													"objectClass": "VFX_Leaf2",
+													"sid": 651750362280722,
+													"parameters": {
+														"angle": "VFX_Leaf.Angle + random(-2,2)"
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "VFX_Leaf",
+													"sid": 913144565839326
+												},
+												{
+													"id": "set-enabled",
+													"objectClass": "VFX_Leaf2",
+													"sid": 596703837816199,
+													"behaviorType": "Platform",
+													"parameters": {
+														"state": "disabled"
+													}
+												},
+												{
+													"id": "set-enabled",
+													"objectClass": "VFX_Leaf2",
+													"sid": 799482726111447,
+													"behaviorType": "Physics",
+													"parameters": {
+														"mode": "enabled"
+													}
+												}
+											],
+											"sid": 669057516033822,
+											"disabled": true
+										}
+									]
+								}
+							],
+							"sid": 494403337036239
+						}
+					],
+					"sid": 517539753165625,
+					"background-color": [
+						0.27058823529411763,
+						0.19215686274509805,
+						0.10196078431372549,
+						1
+					]
+				}
+			],
+			"sid": 947596483932865
+		},
+		{
+			"eventType": "variable",
+			"name": "CinematicDone",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 252334189471287
+		},
+		{
+			"eventType": "variable",
+			"name": "Cooldown",
+			"type": "number",
+			"initialValue": "2.5",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 900222912657513
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Cinematics controls",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-key-released",
+							"objectClass": "Keyboard",
+							"sid": 352171711647953
+						},
+						{
+							"id": "on-any-button-released",
+							"objectClass": "Gamepad",
+							"sid": 221051324030935,
+							"parameters": {
+								"gamepad": "0"
+							}
+						},
+						{
+							"id": "on-any-click",
+							"objectClass": "Mouse",
+							"sid": 264329079158312
+						},
+						{
+							"id": "on-any-touch-end",
+							"objectClass": "Touch",
+							"sid": 106657018289687
+						}
+					],
+					"actions": [],
+					"sid": 176518564429841,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 330207475464904,
+									"parameters": {
+										"variable": "Cooldown",
+										"comparison": 0,
+										"value": "2.5"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 910668849733144,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 936600103095690,
+											"parameters": {
+												"variable": "CinematicDone"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "CinematicEnd",
+											"sid": 753647632729487
+										}
+									],
+									"sid": 967887108724602
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 609641220603902,
+											"parameters": {
+												"variable": "CinematicDone"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [],
+									"sid": 331711944426258,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 371042941986511,
+													"parameters": {
+														"variable": "Cinematic_SpecialShot_Plane"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 542100643755810,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 265135439711232,
+															"parameters": {
+																"variable": "Cooldown",
+																"value": "-8"
+															}
+														},
+														{
+															"id": "set-layer-opacity",
+															"objectClass": "System",
+															"sid": 836466257886506,
+															"parameters": {
+																"layer": "\"SpecialSkyBG\"",
+																"opacity": "100"
+															}
+														},
+														{
+															"id": "set-layer-opacity",
+															"objectClass": "System",
+															"sid": 887807982244936,
+															"parameters": {
+																"layer": "\"FG\"",
+																"opacity": "100"
+															}
+														},
+														{
+															"id": "set-layer-opacity",
+															"objectClass": "System",
+															"sid": 849102967899045,
+															"parameters": {
+																"layer": "\"FG2\"",
+																"opacity": "100"
+															}
+														},
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 643681701068379,
+															"parameters": {
+																"object-to-create": "ObjectPlanes",
+																"layer": "\"FG\"",
+																"x": "LayoutWidth",
+																"y": "160",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														}
+													],
+													"sid": 243128043243147
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 359026550535745
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 381171330177304,
+													"parameters": {
+														"variable": "Cooldown",
+														"value": "0"
+													}
+												},
+												{
+													"type": "comment",
+													"text": "Trigger the eponymous function."
+												},
+												{
+													"callFunction": "CinematicNextFrame",
+													"sid": 365621325578419,
+													"parameters": [
+														"1"
+													]
+												},
+												{
+													"type": "comment",
+													"text": "Print the next cinematic text."
+												},
+												{
+													"callFunction": "CinematicPrintText",
+													"sid": 258848607900254,
+													"parameters": [
+														"0",
+														"255",
+														"255",
+														"255"
+													]
+												}
+											],
+											"sid": 613238567713645
+										}
+									]
+								}
+							]
+						}
+					],
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 665804154844756,
+							"parameters": {
+								"interval-seconds": "0.5"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 757662253466737,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 604538777188993,
+									"parameters": {
+										"variable": "Cooldown",
+										"comparison": 1,
+										"value": "2.5"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 113250776708543,
+									"parameters": {
+										"variable": "Cooldown",
+										"value": "0.5"
+									}
+								}
+							],
+							"sid": 506319092057724
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 922430347004888
+						}
+					]
+				}
+			],
+			"sid": 288987180200203
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-destroyed",
+					"objectClass": "ObjectPlanes",
+					"sid": 909789894643389
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layer-opacity",
+					"objectClass": "System",
+					"sid": 414217045379062,
+					"parameters": {
+						"layer": "\"SpecialSkyBG\"",
+						"opacity": "0"
+					}
+				},
+				{
+					"id": "set-layer-opacity",
+					"objectClass": "System",
+					"sid": 131933183339338,
+					"parameters": {
+						"layer": "\"FG\"",
+						"opacity": "0"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 257581079543718,
+					"parameters": {
+						"variable": "Cinematic_SpecialShot_Plane",
+						"value": "false"
+					}
+				},
+				{
+					"callFunction": "CinematicNextFrame",
+					"sid": 944615513024008,
+					"parameters": [
+						"1"
+					]
+				},
+				{
+					"callFunction": "CinematicPrintText",
+					"sid": 492099776018119,
+					"parameters": [
+						"0",
+						"255",
+						"255",
+						"255"
+					]
+				}
+			],
+			"sid": 294073063128145
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "ObjectPlanes",
+					"sid": 513768498703527,
+					"parameters": {
+						"object": "Blocker"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "ObjectPlanes",
+					"sid": 783820312607711
+				}
+			],
+			"sid": 180924637691815
+		}
+	],
+	"sid": 409600356386773
+}

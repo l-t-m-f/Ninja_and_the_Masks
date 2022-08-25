@@ -1,0 +1,49 @@
+{
+	"name": "PlayerSword",
+	"plugin-id": "Sprite",
+	"sid": 213236470094173,
+	"isGlobal": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 261,
+						"collisionPoly": {
+							"points": [
+								0.1875,
+								0.1875,
+								0.75,
+								0.1875,
+								0.75,
+								0.75,
+								0.1875,
+								0.75
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 360908117394856,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -1,0 +1,80 @@
+{
+	"name": "TP",
+	"plugin-id": "Sprite",
+	"sid": 337565052670322,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Destination",
+			"type": "string",
+			"desc": "",
+			"sid": 437023519021315
+		},
+		{
+			"name": "Dest_X",
+			"type": "number",
+			"desc": "",
+			"sid": 715039833422399
+		},
+		{
+			"name": "Dest_Y",
+			"type": "number",
+			"desc": "",
+			"sid": 415940081501394
+		},
+		{
+			"name": "Dest_PrintedName",
+			"type": "string",
+			"desc": "",
+			"sid": 976181793165584
+		},
+		{
+			"name": "Music",
+			"type": "string",
+			"desc": "",
+			"sid": 307152779065301
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 55,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 490203483700135,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

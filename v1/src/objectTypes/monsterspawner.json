@@ -1,0 +1,92 @@
+{
+	"name": "MonsterSpawner",
+	"plugin-id": "Sprite",
+	"sid": 853546935672123,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "MonsterRemain",
+			"type": "number",
+			"desc": "",
+			"sid": 189647054670862
+		},
+		{
+			"name": "Active",
+			"type": "boolean",
+			"desc": "",
+			"sid": 857710995510686
+		},
+		{
+			"name": "MonsterCap",
+			"type": "number",
+			"desc": "",
+			"sid": 714308412326308
+		},
+		{
+			"name": "SpawnRate",
+			"type": "number",
+			"desc": "",
+			"sid": 902912118426441
+		},
+		{
+			"name": "MonsterType",
+			"type": "string",
+			"desc": "",
+			"sid": 897393497560114
+		},
+		{
+			"name": "Cooldown",
+			"type": "number",
+			"desc": "",
+			"sid": 598438181410705
+		},
+		{
+			"name": "ToKillRemains",
+			"type": "number",
+			"desc": "",
+			"sid": 480365436008742
+		},
+		{
+			"name": "ResetCooldown",
+			"type": "number",
+			"desc": "",
+			"sid": 770870953686939
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "LOS",
+			"name": "LineOfSight",
+			"sid": 733242358147880
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 0,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 740863420437556,
+				"name": "Default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}
